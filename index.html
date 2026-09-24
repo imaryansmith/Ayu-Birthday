@@ -110,6 +110,14 @@ p{line-height:1.75;color:#806875}
 .giftlid{cursor:pointer;transition:.8s transform;transform-origin:50% 100%}.final-gift.open .giftlid{transform:translateY(-62px) rotate(-8deg)}.final-gift.open .bow{transform:translateX(-50%) translateY(-65px) rotate(-10deg);transition:.8s}.gift-message{opacity:0;transform:translateY(15px) scale(.9);transition:.7s;color:#b45f73;font-family:Georgia,serif;font-size:18px;margin:8px 0}.gift-message.show{opacity:1;transform:none}
 .page.active .stagger>*{animation:staggerIn .6s both}.page.active .stagger>*:nth-child(2){animation-delay:.08s}.page.active .stagger>*:nth-child(3){animation-delay:.16s}.page.active .stagger>*:nth-child(4){animation-delay:.24s}.page.active .stagger>*:nth-child(5){animation-delay:.32s}.page.active .stagger>*:nth-child(6){animation-delay:.4s}
 @keyframes teddyLove{25%{transform:rotate(-7deg) scale(1.05)}50%{transform:rotate(7deg) scale(1.08)}75%{transform:rotate(-4deg) scale(1.04)}}@keyframes envelopeHint{25%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}75%{transform:rotate(-1deg)}}@keyframes staggerIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* playful micro-interactions */
+.balloons{pointer-events:auto}.balloon{cursor:grab;user-select:none;touch-action:none;transition:transform .25s,opacity .3s}.balloon.dragging{cursor:grabbing;animation:none;z-index:20;filter:drop-shadow(0 12px 12px #75485a22)}.balloon.popped{opacity:0;transform:scale(1.8)!important}
+.cake .plate,.cake .base,.cake .icing,.cake .drip{cursor:pointer}.cake.sparkle-cake:after{content:'✦  ✧  ✦';position:absolute;left:50%;top:-20px;transform:translateX(-50%);color:#d87989;font-size:18px;animation:cakeSpark .8s ease forwards}
+.secret-dot{position:absolute;width:10px;height:10px;border-radius:50%;background:#f4b4bf;box-shadow:0 0 0 6px #f4b4bf22;cursor:pointer;transition:.25s;z-index:8}.secret-dot:hover{transform:scale(1.6)}
+.secret-note{position:absolute;left:50%;bottom:72px;transform:translateX(-50%) translateY(10px);opacity:0;background:#fffaf1;border:1px solid #efd5da;border-radius:18px;padding:11px 16px;color:#9a5e70;font-family:Georgia,serif;font-size:13px;box-shadow:0 10px 25px #74475c18;transition:.4s;z-index:25;pointer-events:none}.secret-note.show{opacity:1;transform:translateX(-50%)}
+.hold-btn{position:relative;overflow:hidden}.hold-btn:after{content:'';position:absolute;left:0;bottom:0;width:100%;height:0;background:#fff4e8;opacity:.3;transition:height .1s}.hold-btn.holding:after{height:100%}
+@keyframes cakeSpark{0%{opacity:0;transform:translateX(-50%) scale(.4)}100%{opacity:1;transform:translateX(-50%) scale(1.2)}}
 </style>
 </head>
 <body>
@@ -150,7 +158,8 @@ p{line-height:1.75;color:#806875}
 
   <section class="page" data-page="1">
    <div class="card center">
-    <div class="balloons"><span class="balloon ba1">🎈</span><span class="balloon ba2">🎈</span><span class="balloon ba3">🎀</span><span class="balloon ba4">💗</span></div>
+    <div class="balloons"><span class="balloon ba1" data-balloon>🎈</span><span class="balloon ba2" data-balloon>🎈</span><span class="balloon ba3" data-balloon>🎀</span><span class="balloon ba4" data-balloon>💗</span></div>
+<div class="secret-dot" style="right:25%;top:10%" id="secretDot"></div><div class="secret-note" id="secretNote">Psst… you found a hidden little kiss. 💋</div>
     <div class="hero-grid">
       <div>
        <div class="teddy" id="teddy"><div class="teddy-msg" id="teddyMsg">Ayu, you are loved ♡</div><div class="ear e1"></div><div class="ear e2"></div><div class="head"></div><div class="body"></div><div class="muzzle"></div><div class="eye x1"></div><div class="eye x2"></div><div class="nose"></div><div class="heart">♥</div></div>
@@ -160,7 +169,7 @@ p{line-height:1.75;color:#806875}
       </div>
       <div>
        <div class="cake" id="heroCake"><div class="plate"></div><div class="base"></div><div class="icing"></div><div class="drip"></div><div class="candle ca1"></div><div class="candle ca2"></div><div class="candle ca3"></div><div class="flame fa1"></div><div class="flame fa2"></div><div class="flame fa3"></div></div>
-       <p class="small">Three candles for the wishes you haven't told me yet. 🕯️</p>
+       <p class="small">Three candles for the wishes you haven't told me yet. 🕯️</p><div class="interactive-hint">drag a balloon or tap the cake ✨</div>
       </div>
     </div>
     <button class="btn next" data-next>Our story →</button>
@@ -246,7 +255,7 @@ p{line-height:1.75;color:#806875}
     <div class="kicker">one last thing</div>
     <h1>I love you,<br><span class="script">Ayu. ♡</span></h1>
     <p>Happy Birthday, meri Rasmalai.<br>Here's to every chapter we haven't lived yet.</p><div class="interactive-hint">tap the gift 🎁</div>
-    <button class="btn" id="finalBtn">Open the last surprise 💌</button>
+    <button class="btn hold-btn" id="finalBtn">Hold for the final surprise 💌</button>
    </div>
   </section>
  </main>
@@ -284,6 +293,22 @@ const detail=document.getElementById('timeDetail');
 document.querySelector('.letter-card').addEventListener('click',e=>{const box=e.currentTarget;box.classList.add('typing');const ps=[...box.querySelectorAll('p')];ps.forEach(p=>p.classList.remove('active-line'));let i=0;const go=()=>{if(i<ps.length){ps[i++].classList.add('active-line');setTimeout(go,230)}};go()});
 const gift=document.getElementById('gift'),giftLid=document.getElementById('giftLid'),giftMessage=document.getElementById('giftMessage');
 giftLid.addEventListener('click',e=>{e.stopPropagation();gift.classList.add('open');giftMessage.classList.add('show');burst(70)});
+
+/* tactile birthday interactions */
+document.querySelectorAll('[data-balloon]').forEach(balloon=>{
+ let dragging=false,startX=0,startY=0;
+ const down=e=>{dragging=true;balloon.classList.add('dragging');const p=e.touches?e.touches[0]:e;startX=p.clientX;startY=p.clientY;balloon.setPointerCapture?.(e.pointerId)};
+ const move=e=>{if(!dragging)return;const p=e.touches?e.touches[0]:e;const dx=p.clientX-startX,dy=p.clientY-startY;balloon.style.transform=`translate(${dx}px,${dy}px) rotate(${dx/8}deg)`};
+ const up=e=>{if(!dragging)return;dragging=false;balloon.classList.remove('dragging');const p=e.changedTouches?e.changedTouches[0]:e;const dist=Math.hypot(p.clientX-startX,p.clientY-startY);if(dist>85){balloon.classList.add('popped');burst(16);setTimeout(()=>balloon.remove(),350)}else balloon.style.transform=''};
+ balloon.addEventListener('pointerdown',down);balloon.addEventListener('pointermove',move);balloon.addEventListener('pointerup',up);balloon.addEventListener('pointercancel',up);
+});
+document.querySelectorAll('.cake').forEach(c=>{c.addEventListener('click',e=>{if(e.target.classList.contains('candle'))return;c.classList.remove('sparkle-cake');void c.offsetWidth;c.classList.add('sparkle-cake');burst(10)})});
+const secretDot=document.getElementById('secretDot'),secretNote=document.getElementById('secretNote');let secretTaps=0;
+secretDot.addEventListener('click',()=>{secretTaps++;secretDot.style.transform=`scale(${1+secretTaps*.12})`;if(secretTaps>=3){secretNote.classList.add('show');burst(35);setTimeout(()=>secretNote.classList.remove('show'),2400);secretTaps=0;secretDot.style.transform=''}});
+const finalBtn=document.getElementById('finalBtn');let holdTimer=null,holdStart=0,holdRAF;
+function startHold(e){e.preventDefault();if(holdTimer)return;finalBtn.classList.add('holding');holdStart=performance.now();const run=now=>{const pct=Math.min(1,(now-holdStart)/1600);finalBtn.style.background=`linear-gradient(to right,#9f596d ${pct*100}%,#b96d7d ${pct*100}%)`;if(pct<1){holdRAF=requestAnimationFrame(run)}else{holdTimer=true;burst(160);for(let i=0;i<28;i++)setTimeout(()=>hearts(),i*45);finalBtn.textContent='You found it. I love you ♡';finalBtn.classList.remove('holding');finalBtn.style.background='';}};holdRAF=requestAnimationFrame(run)}
+function cancelHold(){if(holdTimer)return;cancelAnimationFrame(holdRAF);finalBtn.classList.remove('holding');finalBtn.style.background=''}
+finalBtn.addEventListener('pointerdown',startHold);finalBtn.addEventListener('pointerup',cancelHold);finalBtn.addEventListener('pointerleave',cancelHold);finalBtn.addEventListener('pointercancel',cancelHold);
 </script>
 </body>
 </html>
