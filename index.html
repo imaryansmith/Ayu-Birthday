@@ -98,6 +98,18 @@ p{line-height:1.75;color:#806875}
 @keyframes drift{50%{transform:translate(25px,-18px) scale(1.08)}}@keyframes sway{50%{transform:translateY(-5px) rotate(3deg)}}@keyframes float{50%{transform:translateY(-10px) rotate(3deg)}}@keyframes flicker{to{transform:scale(1.14) rotate(4deg)}}@keyframes twinkle{50%{transform:scale(1.3) rotate(10deg);opacity:.5}}@keyframes shake{25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-5px)}}@keyframes pop{0%{transform:translate(0,0) scale(.4);opacity:0}15%{opacity:1}100%{transform:translate(var(--x),var(--y)) rotate(540deg);opacity:0}}@keyframes heartUp{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
 @media(max-width:720px){.hero-grid{grid-template-columns:1fr;gap:0}.hero-grid .teddy{transform:scale(.78);margin-top:-8px;margin-bottom:-20px}.card{min-height:620px;padding:28px 20px 70px}.polaroids{gap:9px}.photo{height:145px}.reasons{grid-template-columns:1fr 1fr}.reason{min-height:135px;padding:15px}.reason h3{font-size:17px}.reason p{font-size:11px}.letter-card{padding:30px 22px}.letter-card p{font-size:12px}.topbar{top:10px}.brand{font-size:12px}}
 @media(max-width:470px){.reasons{grid-template-columns:1fr}.reasons .reason{min-height:105px}.polaroids{grid-template-columns:1fr 1fr}.polaroid:nth-child(3){display:none}.photo{height:170px}.passrow{flex-direction:column}.envelope-wrap{height:245px}.cake{transform:scale(.82);margin:-5px auto}.card{min-height:650px}.nav{bottom:16px}}
+/* deeper interactions */
+.teddy{cursor:pointer;transition:.35s}.teddy:active{transform:scale(.94)}.teddy.love{animation:teddyLove .75s ease}
+.teddy-msg{position:absolute;left:50%;top:3%;transform:translateX(-50%) translateY(-8px) scale(.8);opacity:0;background:#fff;border:1px solid #efd5da;border-radius:18px;padding:9px 13px;color:#9a5e70;font-family:Georgia,serif;font-size:13px;white-space:nowrap;box-shadow:0 10px 25px #74475c18;pointer-events:none;transition:.35s;z-index:10}.teddy-msg.show{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}
+.envelope{cursor:pointer}.envelope.hint{animation:envelopeHint .8s ease}
+.candle{cursor:pointer;z-index:6;transition:.2s}.candle:hover{transform:translateY(-3px)}.candle.out{opacity:.45}
+.interactive-hint{font-size:11px;color:#b17b88;letter-spacing:.08em;margin-top:5px}
+.reason{cursor:pointer}.reason.selected{transform:translateY(-6px) rotate(-1deg);box-shadow:0 15px 30px #74475c20;border-color:#d993a0}
+.polaroid{cursor:pointer;transform-style:preserve-3d}.polaroid.flip{transform:rotateY(180deg)}.polaroid.flip .photo{transform:rotateY(180deg);background:#fff3ed}.polaroid.flip .caption{transform:rotateY(180deg)}
+.letter-card{cursor:pointer}.letter-card.typing p{opacity:.3}.letter-card.typing p.active-line{opacity:1}
+.giftlid{cursor:pointer;transition:.8s transform;transform-origin:50% 100%}.final-gift.open .giftlid{transform:translateY(-62px) rotate(-8deg)}.final-gift.open .bow{transform:translateX(-50%) translateY(-65px) rotate(-10deg);transition:.8s}.gift-message{opacity:0;transform:translateY(15px) scale(.9);transition:.7s;color:#b45f73;font-family:Georgia,serif;font-size:18px;margin:8px 0}.gift-message.show{opacity:1;transform:none}
+.page.active .stagger>*{animation:staggerIn .6s both}.page.active .stagger>*:nth-child(2){animation-delay:.08s}.page.active .stagger>*:nth-child(3){animation-delay:.16s}.page.active .stagger>*:nth-child(4){animation-delay:.24s}.page.active .stagger>*:nth-child(5){animation-delay:.32s}.page.active .stagger>*:nth-child(6){animation-delay:.4s}
+@keyframes teddyLove{25%{transform:rotate(-7deg) scale(1.05)}50%{transform:rotate(7deg) scale(1.08)}75%{transform:rotate(-4deg) scale(1.04)}}@keyframes envelopeHint{25%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}75%{transform:rotate(-1deg)}}@keyframes staggerIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -141,10 +153,10 @@ p{line-height:1.75;color:#806875}
     <div class="balloons"><span class="balloon ba1">🎈</span><span class="balloon ba2">🎈</span><span class="balloon ba3">🎀</span><span class="balloon ba4">💗</span></div>
     <div class="hero-grid">
       <div>
-       <div class="teddy"><div class="ear e1"></div><div class="ear e2"></div><div class="head"></div><div class="body"></div><div class="muzzle"></div><div class="eye x1"></div><div class="eye x2"></div><div class="nose"></div><div class="heart">♥</div></div>
+       <div class="teddy" id="teddy"><div class="teddy-msg" id="teddyMsg">Ayu, you are loved ♡</div><div class="ear e1"></div><div class="ear e2"></div><div class="head"></div><div class="body"></div><div class="muzzle"></div><div class="eye x1"></div><div class="eye x2"></div><div class="nose"></div><div class="heart">♥</div></div>
        <div class="kicker">02 October · my favourite day</div>
        <h1>Happy Birthday,<br><span class="script">Ayu ♡</span></h1>
-       <p>Today the whole little universe is allowed to celebrate you.</p>
+       <p>Today the whole little universe is allowed to celebrate you.</p><div class="interactive-hint">tap the teddy 🧸</div>
       </div>
       <div>
        <div class="cake" id="heroCake"><div class="plate"></div><div class="base"></div><div class="icing"></div><div class="drip"></div><div class="candle ca1"></div><div class="candle ca2"></div><div class="candle ca3"></div><div class="flame fa1"></div><div class="flame fa2"></div><div class="flame fa3"></div></div>
@@ -161,11 +173,11 @@ p{line-height:1.75;color:#806875}
     <div class="kicker">since 07 November 2021</div>
     <h2>Look how long<br>we've been <span class="script">us.</span></h2>
     <div class="reasons" style="grid-template-columns:repeat(3,1fr);max-width:720px;width:100%;margin-top:15px">
-      <div class="reason"><b id="yrs">0</b><h3>Years</h3><p>of us</p></div>
-      <div class="reason"><b id="days">0</b><h3>Days</h3><p>of choosing each other</p></div>
-      <div class="reason"><b id="secs">0</b><h3>Seconds</h3><p>and counting ♡</p></div>
+      <div class="reason" id="timeYears"><b id="yrs">0</b><h3>Years</h3><p>of us</p></div>
+      <div class="reason" id="timeDays"><b id="days">0</b><h3>Days</h3><p>of choosing each other</p></div>
+      <div class="reason" id="timeSecs"><b id="secs">0</b><h3>Seconds</h3><p>and counting ♡</p></div>
     </div>
-    <p class="small" id="bdayCount"></p>
+    <p class="small" id="bdayCount"></p><div class="interactive-hint" id="timeDetail">tap a counter ♡</div>
     <button class="btn next" data-next>Little reasons →</button>
    </div>
   </section>
@@ -174,7 +186,7 @@ p{line-height:1.75;color:#806875}
    <div class="card">
     <div class="kicker">a few, out of a million</div>
     <h2>Reasons I love<br><span class="script">my Ayu.</span></h2>
-    <div class="reasons">
+    <div class="reasons stagger">
       <div class="reason"><b>🌷</b><h3>Your smile</h3><p>One tiny smile from you can completely change an ordinary day.</p></div>
       <div class="reason"><b>🎀</b><h3>Your little things</h3><p>The habits, expressions and tiny details that are just… you.</p></div>
       <div class="reason"><b>🧸</b><h3>You feel like home</h3><p>Even quiet feels comfortable when it is shared with you.</p></div>
@@ -191,7 +203,7 @@ p{line-height:1.75;color:#806875}
     <div class="kicker">our little photo shelf</div>
     <h2>Put our favourite<br><span class="script">moments here.</span></h2>
     <p class="small">I left these frames ready for the pictures that belong to us.</p>
-    <div class="polaroids">
+    <div class="polaroids stagger">
       <div class="polaroid"><div class="photo">🌸<br><span style="font-size:14px">first favourite memory</span></div><div class="caption">“that day ♡”</div></div>
       <div class="polaroid"><div class="photo">🫶<br><span style="font-size:14px">the silly one</span></div><div class="caption">“us being us”</div></div>
       <div class="polaroid"><div class="photo">💗<br><span style="font-size:14px">my forever favourite</span></div><div class="caption">“I love this one”</div></div>
@@ -230,10 +242,10 @@ p{line-height:1.75;color:#806875}
   <section class="page" data-page="7">
    <div class="card center">
     <span class="sparkle" style="left:18%;top:22%">✦</span><span class="sparkle" style="right:18%;top:30%;animation-delay:-.5s">✧</span><span class="sparkle" style="left:28%;bottom:28%;animation-delay:-.9s">♡</span><span class="sparkle" style="right:27%;bottom:23%;animation-delay:-1.2s">✦</span>
-    <div class="final-gift"><div class="bow">🎀</div><div class="giftbox"></div><div class="giftlid"></div><div class="ribbon-v"></div></div>
+    <div class="final-gift" id="gift"><div class="bow">🎀</div><div class="giftbox"></div><div class="giftlid" id="giftLid"></div><div class="ribbon-v"></div></div><div class="gift-message" id="giftMessage">You found the little secret inside. 💌</div>
     <div class="kicker">one last thing</div>
     <h1>I love you,<br><span class="script">Ayu. ♡</span></h1>
-    <p>Happy Birthday, meri Rasmalai.<br>Here's to every chapter we haven't lived yet.</p>
+    <p>Happy Birthday, meri Rasmalai.<br>Here's to every chapter we haven't lived yet.</p><div class="interactive-hint">tap the gift 🎁</div>
     <button class="btn" id="finalBtn">Open the last surprise 💌</button>
    </div>
   </section>
@@ -261,6 +273,17 @@ function tick(){const now=new Date(),ms=now-start;document.getElementById('secs'
 const cake=document.getElementById('cake'),wish=document.getElementById('wish'),blow=document.getElementById('blow');
 blow.onclick=()=>{cake.classList.add('blown');wish.textContent='Wish made. ♡ May this year be ridiculously kind to you.';blow.textContent='Wish sent ✨';burst(90)};
 document.getElementById('finalBtn').onclick=()=>{burst(130);for(let i=0;i<18;i++){setTimeout(()=>hearts(),i*70)}document.getElementById('finalBtn').textContent='I love you too much ♡'};
+const teddy=document.getElementById('teddy'),teddyMsg=document.getElementById('teddyMsg');
+teddy.addEventListener('click',()=>{teddy.classList.remove('love');void teddy.offsetWidth;teddy.classList.add('love');teddyMsg.classList.add('show');burst(18);setTimeout(()=>teddyMsg.classList.remove('show'),1800)});
+const env=document.getElementById('envelope');env.addEventListener('click',()=>{if(!env.classList.contains('open')){env.classList.add('hint');setTimeout(()=>env.classList.remove('hint'),900)}});
+document.querySelectorAll('.candle').forEach(c=>c.addEventListener('click',e=>{e.stopPropagation();c.classList.toggle('out');if(c.classList.contains('out')){burst(7)}else{burst(3)}}));
+document.querySelectorAll('.reason').forEach(card=>card.addEventListener('click',()=>{document.querySelectorAll('.reason').forEach(x=>x.classList.remove('selected'));card.classList.add('selected');burst(8)}));
+document.querySelectorAll('.polaroid').forEach(card=>card.addEventListener('click',()=>card.classList.toggle('flip')));
+const detail=document.getElementById('timeDetail');
+[['timeYears','You have crossed another chapter together. ♡'],['timeDays','That is a lot of ordinary days made special. 🌷'],['timeSecs','And the little counter is still running… right now. ♾️']].forEach(([id,msg])=>document.getElementById(id).addEventListener('click',()=>detail.textContent=msg));
+document.querySelector('.letter-card').addEventListener('click',e=>{const box=e.currentTarget;box.classList.add('typing');const ps=[...box.querySelectorAll('p')];ps.forEach(p=>p.classList.remove('active-line'));let i=0;const go=()=>{if(i<ps.length){ps[i++].classList.add('active-line');setTimeout(go,230)}};go()});
+const gift=document.getElementById('gift'),giftLid=document.getElementById('giftLid'),giftMessage=document.getElementById('giftMessage');
+giftLid.addEventListener('click',e=>{e.stopPropagation();gift.classList.add('open');giftMessage.classList.add('show');burst(70)});
 </script>
 </body>
 </html>
