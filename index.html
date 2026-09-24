@@ -14,8 +14,8 @@ body{font-family:"DM Sans",Arial,sans-serif;color:var(--ink);background:var(--iv
 button,input{font:inherit}button{cursor:pointer}
 #app{position:fixed;inset:0;overflow:hidden;background:var(--ivory)}
 #app:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.55),transparent 45%,rgba(239,215,216,.2));pointer-events:none}
-.scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:62px 22px 38px;opacity:0;pointer-events:none;transform:translateY(16px);transition:opacity .65s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
-.scene.active{opacity:1;pointer-events:auto;transform:none}
+.scene{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;padding:62px 22px 38px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;opacity:0;pointer-events:none;transform:translateY(16px);transition:opacity .65s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.scene.active{opacity:1;pointer-events:auto;transform:none}.scene::-webkit-scrollbar{width:6px}.scene::-webkit-scrollbar-thumb{background:#d7b2b9;border-radius:10px}
 .scene-bg{position:absolute;inset:0;overflow:hidden}
 .scene-bg:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.8),transparent 55%)}
 .sun{position:absolute;width:320px;height:320px;border-radius:50%;background:#f4dfc7;right:-130px;top:-120px;opacity:.55}
@@ -23,8 +23,8 @@ button,input{font:inherit}button{cursor:pointer}
 .grass{position:absolute;left:-5%;right:-5%;bottom:-95px;height:190px;background:#e3ece3;border-radius:50% 50% 0 0}
 .top{position:absolute;z-index:50;top:19px;left:28px;right:28px;display:flex;justify-content:space-between;align-items:center;color:#87656d;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
 .progress{display:flex;gap:7px}.progress i{width:5px;height:5px;border-radius:50%;background:#cbaab0;opacity:.3;transition:.3s}.progress i.on{opacity:1;background:var(--wine);transform:scale(1.35)}
-.stage{position:relative;z-index:5;width:min(1080px,94vw);height:min(700px,83vh)}
-.paper{background:rgba(255,253,250,.96);border:1px solid rgba(111,63,75,.08);box-shadow:0 25px 80px rgba(90,58,62,.09);width:100%;height:100%;padding:clamp(28px,5vw,62px);position:relative;overflow:hidden}
+.stage{position:relative;z-index:5;width:min(1080px,94vw);min-height:min(700px,83vh);height:auto}
+.paper{box-sizing:border-box;background:rgba(255,253,250,.96);border:1px solid rgba(111,63,75,.08);box-shadow:0 25px 80px rgba(90,58,62,.09);width:100%;height:100%;padding:clamp(28px,5vw,62px);position:relative;overflow:hidden}
 .paper:after{content:"";position:absolute;inset:16px;border:1px solid rgba(111,63,75,.08);pointer-events:none}
 .center{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .eyebrow{text-transform:uppercase;letter-spacing:.28em;font-size:9px;color:#9c6d76}
@@ -136,6 +136,42 @@ document.getElementById("letter").onclick=()=>{const lines=[...document.querySel
 
 const gift=document.getElementById("gift");document.getElementById("lid").onclick=e=>{e.stopPropagation();gift.classList.add("open");burst(45);toast("There was a little love inside. 💌")};
 document.getElementById("final").onclick=()=>{burst(180);for(let i=0;i<25;i++)setTimeout(hearts,i*50);toast("Happy Birthday, my Rasmalai ♡")};
+/* games */
+let heartTimer=null, heartScore=0, heartRunning=false;
+function startHeartGame(){
+  const box=document.getElementById("heartGame"), score=document.getElementById("heartScore"), result=document.getElementById("heartResult"), btn=document.getElementById("startHeart");
+  clearInterval(heartTimer); heartScore=0; heartRunning=true; score.textContent="0 / 10"; result.textContent="Catch them! ♡"; btn.textContent="Restart game ↻"; box.innerHTML="";
+  const end=Date.now()+15000;
+  function spawn(){
+    if(!heartRunning)return;
+    const h=document.createElement("button"); h.type="button"; h.className="game-heart"; h.textContent=["♡","♥","💗","✦"][Math.floor(Math.random()*4)];
+    h.style.left=(8+Math.random()*84)+"%"; h.style.animationDuration=(2.4+Math.random()*1.7)+"s";
+    h.onclick=()=>{if(!heartRunning)return;heartScore++;score.textContent=heartScore+" / 10";h.remove();burst(5);if(heartScore>=10){heartRunning=false;clearInterval(heartTimer);result.textContent="You caught all my hearts. Just like I caught feelings for you. ♡";burst(45)}};
+    box.appendChild(h);setTimeout(()=>h.remove(),4300);
+  }
+  spawn(); const sp=setInterval(()=>{if(heartRunning)spawn();else clearInterval(sp)},650);
+  heartTimer=setInterval(()=>{if(Date.now()>=end&&heartRunning){heartRunning=false;clearInterval(heartTimer);result.textContent="Almost! Try again, jaan ♡";btn.textContent="Try again ♡"}},250);
+}
+document.getElementById("startHeart").onclick=startHeartGame;
+
+const kissSymbols=["💋","💋","💗","💗","🌸","🌸","🎀","🎀"], kg=document.getElementById("kissGame"), kr=document.getElementById("kissResult");
+let kissFirst=null,kissLock=false,matchedK=0;
+function setupKiss(){
+  kg.innerHTML="";kr.textContent="";kissFirst=null;kissLock=false;matchedK=0;
+  [...kissSymbols].sort(()=>Math.random()-.5).forEach(sym=>{
+    const card=document.createElement("button");card.type="button";card.className="kiss-card";card.dataset.sym=sym;card.textContent="♡";
+    card.onclick=()=>{
+      if(kissLock||card.classList.contains("matched")||card===kissFirst)return;
+      card.classList.add("revealed");card.textContent=sym;
+      if(!kissFirst){kissFirst=card;return}
+      kissLock=true;
+      if(kissFirst.dataset.sym===card.dataset.sym){kissFirst.classList.add("matched");card.classList.add("matched");matchedK++;kissFirst=null;kissLock=false;burst(6);if(matchedK===4){kr.textContent="You found all my kisses. 💋♡";burst(30)}}
+      else setTimeout(()=>{kissFirst.classList.remove("revealed");card.classList.remove("revealed");kissFirst.textContent="♡";card.textContent="♡";kissFirst=null;kissLock=false},650);
+    };kg.appendChild(card);
+  });
+}
+document.getElementById("resetKiss").onclick=setupKiss; setupKiss();
+
 </script>
 </body>
 </html>
