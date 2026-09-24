@@ -1,44 +1,266 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a0612"><title>For Ayu ❤️</title><style>
-:root{--bg:#090511;--pink:#ff5b9f;--rose:#ff9fc8;--violet:#8d72ff;--gold:#ffd88a;--text:#fff8fc;--muted:#d4c1d2;--line:#ffffff20}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 5%,#40143e,transparent 28%),radial-gradient(circle at 90% 15%,#25184e,transparent 28%),linear-gradient(145deg,#090511,#16091f 55%,#08040e);color:var(--text);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.1;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:70px 70px;z-index:0}
-.glass{background:linear-gradient(145deg,#ffffff10,#ffffff05);border:1px solid var(--line);backdrop-filter:blur(20px);box-shadow:0 30px 90px #0009;border-radius:30px}.gradient{background:linear-gradient(100deg,#fff,#ffafd1,#b9a0ff);background-clip:text;color:transparent}
-#gate{position:fixed;z-index:99;inset:0;display:grid;place-items:center;background:radial-gradient(circle at 50% 35%,#351442,#08040e 68%);transition:1s}.orb{position:absolute;border-radius:50%;filter:blur(3px);opacity:.5;animation:f 8s ease-in-out infinite}.a{width:390px;height:390px;background:#a62b7d;left:-130px;top:-110px}.b{width:350px;height:350px;background:#4931ad;right:-110px;bottom:-90px;animation-delay:-3s}.gate{width:min(650px,91vw);padding:56px 42px;text-align:center;position:relative;z-index:2}.gate h1{font-size:clamp(42px,7vw,76px);line-height:.95;letter-spacing:-.06em;margin:18px 0}.gate p{color:var(--muted);line-height:1.7}.ey,.label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#f0aece}.row{display:flex;gap:10px;max-width:450px;margin:30px auto 0}.row input{min-width:0;flex:1;padding:17px;border-radius:16px;border:1px solid var(--line);background:#ffffff0b;color:white;text-align:center;letter-spacing:.35em;outline:0;font-size:18px}.row input:focus{border-color:#ff79ad;box-shadow:0 0 0 4px #ff579b18}.btn{border:0;border-radius:16px;padding:15px 21px;color:white;background:linear-gradient(135deg,var(--pink),var(--violet));cursor:pointer;box-shadow:0 12px 35px #d63e8c44;transition:.25s;font-weight:700}.btn:hover{transform:translateY(-3px);filter:brightness(1.1)}#err{height:25px;color:#ff9fc4;font-size:13px;margin-top:10px}.shake{animation:s .45s}.hide{opacity:0;transform:scale(1.06);pointer-events:none}
-main{position:relative;z-index:1}.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:70px 24px}.hero>div{max-width:1050px}.hero h2{font-size:clamp(62px,11vw,145px);line-height:.84;letter-spacing:-.075em;margin:22px 0}.ayu{font-family:Georgia,serif;font-style:italic;font-weight:400}.copy{max-width:700px;margin:auto;color:var(--muted);font-size:18px;line-height:1.8}.birthday-stage{position:relative;width:min(760px,94vw);height:255px;margin:20px auto 0}.hero-balloon{position:absolute;font-size:68px;filter:drop-shadow(0 12px 12px #0007);animation:floatBalloon 3.2s ease-in-out infinite}.hb1{left:2%;top:55px}.hb2{left:12%;top:5px;font-size:54px;animation-delay:-.8s}.hb3{right:10%;top:10px;font-size:58px;animation-delay:-1.4s}.hb4{right:1%;top:65px;animation-delay:-2s}.hero-cake{transform:scale(1.12);margin:0 auto}.hero-cake .flame{animation:flicker .55s infinite alternate}.hero-deco{position:absolute;inset:0;pointer-events:none}.hero-deco span{position:absolute;font-size:28px;animation:twinkle 2s ease-in-out infinite}.hero-deco span:nth-child(1){left:22%;top:95px}.hero-deco span:nth-child(2){right:23%;top:100px;animation-delay:-.7s}.hero-deco span:nth-child(3){left:29%;top:35px;animation-delay:-1.1s}.hero-deco span:nth-child(4){right:29%;top:38px;animation-delay:-1.6s}.scroll{display:inline-block;margin-top:5px;color:#e0c7d8;font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;animation:bob 2s ease-in-out infinite}
-section{padding:105px 7vw}.wrap{max-width:1120px;margin:auto}.title{font-size:clamp(38px,5vw,66px);line-height:1;letter-spacing:-.055em;margin:12px 0 42px}.counts{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.count{padding:25px 8px;text-align:center}.count b{font-size:clamp(27px,4vw,48px);display:block}.count small{font-size:10px;color:var(--muted);letter-spacing:.13em;text-transform:uppercase}.note{text-align:center;color:var(--muted);margin-top:18px;font-size:13px}
-.letter{padding:48px;display:grid;grid-template-columns:1fr 1.7fr;gap:55px}.letter .big{font:clamp(40px,5vw,70px) Georgia,serif;line-height:.98;margin:0}.letter p{color:#decbd9;line-height:1.9}.letter strong{color:#fff}.timeline{position:relative}.timeline:before{content:"";position:absolute;left:17px;top:0;bottom:0;width:1px;background:linear-gradient(#ff579b,#9270ff,transparent)}.moment{display:grid;grid-template-columns:36px 1fr;gap:24px;margin-bottom:28px}.dot{width:35px;height:35px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--violet));box-shadow:0 0 30px #ff579b55}.card{padding:25px}.date{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#eea7ca}.card h3{margin:8px 0;font-size:22px}.card p{color:var(--muted);line-height:1.7;margin:0}
-.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.reason{padding:30px;min-height:190px;position:relative;overflow:hidden;transition:.35s;cursor:pointer}.reason:hover{transform:translateY(-7px);border-color:#ff76ad66}.reason .num{font-size:12px;color:#ff9fc8}.reason h3{font-size:22px;margin:18px 0 10px}.reason p{color:var(--muted);line-height:1.7;margin:0}.reason:after{content:"❤";position:absolute;right:20px;bottom:-20px;font-size:90px;color:#ff579b0b}
-.cakebox{text-align:center;padding:50px 25px}.cake{width:210px;height:175px;margin:35px auto 20px;position:relative}.cake .plate{position:absolute;bottom:5px;left:0;width:210px;height:22px;border-radius:50%;background:#ffffff22}.cake .base{position:absolute;left:20px;bottom:25px;width:170px;height:85px;border-radius:15px 15px 22px 22px;background:linear-gradient(#ff9dc7,#e95b96);box-shadow:inset 0 -12px #bd3e76}.cake .cream{position:absolute;left:20px;bottom:90px;width:170px;height:38px;border-radius:50%;background:#fff3f8;box-shadow:0 10px #ffc2dc}.cake .drip{position:absolute;left:35px;bottom:65px;width:25px;height:32px;border-radius:0 0 18px 18px;background:#fff3f8;box-shadow:45px 4px #fff3f8,90px -2px #fff3f8}.candle{position:absolute;bottom:128px;width:12px;height:48px;border-radius:6px;background:repeating-linear-gradient(135deg,#fff,#fff 5px,#ff79ad 5px,#ff79ad 9px)}.c1{left:72px}.c2{left:99px}.c3{left:126px}.flame{position:absolute;bottom:176px;width:17px;height:25px;background:radial-gradient(circle at 50% 70%,#fff 0 20%,#ffd56b 22% 48%,#ff7a5f 50% 70%,transparent 72%);filter:drop-shadow(0 0 9px #ffb04d);animation:flicker .7s infinite alternate}.f1{left:70px}.f2{left:97px;animation-delay:.2s}.f3{left:124px;animation-delay:.4s}.blown .flame{opacity:0;transform:scale(.2) translateY(20px);transition:.4s}.wish{min-height:25px;margin:18px 0;color:#ffd2e5;font-size:14px}
-.mem{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.memory{min-height:280px;padding:23px;display:flex;align-items:end;position:relative;overflow:hidden}.memory:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 30% 25%,#ff6ca755,transparent 27%),radial-gradient(circle at 75% 70%,#826aff55,transparent 28%);filter:blur(10px)}.memory .placeholder{position:relative;width:100%;height:100%;min-height:230px;border:1px dashed #ffffff2e;border-radius:20px;display:flex;align-items:center;justify-content:center;text-align:center;color:#d9c7d5}.memory div{position:relative}.memory h3{margin:8px 0}.memory p{color:#d2bfd0;font-size:13px}
-.surprise{text-align:center;padding:80px 30px}.surprise h2{font:clamp(48px,7vw,88px) Georgia,serif;line-height:.9}.surprise p{max-width:600px;margin:0 auto 28px;color:var(--muted);line-height:1.8}footer{text-align:center;padding:60px;color:#bca7bb;font-size:12px}
-.heart{position:fixed;bottom:-30px;z-index:5;pointer-events:none;animation:h 5s linear forwards}.balloon{position:fixed;bottom:-120px;z-index:3;pointer-events:none;font-size:45px;animation:balloon 9s linear forwards;filter:drop-shadow(0 10px 10px #0006)}
-.reveal{position:fixed;inset:0;z-index:150;background:#07040df5;display:grid;place-items:center;text-align:center;padding:30px;opacity:0;pointer-events:none;transition:.5s}.reveal.show{opacity:1;pointer-events:auto}.reveal h2{font:clamp(55px,9vw,130px)/.9 Georgia,serif}.reveal p{color:#decbd9}.conf{position:fixed;width:8px;height:15px;z-index:151;animation:c 1.8s ease-out forwards;border-radius:3px}
-@keyframes f{50%{transform:translate(30px,-25px) scale(1.08)}}@keyframes s{25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-5px)}}@keyframes h{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}@keyframes c{to{transform:translate(var(--x),var(--y)) rotate(720deg);opacity:0}}@keyframes bob{50%{transform:translateY(7px)}}@keyframes flicker{to{transform:scale(1.12) rotate(3deg)}}@keyframes balloon{to{transform:translateY(-125vh) translateX(var(--drift)) rotate(8deg);opacity:0}}@keyframes floatBalloon{50%{transform:translateY(-12px) rotate(4deg)}}@keyframes twinkle{50%{transform:scale(1.25) rotate(12deg);opacity:.65}}
-@media(max-width:800px){.counts{grid-template-columns:repeat(3,1fr)}.letter{grid-template-columns:1fr;padding:30px}.mem,.reasons{grid-template-columns:1fr}.row{flex-direction:column}.gate{padding:42px 24px}}
-</style></head><body>
-<div id="gate"><div class="orb a"></div><div class="orb b"></div><div class="gate glass" id="gateCard"><div class="ey">A private little universe</div><h1>A little world<br><span class="gradient">made only for Ayu</span> ❤️</h1><p>There is a tiny door here. Only one person in the world knows how to open it.</p><div class="row"><input id="pass" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="••••••" autocomplete="off" autocapitalize="off" spellcheck="false"><button class="btn" id="unlock">Open my heart</button></div><div id="err"></div></div></div>
-<main id="app"><div class="hero"><div><div class="ey">For my Rasmalai · 02 October</div><h2>Happy Birthday,<br><span class="ayu gradient">Ayu ❤️</span></h2><div class="birthday-stage"><div class="hero-deco"><span>✨</span><span>⭐</span><span>🌸</span><span>💗</span></div><div class="hero-balloon hb1">🎈</div><div class="hero-balloon hb2">🎀</div><div class="hero-balloon hb3">💗</div><div class="hero-balloon hb4">🎈</div><div class="cake hero-cake"><div class="plate"></div><div class="base"></div><div class="cream"></div><div class="drip"></div><div class="candle c1"></div><div class="candle c2"></div><div class="candle c3"></div><div class="flame f1"></div><div class="flame f2"></div><div class="flame f3"></div></div></div><p class="copy">If love could be turned into a place, this would be it — a small corner of the internet where every little thing says what I sometimes can't put into words.</p><a class="scroll" href="#time">↓ enter our story ↓</a></div></div>
-<section id="time"><div class="wrap"><div class="label">Since 07 November 2021</div><h2 class="title">Look how long<br>we've been us.</h2><div class="counts"><div class="count glass"><b id="y">0</b><small>Years</small></div><div class="count glass"><b id="mo">0</b><small>Months</small></div><div class="count glass"><b id="d">0</b><small>Days</small></div><div class="count glass"><b id="h">0</b><small>Hours</small></div><div class="count glass"><b id="mi">0</b><small>Minutes</small></div><div class="count glass"><b id="se">0</b><small>Seconds</small></div></div><div class="note" id="note"></div></div></section>
-<section><div class="wrap"><div class="label">From me to you</div><h2 class="title">A letter I hope<br>you keep forever.</h2><div class="letter glass"><p class="big">Meri Jaan,<br>meri Duniya,<br>meri pyaari Biwi.</p><div><p>Happy Birthday to the person who somehow became my favourite part of every ordinary day. You are my Rasmalai — sweet, impossible to replace, and permanently responsible for a very large part of my smile.</p><p>Since 7 November 2021, we've collected tiny moments that mean more to me than any grand sentence ever could. I don't want just the big memories. I want the silly ones, the random conversations, the quiet moments, and all the ordinary days that became precious because you were there.</p><p>I hope this next year brings you reasons to smile when nobody is watching, dreams that actually come true, and a thousand little moments that make you think, “haan, life achhi hai.”</p><p>Wherever life takes us, remember this: <strong>you are deeply, ridiculously, endlessly loved.</strong></p><p>— Yours, always ❤️</p></div></div></div></section>
-<section><div class="wrap"><div class="label">Reasons, just because</div><h2 class="title">A few of the million<br>reasons I love you.</h2><div class="reasons"><div class="reason glass"><div class="num">01 · ✨</div><h3>Your smile</h3><p>Because somehow one smile from you can make an ordinary day feel completely different.</p></div><div class="reason glass"><div class="num">02 · 🫶</div><h3>Your little things</h3><p>The tiny habits, expressions and random moments that are uniquely, unmistakably you.</p></div><div class="reason glass"><div class="num">03 · 🌙</div><h3>The way you feel like home</h3><p>With you, even silence can feel comfortable. That is a kind of magic I never want to lose.</p></div><div class="reason glass"><div class="num">04 · 🎀</div><h3>Your chaos</h3><p>Yes, even the dramatic moments. Especially those. Life would be boring without them.</p></div><div class="reason glass"><div class="num">05 · 💗</div><h3>Your heart</h3><p>The care you give, the love you show, and the person you are when nobody is asking you to be anything.</p></div><div class="reason glass"><div class="num">06 · ♾️</div><h3>Simply you</h3><p>After all the explanations, this is the simplest reason: you're Ayu. And I love you.</p></div></div></div></section>
-<section><div class="wrap"><div class="label">Make a birthday wish</div><h2 class="title">A cake made<br>just for you. 🎂</h2><div class="cakebox glass"><div class="cake" id="cake"><div class="plate"></div><div class="base"></div><div class="cream"></div><div class="drip"></div><div class="candle c1"></div><div class="candle c2"></div><div class="candle c3"></div><div class="flame f1"></div><div class="flame f2"></div><div class="flame f3"></div></div><div class="wish" id="wish">Close your eyes, make a wish, then blow the candles. 🕯️</div><button class="btn" id="blow">Blow the candles 🕯️</button></div></div></section>
-<section><div class="wrap"><div class="label">Our little timeline</div><h2 class="title">One date became<br>a whole story.</h2><div class="timeline"><div class="moment"><div class="dot"></div><div class="card glass"><div class="date">07 November 2021</div><h3>The beginning.</h3><p>The day “you and me” became something real. One date, countless chapters waiting ahead.</p></div></div><div class="moment"><div class="dot"></div><div class="card glass"><div class="date">Every day after</div><h3>The tiny things.</h3><p>Conversations, jokes, arguments, forgiveness, laughter, and all the completely ordinary moments that quietly became precious.</p></div></div><div class="moment"><div class="dot"></div><div class="card glass"><div class="date">Today</div><h3>Still choosing us.</h3><p>Another birthday, another reason to celebrate the girl who makes my world feel a little warmer.</p></div></div></div></div></section>
-<section><div class="wrap"><div class="label">Memory shelf</div><h2 class="title">Now give these<br>little frames our memories.</h2><div class="mem"><div class="memory glass"><div class="placeholder">📸<br>Our firsts ✨<br><small>Add a favourite photo here</small></div></div><div class="memory glass"><div class="placeholder">🫶<br>The silly ones<br><small>Add the photo that makes you both laugh</small></div></div><div class="memory glass"><div class="placeholder">❤️<br>Us, exactly as we are<br><small>Add the picture you never get tired of seeing</small></div></div></div></div></section>
-<section><div class="wrap"><div class="surprise glass"><div class="label">One last thing</div><h2>Ready for your<br><span class="gradient">birthday surprise?</span></h2><p>Press the button and let me have one last dramatic moment. 😌</p><button class="btn" id="surprise">Make a wish ✨</button></div></div></section><footer>Made with an unreasonable amount of love · for Ayu ❤️</footer></main>
-<div class="reveal" id="reveal"><div><div class="ey">For you, always</div><h2>I love you,<br><span class="gradient">Ayu. ❤️</span></h2><p>Happy Birthday, meri Rasmalai. Here's to every chapter we haven't lived yet.</p><button class="btn" id="close">Come back to earth</button></div></div>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7dfe1">
+<title>For Ayu — a little world of us ♡</title>
+<style>
+:root{
+  --cream:#fffaf4;--paper:#fffdf9;--pink:#f5b7bd;--rose:#e88998;--deep:#713d52;
+  --peach:#ffd9c9;--lav:#ddd2ef;--sage:#cbded4;--ink:#553d48;--muted:#9a7f8b;
+  --shadow:0 22px 70px rgba(102,58,75,.14);--line:rgba(113,61,82,.12)
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:"Trebuchet MS",system-ui,sans-serif;color:var(--ink);background:#f7e4e5}
+button,input{font:inherit}
+button{cursor:pointer}
+.scene{position:fixed;inset:0;overflow:hidden;background:
+ radial-gradient(circle at 12% 12%,#fff8df 0 9%,transparent 28%),
+ radial-gradient(circle at 88% 20%,#efdaf0 0 10%,transparent 29%),
+ linear-gradient(145deg,#f8e8e3,#f4dfe7 48%,#e8dcef)}
+.scene:before{content:"";position:absolute;inset:0;opacity:.25;pointer-events:none;background-image:radial-gradient(#b77f8d 1px,transparent 1px);background-size:24px 24px}
+.blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.55;animation:drift 9s ease-in-out infinite}
+.b1{width:260px;height:260px;background:#f9c9cf;left:-80px;bottom:-80px}.b2{width:220px;height:220px;background:#d9c8ed;right:-70px;top:10px;animation-delay:-3s}
+.topbar{position:absolute;z-index:20;top:18px;left:50%;transform:translateX(-50%);width:min(920px,92vw);display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:Georgia,serif;font-size:15px;color:#7d5364}
+.progress{display:flex;gap:7px}.dot{width:7px;height:7px;border-radius:50%;background:#fff;border:1px solid #b78392;opacity:.35}.dot.on{opacity:1;background:#b96d7d}
+.pages{position:relative;z-index:5;width:100%;height:100%}
+.page{position:absolute;inset:0;display:grid;place-items:center;padding:70px 18px 25px;opacity:0;transform:translateX(35px) scale(.985);pointer-events:none;transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.page.active{opacity:1;transform:none;pointer-events:auto}
+.card{position:relative;width:min(900px,94vw);min-height:min(650px,83vh);background:rgba(255,253,249,.82);border:1px solid rgba(255,255,255,.9);border-radius:34px;box-shadow:var(--shadow);overflow:hidden;padding:clamp(25px,5vw,60px)}
+.card:before{content:"";position:absolute;inset:12px;border:1px dashed rgba(113,61,82,.12);border-radius:26px;pointer-events:none}
+.center{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.kicker{font-size:11px;letter-spacing:.23em;text-transform:uppercase;color:#b06d7e;margin-bottom:12px}
+h1,h2,h3,p{position:relative}
+h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:400}
+h1{font-size:clamp(48px,8vw,88px);line-height:.92;margin:8px 0 18px;letter-spacing:-.055em}
+h2{font-size:clamp(40px,6vw,67px);line-height:.95;margin:10px 0 20px;letter-spacing:-.045em}
+p{line-height:1.75;color:#806875}
+.script{font-style:italic;color:#c5677b}
+.small{font-size:13px;color:#a28791}
+.btn{position:relative;z-index:3;border:0;border-radius:999px;padding:13px 23px;background:#b96d7d;color:#fff;box-shadow:0 10px 25px rgba(185,109,125,.24);transition:.25s;font-weight:700}
+.btn:hover{transform:translateY(-2px);background:#a85d70}.btn.light{background:#fff;color:#8e5868;border:1px solid #e9c9cf;box-shadow:none}
+.nav{position:absolute;z-index:30;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:10px;align-items:center}
+.back{position:absolute;z-index:30;bottom:27px;left:24px;border:0;background:transparent;color:#a36f7d;font-size:12px}
+.next{min-width:100px}
+.corner{position:absolute;font-size:26px;opacity:.7;animation:sway 3s ease-in-out infinite}.c1{top:28px;left:32px}.c2{top:32px;right:38px;animation-delay:-1s}.c3{bottom:35px;left:38px;animation-delay:-2s}.c4{bottom:30px;right:35px;animation-delay:-1.4s}
+.envelope-wrap{width:min(430px,78vw);height:280px;position:relative;margin:10px auto 24px;perspective:900px}
+.envelope{position:absolute;inset:28px 0 0;background:#eeb0b7;border-radius:18px;box-shadow:0 25px 45px rgba(117,60,79,.2);transform-style:preserve-3d;transition:1s}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 49%,#d98e9a 50% 51%,transparent 52%),linear-gradient(225deg,transparent 49%,#d98e9a 50% 51%,transparent 52%);border-radius:18px}
+.flap{position:absolute;left:0;top:0;width:100%;height:58%;background:#f6c4c8;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:1s;z-index:3;border-radius:18px 18px 0 0}
+.seal{position:absolute;z-index:4;left:50%;top:43%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:#fff1e8;color:#c36c7e;display:grid;place-items:center;font-size:25px;box-shadow:0 6px 16px #8f506022}
+.letter-sheet{position:absolute;z-index:2;left:10%;right:10%;top:35px;height:190px;background:#fffdf8;border-radius:10px;padding:25px;transform:translateY(20px);transition:1s;box-shadow:0 5px 20px #81526614}
+.envelope.open .flap{transform:rotateX(180deg)}.envelope.open .letter-sheet{transform:translateY(-85px)}
+.envelope.open .seal{opacity:0;transform:translate(-50%,-50%) scale(.6);transition:.35s}
+.greeting{font-family:Georgia,serif;font-size:23px;color:#9d5e6d}.mini-heart{font-size:16px;color:#d27686}
+.teddy{position:relative;width:170px;height:190px;margin:0 auto 12px;filter:drop-shadow(0 12px 10px rgba(100,55,70,.13))}
+.teddy .head{position:absolute;width:112px;height:98px;left:29px;top:16px;background:#c99a72;border-radius:48% 48% 45% 45%}
+.teddy .ear{position:absolute;width:40px;height:40px;background:#b98561;border-radius:50%;top:4px}.teddy .e1{left:22px}.teddy .e2{right:22px}
+.teddy .body{position:absolute;width:105px;height:100px;left:32px;top:90px;background:#c99a72;border-radius:48% 48% 35% 35%}
+.teddy .muzzle{position:absolute;width:58px;height:43px;background:#efd2ad;border-radius:50%;left:56px;top:55px}
+.teddy .eye{position:absolute;width:7px;height:9px;background:#49313a;border-radius:50%;top:52px}.teddy .x1{left:57px}.teddy .x2{right:57px}
+.teddy .nose{position:absolute;width:10px;height:8px;background:#49313a;border-radius:50%;left:80px;top:70px}.teddy .heart{position:absolute;left:78px;top:125px;font-size:29px;color:#d97c8d}
+.flower{position:absolute;font-size:30px;animation:float 3s ease-in-out infinite}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;width:100%}
+.cake{position:relative;width:235px;height:210px;margin:18px auto}
+.plate{position:absolute;bottom:8px;left:0;width:235px;height:25px;border-radius:50%;background:#ead3d4}
+.base{position:absolute;left:23px;bottom:30px;width:189px;height:92px;border-radius:18px 18px 25px 25px;background:linear-gradient(#f3a9b7,#dc788d);box-shadow:inset 0 -13px #c8667b}
+.icing{position:absolute;left:23px;bottom:98px;width:189px;height:45px;border-radius:50%;background:#fff6f1;box-shadow:0 11px #f5ccd0}
+.drip{position:absolute;left:42px;bottom:72px;width:26px;height:38px;border-radius:0 0 16px 16px;background:#fff6f1;box-shadow:46px 3px #fff6f1,92px -2px #fff6f1}
+.candle{position:absolute;bottom:138px;width:13px;height:54px;border-radius:7px;background:repeating-linear-gradient(135deg,#fff,#fff 5px,#d77e91 5px,#d77e91 9px)}
+.ca1{left:78px}.ca2{left:111px}.ca3{left:144px}
+.flame{position:absolute;bottom:188px;width:18px;height:27px;border-radius:55% 45% 55% 45%;background:radial-gradient(circle at 50% 65%,#fff 0 20%,#ffd96b 22% 48%,#f48d67 50% 70%,transparent 72%);filter:drop-shadow(0 0 8px #f3b55e);animation:flicker .55s infinite alternate}
+.fa1{left:75px}.fa2{left:108px;animation-delay:.18s}.fa3{left:141px;animation-delay:.35s}
+.balloons{position:absolute;inset:0;pointer-events:none}.balloon{position:absolute;font-size:42px;animation:float 3.5s ease-in-out infinite}.ba1{left:7%;top:12%}.ba2{right:8%;top:17%;animation-delay:-1s}.ba3{left:16%;bottom:15%;animation-delay:-1.7s}.ba4{right:18%;bottom:10%;animation-delay:-.5s}
+.polaroids{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:25px}
+.polaroid{background:#fff;padding:11px 11px 22px;box-shadow:0 14px 28px #74475c16;transform:rotate(-2deg);transition:.3s}.polaroid:nth-child(2){transform:rotate(2deg)}.polaroid:nth-child(3){transform:rotate(-1deg)}.polaroid:hover{transform:translateY(-7px) rotate(0)}
+.photo{height:210px;border-radius:3px;background:linear-gradient(135deg,#f5d2d5,#eddff1);display:grid;place-items:center;text-align:center;color:#b08290;font-size:38px}
+.caption{font-family:"Comic Sans MS",cursive;text-align:center;margin-top:9px;color:#80616e;font-size:13px}
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:25px}
+.reason{background:#fff;border-radius:20px;padding:22px;min-height:155px;border:1px solid #f0dce0;box-shadow:0 9px 22px #74475c0d;transition:.3s}.reason:hover{transform:translateY(-5px)}.reason:nth-child(2){background:#fff3ef}.reason:nth-child(3){background:#f5eff9}.reason:nth-child(4){background:#eef7f1}.reason:nth-child(5){background:#fff7df}.reason:nth-child(6){background:#f7eaf0}
+.reason b{font-size:23px}.reason h3{font-family:Georgia,serif;font-size:21px;font-weight:400;margin:10px 0 5px}.reason p{font-size:12px;line-height:1.6;margin:0}
+.letter-card{max-width:680px;margin:auto;background:#fffaf1;border-radius:8px;padding:42px 44px;box-shadow:0 14px 35px #6c465416;border:1px solid #f0dfd1;position:relative}
+.letter-card:before{content:"";position:absolute;left:28px;right:28px;top:28px;bottom:28px;border:1px solid #d9b9ae;pointer-events:none}
+.letter-card p{font-family:"Comic Sans MS","Trebuchet MS",cursive;color:#745764;font-size:14px;line-height:2;margin:0 0 13px}.signature{font-family:Georgia,serif;font-size:25px;color:#b56375;text-align:right}
+.final-gift{width:180px;height:140px;position:relative;margin:18px auto 35px}.giftbox{position:absolute;left:10px;right:10px;bottom:0;height:100px;background:#e98e9f;border-radius:12px;box-shadow:0 18px 25px #77475b18}.giftlid{position:absolute;left:0;right:0;top:10px;height:35px;background:#f2aebb;border-radius:10px;z-index:2}.ribbon-v{position:absolute;left:75px;top:0;width:30px;height:140px;background:#fff0dc;z-index:3}.bow{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:55px;z-index:4}
+.sparkle{position:absolute;color:#c86f81;font-size:20px;animation:twinkle 1.6s ease-in-out infinite}
+.unlock-screen{position:fixed;inset:0;z-index:100;background:linear-gradient(145deg,#f7dfe1,#eee0f2);display:grid;place-items:center;padding:20px;transition:.9s}
+.unlock-screen.hide{opacity:0;transform:scale(1.05);pointer-events:none}
+.lock-card{width:min(570px,94vw);background:rgba(255,253,249,.88);border:1px solid #fff;border-radius:34px;box-shadow:0 25px 80px #70495b1d;padding:42px 28px;text-align:center;position:relative;overflow:hidden}
+.lock-card h1{font-size:clamp(43px,8vw,70px)}.lock-card p{max-width:440px;margin:0 auto 22px}
+.passrow{display:flex;gap:9px;max-width:390px;margin:22px auto 0}.passrow input{flex:1;min-width:0;text-align:center;letter-spacing:.35em;border:1px solid #e4cbd1;border-radius:999px;background:#fff;padding:14px 16px;color:#754b5b;outline:none}.passrow input:focus{border-color:#c77b89;box-shadow:0 0 0 4px #c77b8915}
+.error{height:22px;font-size:12px;color:#b15e70;margin-top:8px}.shake{animation:shake .45s}
+.burst{position:fixed;z-index:200;pointer-events:none;font-size:22px;animation:pop 1.2s forwards}
+.float-heart{position:fixed;bottom:-30px;z-index:4;pointer-events:none;animation:heartUp 6s linear forwards}
+.cake.blown .flame{opacity:0;transform:translateY(15px) scale(.2);transition:.35s}
+@keyframes drift{50%{transform:translate(25px,-18px) scale(1.08)}}@keyframes sway{50%{transform:translateY(-5px) rotate(3deg)}}@keyframes float{50%{transform:translateY(-10px) rotate(3deg)}}@keyframes flicker{to{transform:scale(1.14) rotate(4deg)}}@keyframes twinkle{50%{transform:scale(1.3) rotate(10deg);opacity:.5}}@keyframes shake{25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-5px)}}@keyframes pop{0%{transform:translate(0,0) scale(.4);opacity:0}15%{opacity:1}100%{transform:translate(var(--x),var(--y)) rotate(540deg);opacity:0}}@keyframes heartUp{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@media(max-width:720px){.hero-grid{grid-template-columns:1fr;gap:0}.hero-grid .teddy{transform:scale(.78);margin-top:-8px;margin-bottom:-20px}.card{min-height:620px;padding:28px 20px 70px}.polaroids{gap:9px}.photo{height:145px}.reasons{grid-template-columns:1fr 1fr}.reason{min-height:135px;padding:15px}.reason h3{font-size:17px}.reason p{font-size:11px}.letter-card{padding:30px 22px}.letter-card p{font-size:12px}.topbar{top:10px}.brand{font-size:12px}}
+@media(max-width:470px){.reasons{grid-template-columns:1fr}.reasons .reason{min-height:105px}.polaroids{grid-template-columns:1fr 1fr}.polaroid:nth-child(3){display:none}.photo{height:170px}.passrow{flex-direction:column}.envelope-wrap{height:245px}.cake{transform:scale(.82);margin:-5px auto}.card{min-height:650px}.nav{bottom:16px}}
+</style>
+</head>
+<body>
+<div class="scene">
+ <div class="blob b1"></div><div class="blob b2"></div>
+ <div class="unlock-screen" id="lock">
+  <div class="lock-card" id="lockCard">
+   <div class="flower" style="left:22px;top:18px">🌸</div><div class="flower" style="right:22px;top:28px;animation-delay:-1s">🌷</div>
+   <div class="kicker">a tiny secret place</div>
+   <h1>Made only<br><span class="script">for Ayu</span> ♡</h1>
+   <p>There is a little birthday story waiting inside.<br>Only one person knows the key.</p>
+   <div class="passrow"><input id="pass" type="tel" inputmode="numeric" maxlength="6" placeholder="••••••" autocomplete="off"><button class="btn" id="unlock">Open ♡</button></div>
+   <div class="error" id="error"></div>
+  </div>
+ </div>
+
+ <div class="topbar">
+  <div class="brand">A little world for Ayu ♡</div>
+  <div class="progress" id="progress"></div>
+ </div>
+
+ <main class="pages" id="pages">
+  <section class="page active" data-page="0">
+   <div class="card center">
+    <span class="corner c1">🌸</span><span class="corner c2">🎀</span><span class="corner c3">♡</span><span class="corner c4">✦</span>
+    <div class="envelope-wrap">
+      <div class="envelope" id="envelope">
+       <div class="letter-sheet"><div class="greeting">For my Rasmalai 🌷</div><p class="small">A very tiny letter before the actual story begins…</p><div class="mini-heart">♡ ♡ ♡</div></div>
+       <div class="flap"></div><div class="seal">♡</div>
+      </div>
+    </div>
+    <div class="kicker">open the little envelope</div>
+    <h2>For my <span class="script">Ayu</span></h2>
+    <p class="small">Tap below. I made this little corner of the internet just for you.</p>
+    <button class="btn" id="openEnvelope">Open my letter ✉️</button>
+   </div>
+  </section>
+
+  <section class="page" data-page="1">
+   <div class="card center">
+    <div class="balloons"><span class="balloon ba1">🎈</span><span class="balloon ba2">🎈</span><span class="balloon ba3">🎀</span><span class="balloon ba4">💗</span></div>
+    <div class="hero-grid">
+      <div>
+       <div class="teddy"><div class="ear e1"></div><div class="ear e2"></div><div class="head"></div><div class="body"></div><div class="muzzle"></div><div class="eye x1"></div><div class="eye x2"></div><div class="nose"></div><div class="heart">♥</div></div>
+       <div class="kicker">02 October · my favourite day</div>
+       <h1>Happy Birthday,<br><span class="script">Ayu ♡</span></h1>
+       <p>Today the whole little universe is allowed to celebrate you.</p>
+      </div>
+      <div>
+       <div class="cake" id="heroCake"><div class="plate"></div><div class="base"></div><div class="icing"></div><div class="drip"></div><div class="candle ca1"></div><div class="candle ca2"></div><div class="candle ca3"></div><div class="flame fa1"></div><div class="flame fa2"></div><div class="flame fa3"></div></div>
+       <p class="small">Three candles for the wishes you haven't told me yet. 🕯️</p>
+      </div>
+    </div>
+    <button class="btn next" data-next>Our story →</button>
+   </div>
+  </section>
+
+  <section class="page" data-page="2">
+   <div class="card center">
+    <span class="corner c1">☁️</span><span class="corner c2">🌼</span>
+    <div class="kicker">since 07 November 2021</div>
+    <h2>Look how long<br>we've been <span class="script">us.</span></h2>
+    <div class="reasons" style="grid-template-columns:repeat(3,1fr);max-width:720px;width:100%;margin-top:15px">
+      <div class="reason"><b id="yrs">0</b><h3>Years</h3><p>of us</p></div>
+      <div class="reason"><b id="days">0</b><h3>Days</h3><p>of choosing each other</p></div>
+      <div class="reason"><b id="secs">0</b><h3>Seconds</h3><p>and counting ♡</p></div>
+    </div>
+    <p class="small" id="bdayCount"></p>
+    <button class="btn next" data-next>Little reasons →</button>
+   </div>
+  </section>
+
+  <section class="page" data-page="3">
+   <div class="card">
+    <div class="kicker">a few, out of a million</div>
+    <h2>Reasons I love<br><span class="script">my Ayu.</span></h2>
+    <div class="reasons">
+      <div class="reason"><b>🌷</b><h3>Your smile</h3><p>One tiny smile from you can completely change an ordinary day.</p></div>
+      <div class="reason"><b>🎀</b><h3>Your little things</h3><p>The habits, expressions and tiny details that are just… you.</p></div>
+      <div class="reason"><b>🧸</b><h3>You feel like home</h3><p>Even quiet feels comfortable when it is shared with you.</p></div>
+      <div class="reason"><b>🌙</b><h3>Your chaos</h3><p>The drama, the teasing, the random nonsense — all of it belongs here.</p></div>
+      <div class="reason"><b>💌</b><h3>Your heart</h3><p>The way you care and love people says more than any words can.</p></div>
+      <div class="reason"><b>♾️</b><h3>Simply you</h3><p>No complicated reason. You're Ayu. That's enough.</p></div>
+    </div>
+    <div class="nav"><button class="btn next" data-next>Our memories →</button></div>
+   </div>
+  </section>
+
+  <section class="page" data-page="4">
+   <div class="card">
+    <div class="kicker">our little photo shelf</div>
+    <h2>Put our favourite<br><span class="script">moments here.</span></h2>
+    <p class="small">I left these frames ready for the pictures that belong to us.</p>
+    <div class="polaroids">
+      <div class="polaroid"><div class="photo">🌸<br><span style="font-size:14px">first favourite memory</span></div><div class="caption">“that day ♡”</div></div>
+      <div class="polaroid"><div class="photo">🫶<br><span style="font-size:14px">the silly one</span></div><div class="caption">“us being us”</div></div>
+      <div class="polaroid"><div class="photo">💗<br><span style="font-size:14px">my forever favourite</span></div><div class="caption">“I love this one”</div></div>
+    </div>
+    <div class="nav"><button class="btn next" data-next>Read this →</button></div>
+   </div>
+  </section>
+
+  <section class="page" data-page="5">
+   <div class="card">
+    <div class="kicker">from me to you</div>
+    <h2 style="text-align:center">A letter I hope<br>you <span class="script">keep.</span></h2>
+    <div class="letter-card">
+      <p>My Jaan, meri Duniya, meri pyaari Biwi,</p>
+      <p>Happy Birthday to the girl who somehow became my favourite part of ordinary days. You are my Rasmalai — sweet, irreplaceable, and permanently responsible for a very large part of my smile.</p>
+      <p>Since 7 November 2021, we've collected tiny moments that mean more to me than grand sentences ever could. I don't only want the big memories. I want the silly conversations, the random jokes, the quiet moments, the arguments we survived, and all the normal days that became special because you were there.</p>
+      <p>I hope this year gives you soft mornings, loud laughs, dreams that come true, and a thousand reasons to look around and think, “haan, life achhi hai.”</p>
+      <p>And wherever life takes us, please remember one thing:</p>
+      <p style="text-align:center;font-family:Georgia,serif;font-size:20px;color:#b45f73">you are ridiculously, endlessly loved. ♡</p>
+      <div class="signature">— Yours, always</div>
+    </div>
+    <div class="nav"><button class="btn next" data-next>Birthday wish →</button></div>
+   </div>
+  </section>
+
+  <section class="page" data-page="6">
+   <div class="card center">
+    <div class="kicker">make a wish, birthday girl</div>
+    <h2>Your cake is<br><span class="script">waiting. 🎂</span></h2>
+    <div class="cake" id="cake"><div class="plate"></div><div class="base"></div><div class="icing"></div><div class="drip"></div><div class="candle ca1"></div><div class="candle ca2"></div><div class="candle ca3"></div><div class="flame fa1"></div><div class="flame fa2"></div><div class="flame fa3"></div></div>
+    <p class="small" id="wish">Close your eyes. Make one secret wish. Then blow the candles. 🕯️</p>
+    <button class="btn" id="blow">Blow the candles ✨</button>
+   </div>
+  </section>
+
+  <section class="page" data-page="7">
+   <div class="card center">
+    <span class="sparkle" style="left:18%;top:22%">✦</span><span class="sparkle" style="right:18%;top:30%;animation-delay:-.5s">✧</span><span class="sparkle" style="left:28%;bottom:28%;animation-delay:-.9s">♡</span><span class="sparkle" style="right:27%;bottom:23%;animation-delay:-1.2s">✦</span>
+    <div class="final-gift"><div class="bow">🎀</div><div class="giftbox"></div><div class="giftlid"></div><div class="ribbon-v"></div></div>
+    <div class="kicker">one last thing</div>
+    <h1>I love you,<br><span class="script">Ayu. ♡</span></h1>
+    <p>Happy Birthday, meri Rasmalai.<br>Here's to every chapter we haven't lived yet.</p>
+    <button class="btn" id="finalBtn">Open the last surprise 💌</button>
+   </div>
+  </section>
+ </main>
+</div>
+
 <script>
-const P='020715',gate=document.getElementById('gate'),gateCard=document.getElementById('gateCard'),pass=document.getElementById('pass'),err=document.getElementById('err');
-function openSite(){gate.classList.add('hide');burst(55);setTimeout(()=>gate.remove(),1100)}
-function unlock(){if(pass.value===P)openSite();else{err.textContent='Not quite, my love. Try the secret you know. ❤️';gateCard.classList.remove('shake');void gateCard.offsetWidth;gateCard.classList.add('shake');pass.select()}}
-document.getElementById('unlock').onclick=unlock;
-pass.addEventListener('input',()=>{pass.value=pass.value.replace(/\D/g,'').slice(0,6)});
-pass.onkeydown=e=>{if(e.key==='Enter')unlock()};setTimeout(()=>pass.focus(),300);
+const PASSWORD='020715';
+const lock=document.getElementById('lock'),lockCard=document.getElementById('lockCard'),pass=document.getElementById('pass'),error=document.getElementById('error');
+const pages=[...document.querySelectorAll('.page')], progress=document.getElementById('progress');let current=0;
+progress.innerHTML=pages.map((_,i)=>'<span class="dot '+(i===0?'on':'')+'"></span>').join('');
+function updateProgress(){[...progress.children].forEach((d,i)=>d.classList.toggle('on',i===current))}
+function showPage(n){current=Math.max(0,Math.min(pages.length-1,n));pages.forEach((p,i)=>p.classList.toggle('active',i===current));updateProgress()}
+function burst(n=35){for(let i=0;i<n;i++){const e=document.createElement('span');e.className='burst';e.textContent=['♡','✦','🌸','🎀','♥'][i%5];e.style.left='50%';e.style.top='50%';e.style.setProperty('--x',(Math.random()*760-380)+'px');e.style.setProperty('--y',(Math.random()*620-310)+'px');e.style.animationDelay=(Math.random()*.25)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),1500)}}
+function hearts(){const e=document.createElement('span');e.className='float-heart';e.textContent=['♡','♥','✦','🌸'][Math.floor(Math.random()*4)];e.style.left=Math.random()*100+'vw';e.style.fontSize=(13+Math.random()*16)+'px';e.style.animationDuration=(4.5+Math.random()*3)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),8000)}
+setInterval(hearts,900);
+function unlock(){if(pass.value===PASSWORD){lock.classList.add('hide');burst(55);setTimeout(()=>lock.remove(),900)}else{error.textContent='That little secret is not quite right ♡';lockCard.classList.remove('shake');void lockCard.offsetWidth;lockCard.classList.add('shake');pass.select()}}
+document.getElementById('unlock').onclick=unlock;pass.onkeydown=e=>{if(e.key==='Enter')unlock()};pass.oninput=()=>pass.value=pass.value.replace(/\D/g,'').slice(0,6);setTimeout(()=>pass.focus(),400);
+document.getElementById('openEnvelope').onclick=()=>{const env=document.getElementById('envelope');env.classList.add('open');burst(30);setTimeout(()=>showPage(1),850)};
+document.querySelectorAll('[data-next]').forEach(b=>b.onclick=()=>showPage(current+1));
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')showPage(current+1);if(e.key==='ArrowLeft')showPage(current-1)});
+let touchX=null;document.addEventListener('touchstart',e=>touchX=e.changedTouches[0].clientX,{passive:true});document.addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>55)showPage(current+(dx<0?1:-1));touchX=null},{passive:true});
 const start=new Date('2021-11-07T00:00:00');
-function diff(a,b){let Y=b.getFullYear()-a.getFullYear(),M=b.getMonth()-a.getMonth(),D=b.getDate()-a.getDate();if(D<0){M--;D+=new Date(b.getFullYear(),b.getMonth(),0).getDate()}if(M<0){Y--;M+=12}let z=new Date(a);z.setFullYear(a.getFullYear()+Y);z.setMonth(a.getMonth()+M);let ms=b-z;return[Y,M,D,Math.floor(ms/36e5)%24,Math.floor(ms/6e4)%60,Math.floor(ms/1e3)%60]}
-function tick(){let v=diff(start,new Date()),ids=['y','mo','d','h','mi','se'];ids.forEach((id,i)=>document.getElementById(id).textContent=String(v[i]).padStart(2,'0'));let n=new Date(),x=new Date(n.getFullYear(),9,2);if(x<=n)x.setFullYear(n.getFullYear()+1);let days=Math.ceil((x-n)/864e5);document.getElementById('note').textContent=`Next birthday countdown: ${days} day${days===1?'':'s'} to 02 October.`}
-tick();setInterval(tick,1000);
-function burst(n){for(let i=0;i<n;i++){let e=document.createElement('i');e.className='conf';e.style.left='50%';e.style.top='50%';e.style.background=['#ff579b','#9270ff','#fff','#ffbfdb','#ffd66b'][i%5];e.style.setProperty('--x',Math.random()*1000-500+'px');e.style.setProperty('--y',Math.random()*900-450+'px');document.body.append(e);setTimeout(()=>e.remove(),1900)}}
-setInterval(()=>{let e=document.createElement('span');e.className='heart';e.textContent=['❤','♥','♡','✦','🎀'][Math.floor(Math.random()*5)];e.style.left=Math.random()*100+'vw';e.style.fontSize=12+Math.random()*22+'px';document.body.append(e);setTimeout(()=>e.remove(),8000)},850);
-function balloons(n){for(let i=0;i<n;i++){let e=document.createElement('span');e.className='balloon';e.textContent=['🎈','💗','🎀','✨'][i%4];e.style.left=Math.random()*100+'vw';e.style.setProperty('--drift',(Math.random()*180-90)+'px');e.style.animationDelay=(Math.random()*1.8)+'s';document.body.append(e);setTimeout(()=>e.remove(),10500)}}
-const cake=document.getElementById('cake'),wish=document.getElementById('wish');document.getElementById('blow').onclick=()=>{if(!cake.classList.contains('blown')){cake.classList.add('blown');wish.textContent='Wish made. ❤️ May this year be ridiculously kind to you.';burst(80);balloons(18);document.getElementById('blow').textContent='Wish sent into the universe ✨'}};
-const r=document.getElementById('reveal');document.getElementById('surprise').onclick=()=>{r.classList.add('show');burst(110);balloons(22)};document.getElementById('close').onclick=()=>r.classList.remove('show');
-</script></body></html>
+function tick(){const now=new Date(),ms=now-start;document.getElementById('secs').textContent=Math.floor(ms/1000).toLocaleString('en-IN');const years=now.getFullYear()-start.getFullYear()-((now.getMonth()<start.getMonth()||now.getMonth()===start.getMonth()&&now.getDate()<start.getDate())?1:0);document.getElementById('yrs').textContent=years;document.getElementById('days').textContent=Math.floor(ms/86400000).toLocaleString('en-IN');let b=new Date(now.getFullYear(),9,2);if(b<=now)b.setFullYear(now.getFullYear()+1);document.getElementById('bdayCount').textContent='Next birthday: '+Math.ceil((b-now)/86400000)+' days to 02 October ♡'}tick();setInterval(tick,1000);
+const cake=document.getElementById('cake'),wish=document.getElementById('wish'),blow=document.getElementById('blow');
+blow.onclick=()=>{cake.classList.add('blown');wish.textContent='Wish made. ♡ May this year be ridiculously kind to you.';blow.textContent='Wish sent ✨';burst(90)};
+document.getElementById('finalBtn').onclick=()=>{burst(130);for(let i=0;i<18;i++){setTimeout(()=>hearts(),i*70)}document.getElementById('finalBtn').textContent='I love you too much ♡'};
+</script>
+</body>
+</html>
