@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f7d9df">
-<meta name="birthday-build" content="ayu-storybook-2026-09-25-haptic-v5">
+<meta name="birthday-build" content="ayu-storybook-2026-09-25-restart-v6">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <title>For Ayu ♡</title>
 <style>
@@ -166,7 +166,7 @@ body.locked .page{visibility:hidden}
       <h2 class="title" id="finalTitle">Happy Birthday,<br>Ayu.</h2>
       <p class="sub">Meri Rasmalai. Meri Jaan. Meri Duniya. Thank you for being meri favourite chapter. I love you, always. ❤️</p>
       <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-      <div class="footer"><button class="btn primary" id="celebrate">celebrate ✨</button><button class="btn soft" id="restart" type="button" onclick="(function(){document.querySelectorAll('.scene').forEach(function(s,i){s.classList.toggle('active',i===0)});var b=document.getElementById('bar');if(b)b.style.width=(100/document.querySelectorAll('.scene').length)+'%';var f=document.querySelector('.scene.final');if(f)f.classList.remove('final-gift-open','gift-open');var g=document.getElementById('openGift');if(g)g.classList.remove('open');window.scrollTo(0,0)})()">start again</button></div>
+      <div class="footer"><button class="btn primary" id="celebrate">celebrate ✨</button><button class="btn soft" id="restart" type="button" onclick="window.__restartAyu && window.__restartAyu()">start again</button></div>
     </article>
   </section>
 </main>
