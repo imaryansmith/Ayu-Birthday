@@ -93,7 +93,7 @@ h2{font-size:27px;line-height:1.05;margin:0 0 10px}
         <div class="kicker">a tiny surprise</div>
         <h1>Hey, Ayu.<br>this is for you ♡</h1>
         <p class="copy">Don't just read it. Tap through it. I hid little pieces of us inside.</p>
-        <button class="heart-button" data-next aria-label="Start the birthday story">♡</button>
+        <button class="heart-button" data-next type="button" onclick="window.__ayuNext && window.__ayuNext()" aria-label="Start the birthday story">♡</button>
         <div class="small-note">tap the heart</div>
       </article>
 
@@ -103,7 +103,7 @@ h2{font-size:27px;line-height:1.05;margin:0 0 10px}
           <div class="photo p1"><div class="photo-art">🥹</div><div class="photo-label">that smile</div></div>
           <div class="caption"><strong>That face.</strong><em>The one that can fix my entire day without even trying.</em></div>
         </div>
-        <button class="tap" data-next>show me the next one →</button>
+        <button class="tap" type="button" data-next onclick="window.__ayuNext && window.__ayuNext()">show me the next one →</button>
       </article>
 
       <article class="scene" data-step="2">
@@ -112,7 +112,7 @@ h2{font-size:27px;line-height:1.05;margin:0 0 10px}
           <div class="photo p2"><div class="photo-art">🫶</div><div class="photo-label">our kind of magic</div></div>
           <div class="caption"><strong>Somehow, it's always you.</strong><em>Out of everyone in this world, I got my favourite person.</em></div>
         </div>
-        <button class="tap" data-next>one more ♡</button>
+        <button class="tap" type="button" data-next onclick="window.__ayuNext && window.__ayuNext()">one more ♡</button>
       </article>
 
       <article class="scene" data-step="3">
@@ -121,7 +121,7 @@ h2{font-size:27px;line-height:1.05;margin:0 0 10px}
           <div class="photo p3"><div class="photo-art">🌷</div><div class="photo-label">little things</div></div>
           <div class="caption"><strong>I notice the little things.</strong><em>Your expressions, your tiny habits, the way you say things.</em></div>
         </div>
-        <button class="tap" data-next>keep going →</button>
+        <button class="tap" type="button" data-next onclick="window.__ayuNext && window.__ayuNext()">keep going →</button>
       </article>
 
       <article class="scene" data-step="4">
@@ -130,7 +130,7 @@ h2{font-size:27px;line-height:1.05;margin:0 0 10px}
           <div class="photo p4"><div class="photo-art">💌</div><div class="photo-label">from your Rakshas</div></div>
           <div class="caption"><strong>One honest confession.</strong><em>I still get stupidly happy when I see your name pop up.</em></div>
         </div>
-        <button class="tap" data-next>okay, next ♡</button>
+        <button class="tap" type="button" data-next onclick="window.__ayuNext && window.__ayuNext()">okay, next ♡</button>
       </article>
 
       <article class="scene" data-step="5">
@@ -139,7 +139,7 @@ h2{font-size:27px;line-height:1.05;margin:0 0 10px}
           <div class="photo p5"><div class="photo-art">🍰</div><div class="photo-label">Rasmalai alert</div></div>
           <div class="caption"><strong>Too cute. Illegal.</strong><em>And yes, you're still my Rasmalai. No appeals accepted.</em></div>
         </div>
-        <button class="tap" data-next>there's more →</button>
+        <button class="tap" type="button" data-next onclick="window.__ayuNext && window.__ayuNext()">there's more →</button>
       </article>
 
       <article class="scene" data-step="6">
@@ -147,9 +147,9 @@ h2{font-size:27px;line-height:1.05;margin:0 0 10px}
         <h2>Which one sounds<br>most like us?</h2>
         <p class="copy">Pick one. There is no wrong answer.</p>
         <div class="choices">
-          <button class="choice" data-choice="laugh"><span>option 01</span>laughing at absolutely nothing</button>
-          <button class="choice" data-choice="annoy"><span>option 02</span>annoying each other lovingly</button>
-          <button class="choice" data-choice="home"><span>option 03</span>feeling like home, somehow</button>
+          <button type="button" class="choice" data-choice="laugh"><span>option 01</span>laughing at absolutely nothing</button>
+          <button type="button" class="choice" data-choice="annoy"><span>option 02</span>annoying each other lovingly</button>
+          <button type="button" class="choice" data-choice="home"><span>option 03</span>feeling like home, somehow</button>
         </div>
       </article>
 
@@ -209,12 +209,19 @@ h2{font-size:27px;line-height:1.05;margin:0 0 10px}
   function next(){
     if(step<scenes.length-1){step++;render();if(step===7)burst();}
   }
-  root.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',next));
-  root.querySelectorAll('[data-choice]').forEach(b=>b.addEventListener('click',()=>{
-    const replies={laugh:'Exactly. That is painfully us. 😂',annoy:'I knew you'd pick that. 😭❤️',home:'That one was the answer I wanted. 🥹'};
-    showToast(replies[b.dataset.choice]);
-    setTimeout(next,650);
-  }));
+  // Expose navigation globally as a touch/click fallback for mobile browsers.
+  window.__ayuNext=next;
+  root.addEventListener('click',function(e){
+    const nextButton=e.target.closest('[data-next]');
+    if(nextButton){e.preventDefault();next();return;}
+    const choice=e.target.closest('[data-choice]');
+    if(choice){
+      e.preventDefault();
+      const replies={laugh:'Exactly. That is painfully us. 😂',annoy:'I knew you\'d pick that. 😭❤️',home:'That one was the answer I wanted. 🥹'};
+      showToast(replies[choice.dataset.choice]);
+      setTimeout(next,650);
+    }
+  },{passive:false});
   document.getElementById('again').addEventListener('click',()=>{step=0;render();});
   render();
 })();
