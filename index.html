@@ -72,7 +72,26 @@ p{line-height:1.75;color:var(--muted);max-width:620px}.tiny{font-size:11px;color
 @media(max-width:720px){.stage{height:min(700px,84vh)}.paper{padding:26px 20px 66px}.room{grid-template-columns:1fr;gap:0}.room-copy{text-align:center;padding:0}.teddy{transform:scale(.7);margin:-5px auto -30px}.birthday-cake{transform:scale(.76);margin:-8px auto -18px}.counters{gap:0}.counter{padding:20px 6px}.counter b{font-size:29px}.reason-cloud{grid-template-columns:1fr 1fr;gap:8px}.reason{min-height:115px;padding:14px}.reason h3{font-size:18px}.reason p{font-size:10px}.photo-card{width:275px;height:330px}.photo-card .pic{height:245px}.letter{padding:30px 22px}.letter p{font-size:12px}.top{top:10px;left:18px;right:18px}}
 @media(max-width:470px){h1{font-size:49px}h2{font-size:40px}.pass{flex-direction:column}.reason-cloud{grid-template-columns:1fr}.reason{min-height:95px}.photo-stack{height:370px}.photo-card{width:255px;height:315px}.photo-card .pic{height:225px}.birthday-cake{transform:scale(.66);margin:-25px auto -35px}.stage{height:min(680px,86vh)}}
 
-.bubble-game{position:relative;height:210px;background:linear-gradient(180deg,#fffaf7,#f1e4ee);border:1px solid #dfc4cf;overflow:hidden;cursor:pointer}.bubble{position:absolute;width:42px;height:42px;border-radius:50%;border:1px solid #c98ea0;background:rgba(255,255,255,.72);box-shadow:inset 8px 7px 0 rgba(255,255,255,.7),0 5px 12px rgba(120,70,90,.12);cursor:pointer;animation:bob 1.4s ease-in-out infinite alternate}.bubble:after{content:"♡";position:absolute;inset:0;display:grid;place-items:center;color:#b65d75;font-size:17px}.bubble.pop{animation:popBubble .22s ease forwards}.bubble-game .bubble:nth-child(3n){width:30px;height:30px}.bubble-game .bubble:nth-child(4n){width:52px;height:52px}@keyframes bob{from{transform:translateY(4px)}to{transform:translateY(-8px)}}@keyframes popBubble{to{transform:scale(1.7);opacity:0}}</style>
+.bubble-game{position:relative;height:210px;background:linear-gradient(180deg,#fffaf7,#f1e4ee);border:1px solid #dfc4cf;overflow:hidden;cursor:pointer}.bubble{position:absolute;width:42px;height:42px;border-radius:50%;border:1px solid #c98ea0;background:rgba(255,255,255,.72);box-shadow:inset 8px 7px 0 rgba(255,255,255,.7),0 5px 12px rgba(120,70,90,.12);cursor:pointer;animation:bob 1.4s ease-in-out infinite alternate}.bubble:after{content:"♡";position:absolute;inset:0;display:grid;place-items:center;color:#b65d75;font-size:17px}.bubble.pop{animation:popBubble .22s ease forwards}.bubble-game .bubble:nth-child(3n){width:30px;height:30px}.bubble-game .bubble:nth-child(4n){width:52px;height:52px}@keyframes bob{from{transform:translateY(4px)}to{transform:translateY(-8px)}}@keyframes popBubble{to{transform:scale(1.7);opacity:0}}
+/* Balloon memory room */
+.balloon-world{position:relative;min-height:610px;padding:30px 22px 24px;overflow:hidden;background:radial-gradient(circle at 50% 10%,#fff9f5 0,#f8e9e8 46%,#f1d7dc 100%);border-radius:30px}
+.balloon-world:before,.balloon-world:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.5;pointer-events:none}
+.balloon-world:before{width:180px;height:180px;background:#fff;top:-80px;right:-55px}
+.balloon-world:after{width:150px;height:150px;background:#e9bac6;bottom:-70px;left:-45px}
+.balloon-top{text-align:center;position:relative;z-index:2}.balloon-top h2{margin:8px 0 4px}.balloon-sub{margin:0 auto 10px;color:#866c73;font-size:14px}.balloon-progress{display:inline-block;padding:7px 13px;border:1px solid rgba(145,91,105,.16);border-radius:999px;background:rgba(255,255,255,.58);font-size:11px;color:#8c6670}
+.balloon-board{position:relative;height:300px;max-width:520px;margin:6px auto 0}
+.memory-balloon{position:absolute;width:76px;height:94px;border:0;border-radius:50% 50% 47% 47%;cursor:pointer;box-shadow:0 12px 24px rgba(107,55,72,.16),inset -9px -10px 18px rgba(122,52,75,.12),inset 8px 8px 12px rgba(255,255,255,.42);transition:transform .22s,opacity .25s,filter .25s;z-index:2;color:#fff;font-size:23px;background:linear-gradient(145deg,#f4a6b8,#bd667f)}
+.memory-balloon:after{content:"";position:absolute;bottom:-10px;left:50%;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:11px solid #bd667f;transform:translateX(-50%)}
+.memory-balloon i{position:absolute;width:1px;height:54px;background:rgba(94,60,67,.28);left:50%;top:93px}.memory-balloon span{position:relative;z-index:1;text-shadow:0 2px 4px rgba(80,30,45,.15)}
+.memory-balloon:hover{transform:translateY(-7px) rotate(2deg)}.memory-balloon.popped{opacity:0;transform:scale(.15) translateY(-35px) rotate(20deg);pointer-events:none}
+.b1{left:7%;top:28px;background:linear-gradient(145deg,#f2a7bb,#c66d87)}.b2{left:29%;top:5px;background:linear-gradient(145deg,#d7a4df,#9d6eae)}.b3{left:54%;top:28px;background:linear-gradient(145deg,#f5c1a7,#d88b7a)}.b4{right:6%;top:5px;background:linear-gradient(145deg,#f18fa5,#b94e70)}.b5{left:17%;top:153px;background:linear-gradient(145deg,#e7b1c9,#aa6d9b)}.b6{left:42%;top:132px;background:linear-gradient(145deg,#f4b4c8,#ca718e)}.b7{right:17%;top:153px;background:linear-gradient(145deg,#d6a8c9,#8e719f)}.b8{left:68%;top:118px;background:linear-gradient(145deg,#f5c0a2,#cc8270)}
+.memory-reveal{position:relative;z-index:3;max-width:570px;margin:-5px auto 0;display:flex;gap:14px;align-items:center;padding:13px;border:1px solid rgba(127,73,91,.13);border-radius:22px;background:rgba(255,255,255,.72);backdrop-filter:blur(12px);box-shadow:0 14px 34px rgba(91,48,65,.11)}
+.reveal-photo{width:105px;height:118px;flex:0 0 105px;border-radius:16px;background:linear-gradient(145deg,#f7d8dc,#d98fa4);display:grid;place-items:center;font-size:44px;box-shadow:inset 0 0 0 5px rgba(255,255,255,.35);overflow:hidden;position:relative}
+.reveal-photo:before{content:"";position:absolute;width:85px;height:18px;border-radius:50%;background:rgba(255,255,255,.22);top:16px;left:8px;transform:rotate(-14deg)}
+.reveal-copy h3{margin:2px 0 3px;color:#693c4b;font-family:"Cormorant Garamond",serif;font-size:25px}.reveal-copy p{margin:0;color:#806b71;font-size:13px;line-height:1.55}.reveal-copy .eyebrow{margin:0;color:#ae6176}
+.all-open{display:none;text-align:center;margin:13px auto 0;color:#7a4052;font-family:"Cormorant Garamond",serif;font-size:22px}.all-open.show{display:block}.all-open span{color:#c46d84}.all-open small{display:block;font:11px "DM Sans",sans-serif;color:#92757c;margin-top:3px}
+@media(max-width:520px){.balloon-world{padding:24px 12px 18px}.balloon-board{height:270px}.memory-balloon{width:62px;height:78px;font-size:18px}.memory-balloon i{height:48px;top:77px}.b1{left:3%}.b2{left:28%}.b3{left:53%}.b4{right:3%}.b5{left:11%;top:146px}.b6{left:37%;top:124px}.b7{right:11%;top:146px}.b8{left:63%;top:110px}.memory-reveal{align-items:flex-start}.reveal-photo{width:82px;height:98px;flex-basis:82px;font-size:34px}.reveal-copy h3{font-size:21px}}
+</style>
 </head>
 <body>
 <div id="app">
@@ -87,8 +106,32 @@ p{line-height:1.75;color:var(--muted);max-width:620px}.tiny{font-size:11px;color
 
 <section class="scene" data-scene="3"><div class="stage"><div class="paper"><div class="eyebrow">a few reasons from a million</div><h2>Why I love<br><span class="script">my Ayu.</span></h2><div class="reason-cloud"><div class="reason"><div class="icon">🌷</div><h3>Your smile</h3><p>One tiny smile from you can rescue an ordinary day.</p></div><div class="reason"><div class="icon">🎀</div><h3>Your little things</h3><p>The habits, expressions and details that are completely yours.</p></div><div class="reason"><div class="icon">🧸</div><h3>You feel like home</h3><p>Even silence feels comfortable when it is shared with you.</p></div><div class="reason"><div class="icon">🌙</div><h3>Your chaos</h3><p>The drama, teasing and random nonsense — all part of the magic.</p></div><div class="reason"><div class="icon">💌</div><h3>Your heart</h3><p>The way you care says more than any grand sentence.</p></div><div class="reason"><div class="icon">♾️</div><h3>Simply you</h3><p>No complicated reason. You're Ayu. That's enough.</p></div></div><div class="hint" style="text-align:center">tap the cards ♡</div><div class="nav"><button class="btn next">Our memories →</button></div></div></div></section>
 
-<section class="scene" data-scene="4"><div class="stage"><div class="paper center"><div class="eyebrow">just for fun · made by your Rakshas</div><h2>A little<br><span class="script">play time.</span> 🎮</h2><div class="game-wrap"><div class="game-head"><div><h3>Catch my hearts ♡</h3><div class="tiny">Tap 10 falling hearts before they disappear.</div></div><div class="score" id="heartScore">0 / 10</div></div><div class="heart-game" id="heartGame"></div><div class="game-result" id="heartResult"></div><button class="game-btn" id="startHeart">Start game ♡</button></div><div class="game-wrap" style="margin-top:16px"><div class="game-head"><div><h3>Find the kisses 💋</h3><div class="tiny">Find the two matching pairs.</div></div></div><div class="kiss-game" id="kissGame"></div><div class="game-result" id="kissResult"></div><button class="game-btn" id="resetKiss">Shuffle cards ✨</button></div>
-<div class="game-wrap extra-game" style="margin-top:16px"><div class="game-head"><div><h3>Pop the bubbles 🫧</h3><div class="tiny">Pop 12 bubbles before the timer runs out.</div></div><div class="score" id="bubbleScore">0 / 12</div></div><div class="bubble-game" id="bubbleGame"></div><div class="game-result" id="bubbleResult"></div><button class="game-btn" id="startBubble">Start bubbles ♡</button></div><div class="nav"><button class="btn next">Our memories →</button></div></div></div></section>
+<section class="scene" data-scene="4">
+<div class="balloon-world">
+  <div class="balloon-top">
+    <div class="eyebrow">a little surprise from your Manguman</div>
+    <h2>Pop a balloon,<br><span class="script">unlock a memory. ♡</span></h2>
+    <p class="balloon-sub">Har balloon ke andar tumhare liye ek chhoti si baat hai.</p>
+    <div class="balloon-progress"><span id="balloonCount">0</span> / 8 memories opened</div>
+  </div>
+  <div class="balloon-board" id="balloonBoard">
+    <button class="memory-balloon b1" data-memory="0" aria-label="Pop balloon 1"><span>♡</span><i></i></button>
+    <button class="memory-balloon b2" data-memory="1" aria-label="Pop balloon 2"><span>✦</span><i></i></button>
+    <button class="memory-balloon b3" data-memory="2" aria-label="Pop balloon 3"><span>🌸</span><i></i></button>
+    <button class="memory-balloon b4" data-memory="3" aria-label="Pop balloon 4"><span>♥</span><i></i></button>
+    <button class="memory-balloon b5" data-memory="4" aria-label="Pop balloon 5"><span>🎀</span><i></i></button>
+    <button class="memory-balloon b6" data-memory="5" aria-label="Pop balloon 6"><span>✨</span><i></i></button>
+    <button class="memory-balloon b7" data-memory="6" aria-label="Pop balloon 7"><span>💗</span><i></i></button>
+    <button class="memory-balloon b8" data-memory="7" aria-label="Pop balloon 8"><span>∞</span><i></i></button>
+  </div>
+  <div class="memory-reveal" id="memoryReveal" aria-live="polite">
+    <div class="reveal-photo" id="revealPhoto"><span id="revealEmoji">♡</span></div>
+    <div class="reveal-copy"><div class="eyebrow" id="revealTag">waiting for you</div><h3 id="revealTitle">Pop any balloon.</h3><p id="revealText">Maybe the next one is hiding your favourite little memory.</p></div>
+  </div>
+  <div class="all-open" id="allOpen">You found every little piece. <span>♡</span><small>ab ab ek last surprise bacha hai…</small></div>
+  <div class="nav"><button class="btn next">Our memories →</button></div>
+</div>
+</section>
 
 <section class="scene" data-scene="5"><div class="stage"><div class="paper center"><div class="eyebrow">memory no. 1 · 2 · 3 · forever</div><h2>A tiny shelf<br>of <span class="script">us.</span></h2><div class="memory-stage"><div class="photo-stack" id="photoStack"><div class="photo-card top"><div class="pic">🌸<br><small>first favourite memory</small></div><div class="cap">“that day ♡”</div></div><div class="photo-card"><div class="pic">🫶<br><small>the silly one</small></div><div class="cap">“us being us”</div></div><div class="photo-card"><div class="pic">💗<br><small>the forever favourite</small></div><div class="cap">“I love this one”</div></div></div></div><div class="hint">swipe the top photo →</div><div class="nav"><button class="btn next">A letter for you →</button></div></div></div></section>
 
@@ -178,6 +221,39 @@ document.getElementById("resetKiss").onclick=setupKiss; setupKiss();
 
 let bubbleTimer=null,bubbleScore=0,bubbleRunning=false;
 function startBubbleGame(){const box=document.getElementById("bubbleGame"),score=document.getElementById("bubbleScore"),result=document.getElementById("bubbleResult"),btn=document.getElementById("startBubble");clearInterval(bubbleTimer);bubbleRunning=true;bubbleScore=0;score.textContent="0 / 12";result.textContent="Pop pop pop! 🫧";btn.textContent="Restart bubbles ↻";box.innerHTML="";let end=Date.now()+15000;function spawn(){if(!bubbleRunning)return;const b=document.createElement("button");b.type="button";b.className="bubble";b.style.left=(3+Math.random()*91)+"%";b.style.top=(8+Math.random()*78)+"%";b.onclick=()=>{if(!bubbleRunning)return;b.classList.add("pop");bubbleScore++;score.textContent=bubbleScore+" / 12";burst(3);setTimeout(()=>b.remove(),220);if(bubbleScore>=12){bubbleRunning=false;clearInterval(bubbleTimer);result.textContent="Every little bubble popped… just like my heart around you. ♡";burst(35)}};box.appendChild(b);setTimeout(()=>b.remove(),4000)}spawn();const sp=setInterval(()=>bubbleRunning?spawn():clearInterval(sp),520);bubbleTimer=setInterval(()=>{if(Date.now()>=end&&bubbleRunning){bubbleRunning=false;clearInterval(bubbleTimer);result.textContent="Time! Give it another try, Ayu ♡";btn.textContent="Try again ♡"}},200)}document.getElementById("startBubble").onclick=startBubbleGame;
+
+const balloonMemories=[
+ {tag:"the girl I adore",title:"That face. 🥹",text:"Bas tum smile kar do, mera pura din automatically better ho jata hai.",emoji:"🥹"},
+ {tag:"our kind of magic",title:"My favourite person.",text:"Duniya mein kitne bhi log ho… meri nazar tum par hi rukti hai.",emoji:"💗"},
+ {tag:"little things",title:"Your tiny habits.",text:"Tumhari chhoti-chhoti aadatein hi toh hain jo tumhe meri Ayu banati hain.",emoji:"🌸"},
+ {tag:"from your Rakshas",title:"One honest confession.",text:"Main tumhe sirf special days par nahi, boring Tuesdays par bhi choose karunga.",emoji:"🫶"},
+ {tag:"Rasmalai alert",title:"Too cute. Illegal.",text:"Itna cute hona allowed nahi hai. Complaint main khud karunga… phir khud hi withdraw bhi.",emoji:"🎀"},
+ {tag:"our story",title:"Since 7 Nov 2021.",text:"Ek date se shuru hui kahaani ab meri favourite lifetime habit ban chuki hai.",emoji:"✨"},
+ {tag:"meri Jaan",title:"Come here. 🤍",text:"Agar main paas hota, abhi ek tight sa hug aur forehead kiss milta.",emoji:"🤍"},
+ {tag:"forever little note",title:"And this is the big one.",text:"Happy Birthday meri Duniya. Tum ho, toh ordinary life bhi meri favourite story hai. ♾️",emoji:"♾️"}
+];
+let balloonsOpened=0;
+document.querySelectorAll(".memory-balloon").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+   if(btn.classList.contains("popped")) return;
+   const m=balloonMemories[Number(btn.dataset.memory)];
+   btn.classList.add("popped");
+   balloonsOpened++;
+   document.getElementById("balloonCount").textContent=balloonsOpened;
+   document.getElementById("revealEmoji").textContent=m.emoji;
+   document.getElementById("revealTag").textContent=m.tag;
+   document.getElementById("revealTitle").textContent=m.title;
+   document.getElementById("revealText").textContent=m.text;
+   const photo=document.getElementById("revealPhoto");
+   photo.animate([{transform:"scale(.82) rotate(-4deg)",opacity:.2},{transform:"scale(1) rotate(0)",opacity:1}],{duration:420,easing:"cubic-bezier(.2,.8,.2,1)"});
+   burst(18);
+   toast("Pop! Ek aur memory unlocked ♡");
+   if(balloonsOpened===8){
+      document.getElementById("allOpen").classList.add("show");
+      toast("All 8 memories unlocked 💗");
+   }
+ });
+});
 </script>
 </body>
 </html>
