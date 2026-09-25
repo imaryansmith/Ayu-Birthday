@@ -3,227 +3,143 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#ffd6e6">
-<title>For my Rasmalai ♡</title>
+<meta name="theme-color" content="#ffd0e2">
+<title>For Ayu — from your Manguman ♡</title>
 <style>
-:root{
-  --pink:#ff6f9f;--hot:#f34d82;--deep:#9b315b;--ink:#4c2940;
-  --paper:#fffafb;--soft:#ffe7f0;--line:#f4bfd0;
-}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:#ffdce9}
-body{overflow-x:hidden}
-button{font:inherit}
-.page{min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;padding:22px;overflow:hidden;background:
- radial-gradient(circle at 15% 15%,rgba(255,255,255,.9),transparent 28%),
- radial-gradient(circle at 90% 80%,rgba(255,170,200,.38),transparent 30%),
- linear-gradient(145deg,#fff3f7 0%,#ffdbe8 47%,#ffcbdc 100%)}
-.page:before{content:"";position:absolute;inset:0;opacity:.18;pointer-events:none;background-image:radial-gradient(#a94367 1px,transparent 1px);background-size:18px 18px}
-.shell{width:min(430px,100%);min-height:min(760px,calc(100svh - 34px));position:relative;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;border:1px solid rgba(255,255,255,.8);border-radius:34px;background:rgba(255,249,252,.74);box-shadow:0 30px 80px rgba(130,55,83,.18);backdrop-filter:blur(16px)}
-.top{padding:24px 24px 0;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:5}
-.brand{font:700 12px/1.1 Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#a25b77}
-.count{font:700 12px Arial,sans-serif;color:#a25b77;background:rgba(255,255,255,.62);padding:8px 11px;border-radius:999px}
-.stage{position:relative;flex:1;display:flex;align-items:center;justify-content:center;padding:16px 24px 10px}
-.scene{width:100%;text-align:center;display:none;animation:rise .65s cubic-bezier(.2,.8,.2,1)}
-.scene.active{display:block}
-.kicker{font:700 11px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#b35b7b;margin-bottom:10px}
-h1{font-size:clamp(31px,9vw,47px);line-height:.98;margin:0 0 14px;color:#5a2940;font-weight:700}
-h2{font-size:27px;line-height:1.05;margin:0 0 10px}
-.copy{font-size:16px;line-height:1.55;margin:0 auto 18px;max-width:340px;color:#71475a}
-.heart-button{width:145px;height:145px;border:0;border-radius:50%;cursor:pointer;color:white;background:linear-gradient(145deg,#ff7ba7,#f04c82);box-shadow:0 20px 45px rgba(243,77,130,.32),inset 0 2px 0 rgba(255,255,255,.45);font-size:58px;transition:.25s;animation:pulse 2.1s infinite}
-.heart-button:active{transform:scale(.94)}
-.small-note{font:600 12px Arial,sans-serif;color:#a15b77;margin-top:16px}
-.memory-card{position:relative;margin:0 auto 20px;width:min(320px,100%);padding:13px 13px 18px;background:#fff;border-radius:5px;box-shadow:0 18px 45px rgba(91,43,62,.18);transform:rotate(-1.4deg)}
-.memory-card:after{content:"";position:absolute;inset:8px;border:1px solid #f2d9e2;border-radius:2px;pointer-events:none}
-.photo{height:300px;border-radius:2px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.photo:before,.photo:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.22)}
-.photo:before{width:150px;height:150px;left:-30px;top:-25px}.photo:after{width:210px;height:210px;right:-70px;bottom:-60px}
-.p1{background:linear-gradient(145deg,#f9b7cf,#f5d9d9 48%,#d9b8cb)}
-.p2{background:linear-gradient(145deg,#f5c4a8,#ffdfe0 45%,#d99ab7)}
-.p3{background:linear-gradient(145deg,#f6c8df,#fbe7d0 52%,#d8bddf)}
-.p4{background:linear-gradient(145deg,#f7b9bd,#ffd9c8 50%,#e9b2ca)}
-.p5{background:linear-gradient(145deg,#efbfd4,#fff0e7 50%,#d8c4ed)}
-.p6{background:linear-gradient(145deg,#ffc1d9,#ffe8ef 48%,#cbb9de)}
-.p7{background:linear-gradient(145deg,#ffb6ca,#f9d8dc 48%,#c9b1d8)}
-.photo-art{position:relative;z-index:2;font-size:76px;filter:drop-shadow(0 12px 12px rgba(95,40,62,.15))}
-.photo-label{position:absolute;bottom:15px;left:0;right:0;z-index:3;font:700 10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(82,38,57,.68)}
-.caption{padding-top:14px;font-size:15px;line-height:1.35}
-.caption strong{display:block;font-size:18px;margin-bottom:3px;color:#612d46}
-.caption em{color:#9c6178}
-.tap{border:0;border-radius:999px;padding:13px 25px;background:#f55387;color:#fff;font:700 13px Arial,sans-serif;letter-spacing:.05em;box-shadow:0 12px 25px rgba(245,83,135,.25);cursor:pointer;transition:.2s}
-.tap:active{transform:translateY(2px) scale(.98)}
-.pills{display:flex;gap:7px;justify-content:center;margin:0 0 15px;flex-wrap:wrap}
-.pill{font:700 10px Arial,sans-serif;letter-spacing:.05em;padding:7px 10px;border-radius:999px;background:#fff;color:#a05070;border:1px solid #f5c6d6}
-.choices{display:grid;gap:9px;max-width:310px;margin:14px auto}
-.choice{border:1px solid #f2bdcf;background:#fff;color:#7d3b57;border-radius:14px;padding:12px 14px;text-align:left;cursor:pointer;box-shadow:0 6px 18px rgba(102,45,69,.07);transition:.2s}
-.choice:hover{transform:translateY(-1px);border-color:#eb8eae}
-.choice span{font:700 10px Arial,sans-serif;color:#ba6381;display:block;margin-bottom:3px;text-transform:uppercase;letter-spacing:.12em}
-.final-heart{font-size:74px;margin:4px 0 10px;animation:float 2.8s ease-in-out infinite}
-.footer{padding:0 24px 22px;position:relative;z-index:5}
-.progress{height:5px;border-radius:999px;background:#f4c8d7;overflow:hidden}
-.bar{height:100%;width:0;background:linear-gradient(90deg,#ff7ca8,#f04e83);border-radius:inherit;transition:.45s}
-.footer-row{display:flex;justify-content:space-between;margin-top:10px;font:700 10px Arial,sans-serif;color:#ad617b;letter-spacing:.08em;text-transform:uppercase}
-.floaters{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.floaters i{position:absolute;font-style:normal;opacity:.35;animation:drift linear infinite}
-.f1{left:7%;top:16%;animation-duration:7s}.f2{right:8%;top:26%;animation-duration:9s}.f3{left:14%;bottom:24%;animation-duration:8s}.f4{right:12%;bottom:15%;animation-duration:10s}.f5{left:47%;top:8%;animation-duration:11s}
-.toast{position:absolute;left:50%;bottom:78px;transform:translateX(-50%) translateY(15px);background:#5b2d42;color:#fff;padding:10px 15px;border-radius:999px;font:700 11px Arial,sans-serif;opacity:0;pointer-events:none;transition:.3s;z-index:20;white-space:nowrap}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.confetti{position:absolute;width:8px;height:13px;border-radius:3px;pointer-events:none;animation:burst 900ms ease-out forwards;z-index:15}
-@keyframes rise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
-@keyframes drift{0%{transform:translateY(18px) rotate(0);opacity:0}20%{opacity:.35}100%{transform:translateY(-100px) rotate(18deg);opacity:0}}
-@keyframes burst{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(240deg)}}
-@media(max-height:680px){.shell{min-height:calc(100svh - 18px);border-radius:26px}.stage{padding-top:4px}.photo{height:235px}.memory-card{margin-bottom:12px}.top{padding-top:15px}.footer{padding-bottom:14px}}
+:root{--pink:#ff4f88;--pink2:#ff83ad;--rose:#a93461;--ink:#4d2036;--cream:#fff9fc;--line:#f5b9ce;--gold:#f5a623}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:#ffd5e5}
+body{overflow-x:hidden}.page{min-height:100svh;display:flex;justify-content:center;align-items:center;padding:14px;position:relative;overflow:hidden;background:radial-gradient(circle at 20% 10%,#fff 0 7%,transparent 27%),radial-gradient(circle at 90% 90%,#ffadc9,transparent 34%),linear-gradient(145deg,#fff3f8,#ffd3e3 52%,#ffc4da)}
+.page:before{content:"";position:absolute;inset:0;opacity:.22;background-image:radial-gradient(#b64a70 1px,transparent 1px);background-size:22px 22px}
+.shell{width:min(455px,100%);min-height:min(820px,calc(100svh - 28px));position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.9);border-radius:38px;background:rgba(255,249,252,.7);box-shadow:0 35px 100px rgba(100,31,61,.22);backdrop-filter:blur(18px)}
+.glow{position:absolute;width:240px;height:240px;border-radius:50%;background:#fff;filter:blur(55px);opacity:.45;top:-90px;left:-90px;pointer-events:none}
+.top{height:68px;padding:20px 20px 0;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:20}
+.brand{font:800 10px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#a14b6d}
+.music{border:1px solid #f4c1d2;background:rgba(255,255,255,.65);border-radius:999px;padding:8px 11px;color:#a24b6d;font:700 10px Arial,sans-serif;cursor:pointer}
+.music b{display:inline-block;margin-right:4px}.stage{position:relative;min-height:calc(100% - 125px);display:flex;align-items:center;padding:8px 20px 28px}
+.scene{width:100%;display:none;text-align:center;animation:enter .65s cubic-bezier(.2,.85,.2,1)}.scene.active{display:block}
+.eyebrow{font:800 10px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#b25c7d;margin-bottom:11px}
+h1{font-size:clamp(38px,10vw,58px);line-height:.93;letter-spacing:-.04em;margin:0 0 15px;color:#512039}
+h2{font-size:32px;line-height:1;margin:0 0 12px}.sub{max-width:350px;margin:0 auto 20px;color:#75445a;font-size:15px;line-height:1.55}
+.hero-heart{width:156px;height:156px;border:0;border-radius:50%;background:linear-gradient(145deg,#ff79a4,#ef3e79);color:#fff;font-size:68px;box-shadow:0 22px 55px #ef4b7b55,inset 0 3px 0 #ffffff80;cursor:pointer;animation:beat 2s infinite;position:relative}
+.hero-heart:after{content:"";position:absolute;inset:-12px;border:1px solid #fff8;border-radius:50%;animation:ring 2s infinite}
+.micro{margin-top:14px;font:700 10px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#a85a78}
+.card{position:relative;max-width:350px;margin:0 auto 18px;padding:14px;background:#fff;border-radius:9px;box-shadow:0 24px 50px #73324d22;transform:rotate(-1.5deg)}
+.card.alt{transform:rotate(1.3deg)}.photo{height:270px;border-radius:5px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.photo:before{content:"";position:absolute;width:210px;height:210px;border-radius:50%;background:#ffffff30;left:-60px;top:-70px}.photo:after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:#ffffff20;right:-90px;bottom:-110px}
+.a{background:linear-gradient(135deg,#f39ab8,#ffd4df 45%,#c8a4c9)}.b{background:linear-gradient(135deg,#f7b08e,#ffe0d7 48%,#d493b4)}.c{background:linear-gradient(135deg,#edb5d2,#fff0d7 52%,#c5b5dd)}.d{background:linear-gradient(135deg,#f4a5a8,#ffd3bd 52%,#dba3c6)}.e{background:linear-gradient(135deg,#efb4ca,#fff0f3 52%,#bcaad5)}
+.photo .symbol{font-size:82px;position:relative;z-index:2;filter:drop-shadow(0 12px 10px #63253d28)}.tag{position:absolute;z-index:3;bottom:12px;left:0;right:0;font:800 9px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#673049aa}
+.caption{padding:13px 5px 3px;font-size:15px;line-height:1.4}.caption strong{display:block;font-size:20px;color:#5a2841;margin-bottom:4px}.caption em{color:#986079}
+.btn{border:0;border-radius:999px;padding:13px 23px;background:linear-gradient(90deg,#ff5a91,#ef3978);color:#fff;font:800 11px Arial,sans-serif;letter-spacing:.07em;box-shadow:0 13px 28px #ef397844;cursor:pointer}
+.btn.secondary{background:#fff;color:#b33f67;border:1px solid #f1b3c8;box-shadow:0 8px 20px #75324d10}
+.row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.chips{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin:12px 0 18px}.chip{padding:7px 10px;border-radius:999px;background:#fff;border:1px solid #f3bfd0;color:#a64c6c;font:800 9px Arial,sans-serif;letter-spacing:.05em}
+.letter{max-width:355px;margin:0 auto;background:#fffdf9;border:1px solid #f1dfcf;border-radius:8px;padding:24px 22px;text-align:left;box-shadow:0 22px 48px #6d30451b;position:relative}.letter:before{content:"";position:absolute;inset:9px;border:1px dashed #efc7d1;border-radius:5px;pointer-events:none}.letter h3{margin:0 0 12px;font-size:22px;color:#5b2840}.letter p{margin:0 0 11px;font-size:14px;line-height:1.65;color:#704457}.sign{text-align:right;font-style:italic;color:#a24a6b;margin-top:15px}
+.choice-grid{display:grid;gap:9px;max-width:345px;margin:15px auto}.choice{border:1px solid #efb6c9;border-radius:15px;background:#fff;text-align:left;padding:13px 14px;color:#73364f;cursor:pointer;box-shadow:0 8px 20px #71304b0c}.choice b{display:block;font:800 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#bd6684;margin-bottom:4px}
+.meter{max-width:340px;margin:0 auto 18px;background:#fff;border-radius:20px;padding:14px;box-shadow:0 15px 35px #71304b12}.meter-top{display:flex;justify-content:space-between;font:800 10px Arial,sans-serif;color:#a14e6e;margin-bottom:8px}.meterbar{height:10px;background:#f8d9e4;border-radius:99px;overflow:hidden}.meterfill{height:100%;width:72%;background:linear-gradient(90deg,#ff7da7,#ef3978);border-radius:99px}
+.final{position:relative;padding:10px}.final .heart{font-size:82px;animation:float 2.5s ease-in-out infinite}.final h1{margin-bottom:10px}.names{font-size:15px;line-height:1.7;color:#7d4057}.names b{color:#b03d68}
+.progress-wrap{position:absolute;bottom:19px;left:20px;right:20px;z-index:20}.progress{height:5px;border-radius:99px;background:#f3bfd0;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#ff7ca8,#ee3978);transition:.5s}.foot{display:flex;justify-content:space-between;margin-top:8px;font:800 9px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#ad5c79}
+.float{position:absolute;pointer-events:none;opacity:.45;z-index:1;animation:drift 8s linear infinite}.f1{left:8%;top:20%}.f2{right:9%;top:14%;animation-duration:10s}.f3{left:14%;bottom:18%;animation-duration:9s}.f4{right:14%;bottom:25%;animation-duration:11s}.f5{left:48%;top:8%;animation-duration:12s}
+.toast{position:absolute;z-index:40;left:50%;bottom:65px;transform:translate(-50%,20px);background:#55243b;color:#fff;padding:10px 16px;border-radius:99px;font:800 10px Arial,sans-serif;opacity:0;transition:.3s;white-space:nowrap;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
+.conf{position:absolute;z-index:35;font-size:15px;animation:conf .9s ease-out forwards;pointer-events:none}
+@keyframes enter{from{opacity:0;transform:translateY(22px) scale(.98)}to{opacity:1;transform:none}}@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}@keyframes ring{0%{transform:scale(.94);opacity:.6}100%{transform:scale(1.18);opacity:0}}@keyframes float{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-12px) rotate(4deg)}}@keyframes drift{0%{transform:translateY(30px) rotate(0);opacity:0}20%{opacity:.45}100%{transform:translateY(-130px) rotate(20deg);opacity:0}}@keyframes conf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(260deg) scale(.7)}}
+@media(max-height:700px){.shell{min-height:calc(100svh - 16px);border-radius:28px}.top{height:56px;padding-top:13px}.stage{padding-top:2px;padding-bottom:25px}.photo{height:205px}.card{margin-bottom:10px}.progress-wrap{bottom:12px}.hero-heart{width:130px;height:130px;font-size:57px}}
 </style>
 </head>
 <body>
 <main class="page">
-  <div class="shell" id="app">
-    <div class="floaters" aria-hidden="true">
-      <i class="f1">♡</i><i class="f2">✦</i><i class="f3">♡</i><i class="f4">✿</i><i class="f5">♡</i>
-    </div>
-    <header class="top">
-      <div class="brand">for my Rasmalai</div>
-      <div class="count" id="count">1 / 8</div>
-    </header>
+<div class="shell" id="app">
+<div class="glow"></div>
+<i class="float f1">♡</i><i class="float f2">✦</i><i class="float f3">♡</i><i class="float f4">✿</i><i class="float f5">♡</i>
+<header class="top"><div class="brand">for my Rasmalai</div><button class="music" id="music" type="button"><b>♫</b> little soundtrack</button></header>
+<section class="stage">
 
-    <section class="stage">
-      <article class="scene active" data-step="0">
-        <div class="kicker">a tiny surprise</div>
-        <h1>Hey, Ayu.<br>this is for you ♡</h1>
-        <p class="copy">Don't just read it. Tap through it. I hid little pieces of us inside.</p>
-        <button class="heart-button" data-next type="button" onclick="window.__ayuNext && window.__ayuNext()" aria-label="Start the birthday story">♡</button>
-        <div class="small-note">tap the heart</div>
-      </article>
+<article class="scene active" data-step="0">
+<div class="eyebrow">09 oct → 02 oct • a little universe for you</div>
+<h1>Hey,<br>Ayu ♡</h1>
+<p class="sub">I didn't want to send you just a birthday message.<br>So I made you something you can actually play with.</p>
+<button class="hero-heart" id="start" type="button">♡</button>
+<div class="micro">tap my heart to enter</div>
+</article>
 
-      <article class="scene" data-step="1">
-        <div class="kicker">memory no. 01</div>
-        <div class="memory-card">
-          <div class="photo p1"><div class="photo-art">🥹</div><div class="photo-label">that smile</div></div>
-          <div class="caption"><strong>That face.</strong><em>The one that can fix my entire day without even trying.</em></div>
-        </div>
-        <button class="tap" type="button" data-next onclick="window.__ayuNext && window.__ayuNext()">show me the next one →</button>
-      </article>
+<article class="scene" data-step="1">
+<div class="eyebrow">chapter one • the beginning</div>
+<div class="card"><div class="photo a"><span class="symbol">🌷</span><span class="tag">the girl i noticed</span></div><div class="caption"><strong>Before I knew it...</strong><em>you had quietly become my favourite notification, favourite thought, favourite person.</em></div></div>
+<button class="btn" data-next type="button">turn the page →</button>
+</article>
 
-      <article class="scene" data-step="2">
-        <div class="kicker">memory no. 02</div>
-        <div class="memory-card" style="transform:rotate(1.2deg)">
-          <div class="photo p2"><div class="photo-art">🫶</div><div class="photo-label">our kind of magic</div></div>
-          <div class="caption"><strong>Somehow, it's always you.</strong><em>Out of everyone in this world, I got my favourite person.</em></div>
-        </div>
-        <button class="tap" type="button" data-next onclick="window.__ayuNext && window.__ayuNext()">one more ♡</button>
-      </article>
+<article class="scene" data-step="2">
+<div class="eyebrow">chapter two • my favourite habit</div>
+<div class="card alt"><div class="photo b"><span class="symbol">🫶</span><span class="tag">still my person</span></div><div class="caption"><strong>Some things never get old.</strong><em>Talking to you. Teasing you. Missing you five minutes after saying goodnight.</em></div></div>
+<div class="chips"><span class="chip">Meri Jaan</span><span class="chip">Meri Duniya</span><span class="chip">Rasmalai ♡</span></div>
+<button class="btn" data-next type="button">there's another one</button>
+</article>
 
-      <article class="scene" data-step="3">
-        <div class="kicker">memory no. 03</div>
-        <div class="memory-card">
-          <div class="photo p3"><div class="photo-art">🌷</div><div class="photo-label">little things</div></div>
-          <div class="caption"><strong>I notice the little things.</strong><em>Your expressions, your tiny habits, the way you say things.</em></div>
-        </div>
-        <button class="tap" type="button" data-next onclick="window.__ayuNext && window.__ayuNext()">keep going →</button>
-      </article>
+<article class="scene" data-step="3">
+<div class="eyebrow">chapter three • tiny things</div>
+<div class="card"><div class="photo c"><span class="symbol">🥹</span><span class="tag">i notice everything</span></div><div class="caption"><strong>Your little things matter.</strong><em>The expressions, the random moods, the way you say something and make me smile at my phone.</em></div></div>
+<button class="btn" data-next type="button">keep going ♡</button>
+</article>
 
-      <article class="scene" data-step="4">
-        <div class="kicker">memory no. 04</div>
-        <div class="memory-card" style="transform:rotate(-1deg)">
-          <div class="photo p4"><div class="photo-art">💌</div><div class="photo-label">from your Rakshas</div></div>
-          <div class="caption"><strong>One honest confession.</strong><em>I still get stupidly happy when I see your name pop up.</em></div>
-        </div>
-        <button class="tap" type="button" data-next onclick="window.__ayuNext && window.__ayuNext()">okay, next ♡</button>
-      </article>
+<article class="scene" data-step="4">
+<div class="eyebrow">chapter four • caught</div>
+<div class="card alt"><div class="photo d"><span class="symbol">💌</span><span class="tag">confession</span></div><div class="caption"><strong>Okay, I'll admit it.</strong><em>I still get that stupid little happiness when your name appears on my screen.</em></div></div>
+<button class="btn" data-next type="button">one last memory →</button>
+</article>
 
-      <article class="scene" data-step="5">
-        <div class="kicker">memory no. 05</div>
-        <div class="memory-card" style="transform:rotate(1.6deg)">
-          <div class="photo p5"><div class="photo-art">🍰</div><div class="photo-label">Rasmalai alert</div></div>
-          <div class="caption"><strong>Too cute. Illegal.</strong><em>And yes, you're still my Rasmalai. No appeals accepted.</em></div>
-        </div>
-        <button class="tap" type="button" data-next onclick="window.__ayuNext && window.__ayuNext()">there's more →</button>
-      </article>
+<article class="scene" data-step="5">
+<div class="eyebrow">chapter five • no arguments</div>
+<div class="card"><div class="photo e"><span class="symbol">🍰</span><span class="tag">official rasmalai certificate</span></div><div class="caption"><strong>You're my Rasmalai. Forever.</strong><em>Soft, sweet, slightly dangerous to my self-control. And absolutely not replaceable.</em></div></div>
+<button class="btn" data-next type="button">okay… there's a surprise</button>
+</article>
 
-      <article class="scene" data-step="6">
-        <div class="kicker">the big little question</div>
-        <h2>Which one sounds<br>most like us?</h2>
-        <p class="copy">Pick one. There is no wrong answer.</p>
-        <div class="choices">
-          <button type="button" class="choice" data-choice="laugh"><span>option 01</span>laughing at absolutely nothing</button>
-          <button type="button" class="choice" data-choice="annoy"><span>option 02</span>annoying each other lovingly</button>
-          <button type="button" class="choice" data-choice="home"><span>option 03</span>feeling like home, somehow</button>
-        </div>
-      </article>
+<article class="scene" data-step="6">
+<div class="eyebrow">interactive chapter • choose honestly</div>
+<h2>What are we<br>really like?</h2>
+<p class="sub">Pick the line that feels the most “us”.</p>
+<div class="choice-grid">
+<button class="choice" data-choice="laugh" type="button"><b>01 • chaos</b>laughing at something that isn't even funny</button>
+<button class="choice" data-choice="annoy" type="button"><b>02 • love language</b>annoying each other and calling it affection</button>
+<button class="choice" data-choice="home" type="button"><b>03 • the real one</b>somehow feeling like home to each other</button>
+</div>
+</article>
 
-      <article class="scene" data-step="7">
-        <div class="kicker">from your Manguman</div>
-        <div class="final-heart">❤️</div>
-        <h1>Happy Birthday,<br>Ayu.</h1>
-        <p class="copy">If I could give you one thing today, I'd give you a little reminder of how loved you are.</p>
-        <div class="pills"><span class="pill">meri Jaan</span><span class="pill">meri Duniya</span><span class="pill">meri pyaari Biwi</span></div>
-        <button class="tap" id="again">read it again ♡</button>
-      </article>
-    </section>
+<article class="scene" data-step="7">
+<div class="eyebrow">you unlocked • one more thing</div>
+<div class="meter"><div class="meter-top"><span>Ayushiness detected</span><span>∞%</span></div><div class="meterbar"><div class="meterfill"></div></div></div>
+<div class="letter"><h3>To my pyaari Biwi,</h3><p>Happy Birthday to the person who somehow makes ordinary days feel like something I want to remember.</p><p>I hope you keep smiling the way you do, keep being exactly as wonderfully you as you are, and remember that your Manguman is always somewhere cheering for you.</p><p>Thank you for being my favourite part of so many days.</p><div class="sign">— your Manguman ♡</div></div>
+<button class="btn" data-next type="button" style="margin-top:15px">open the final page</button>
+</article>
 
-    <footer class="footer">
-      <div class="progress"><div class="bar" id="bar"></div></div>
-      <div class="footer-row"><span>made with love</span><span id="hint">tap to continue</span></div>
-    </footer>
-    <div class="toast" id="toast" aria-live="polite"></div>
-  </div>
+<article class="scene" data-step="8">
+<div class="final">
+<div class="heart">❤️</div>
+<div class="eyebrow">for the girl who has my heart</div>
+<h1>Happy<br>Birthday,<br>Ayu.</h1>
+<p class="names">my <b>Jaan</b> · my <b>Duniya</b> · my <b>Rasmalai</b> · my <b>pyaari Biwi</b></p>
+<p class="sub">No matter how many birthdays come and go, I hope this little corner of the internet always reminds you of one thing:</p>
+<h2 style="color:#b23865">you are very, very loved. ♡</h2>
+<div class="row"><button class="btn" id="again" type="button">start again</button><button class="btn secondary" id="celebrate" type="button">celebrate ♡</button></div>
+</div>
+</article>
+
+</section>
+<div class="progress-wrap"><div class="progress"><div class="bar" id="bar"></div></div><div class="foot"><span id="chapter">chapter 01</span><span id="count">01 / 09</span></div></div>
+<div class="toast" id="toast" aria-live="polite"></div>
+</div>
 </main>
 <script>
 (function(){
-  const root=document.getElementById('app');
-  const scenes=[...root.querySelectorAll('.scene')];
-  const count=document.getElementById('count');
-  const bar=document.getElementById('bar');
-  const hint=document.getElementById('hint');
-  const toast=document.getElementById('toast');
-  let step=0;
-
-  function render(){
-    scenes.forEach((s,i)=>s.classList.toggle('active',i===step));
-    count.textContent=(step+1)+' / '+scenes.length;
-    bar.style.width=((step)/(scenes.length-1)*100)+'%';
-    hint.textContent=step===0?'tap to begin':step===6?'choose one':'tap to continue';
-  }
-  function burst(){
-    const rect=root.getBoundingClientRect();
-    for(let i=0;i<24;i++){
-      const el=document.createElement('i');
-      el.className='confetti';
-      el.textContent=Math.random()>.35?'♥':'✦';
-      el.style.left=(rect.width/2+Math.random()*90-45)+'px';
-      el.style.top=(rect.height*.45+Math.random()*70-35)+'px';
-      el.style.setProperty('--x',(Math.random()*260-130)+'px');
-      el.style.setProperty('--y',(Math.random()*-240-40)+'px');
-      el.style.fontSize=(10+Math.random()*9)+'px';
-      root.appendChild(el);
-      setTimeout(()=>el.remove(),950);
-    }
-  }
-  function showToast(msg){
-    toast.textContent=msg; toast.classList.add('show');
-    clearTimeout(showToast.t);
-    showToast.t=setTimeout(()=>toast.classList.remove('show'),1500);
-  }
-  function next(){
-    if(step<scenes.length-1){step++;render();if(step===7)burst();}
-  }
-  // Expose navigation globally as a touch/click fallback for mobile browsers.
-  window.__ayuNext=next;
-  root.addEventListener('click',function(e){
-    const nextButton=e.target.closest('[data-next]');
-    if(nextButton){e.preventDefault();next();return;}
-    const choice=e.target.closest('[data-choice]');
-    if(choice){
-      e.preventDefault();
-      const replies={laugh:'Exactly. That is painfully us. 😂',annoy:'I knew you\'d pick that. 😭❤️',home:'That one was the answer I wanted. 🥹'};
-      showToast(replies[choice.dataset.choice]);
-      setTimeout(next,650);
-    }
-  },{passive:false});
-  document.getElementById('again').addEventListener('click',()=>{step=0;render();});
-  render();
+const root=document.getElementById('app'), scenes=[...root.querySelectorAll('.scene')],bar=document.getElementById('bar'),count=document.getElementById('count'),chapter=document.getElementById('chapter'),toast=document.getElementById('toast');let step=0;
+function render(){scenes.forEach((s,i)=>s.classList.toggle('active',i===step));count.textContent=String(step+1).padStart(2,'0')+' / '+String(scenes.length).padStart(2,'0');bar.style.width=(step/(scenes.length-1)*100)+'%';chapter.textContent=step===8?'final chapter':'chapter '+String(step+1).padStart(2,'0');}
+function next(){if(step<scenes.length-1){step++;render();if(step===8)burst();}}
+window.__ayuNext=next;
+root.addEventListener('click',e=>{const n=e.target.closest('[data-next]');if(n){e.preventDefault();next();return;}const c=e.target.closest('[data-choice]');if(c){e.preventDefault();const r={laugh:'Exactly. That is painfully us. 😂',annoy:'I knew you would pick that. 😭❤️',home:'That one was the answer I wanted. 🥹'};show(r[c.dataset.choice]);setTimeout(next,650);}});
+function show(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(show.t);show.t=setTimeout(()=>toast.classList.remove('show'),1600)}
+function burst(){for(let i=0;i<34;i++){const x=document.createElement('span');x.className='conf';x.textContent=Math.random()>.3?'♥':'✦';x.style.left=(root.clientWidth/2+Math.random()*70-35)+'px';x.style.top=(root.clientHeight*.42+Math.random()*50-25)+'px';x.style.setProperty('--x',(Math.random()*330-165)+'px');x.style.setProperty('--y',(Math.random()*-290-30)+'px');root.appendChild(x);setTimeout(()=>x.remove(),950)}}
+document.getElementById('start').addEventListener('click',next);
+document.getElementById('again').addEventListener('click',()=>{step=0;render()});
+document.getElementById('celebrate').addEventListener('click',()=>{burst();show('Birthday kisses sent to my Rasmalai. 💋❤️')});
+document.getElementById('music').addEventListener('click',function(){this.innerHTML=this.textContent.includes('♫')?'⏸ pause sparkle':'♫ little soundtrack';show('A tiny imaginary soundtrack, just for you. ♡')});
+render();
 })();
 </script>
 </body>
