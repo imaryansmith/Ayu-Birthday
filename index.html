@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f7d9df">
-<meta name="birthday-build" content="ayu-storybook-2026-09-25-restart-v6">
+<meta name="birthday-build" content="ayu-storybook-2026-09-25-restart-v7">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <title>For Ayu ♡</title>
 <style>
@@ -166,7 +166,7 @@ body.locked .page{visibility:hidden}
       <h2 class="title" id="finalTitle">Happy Birthday,<br>Ayu.</h2>
       <p class="sub">Meri Rasmalai. Meri Jaan. Meri Duniya. Thank you for being meri favourite chapter. I love you, always. ❤️</p>
       <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-      <div class="footer"><button class="btn primary" id="celebrate">celebrate ✨</button><button class="btn soft" id="restart" type="button" onclick="window.__restartAyu && window.__restartAyu()">start again</button></div>
+      <div class="footer"><button class="btn primary" id="celebrate">celebrate ✨</button><button class="btn soft" id="restart" type="button" >start again</button></div>
     </article>
   </section>
 </main>
@@ -182,6 +182,8 @@ body.locked .page{visibility:hidden}
  function next(){idx=Math.min(scenes.length-1,idx+1);render();}
  function back(){idx=Math.max(0,idx-1);render();}
  window.__restartAyu=function(){idx=0;const final=document.querySelector('.scene.final');if(final)final.classList.remove('final-gift-open','gift-open');const gift=document.getElementById('openGift');if(gift)gift.classList.remove('open');render();};
+ const restartBtn=document.getElementById('restart');
+ if(restartBtn)restartBtn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();idx=0;const final=document.querySelector('.scene.final');if(final)final.classList.remove('final-gift-open','gift-open');const gift=document.getElementById('openGift');if(gift)gift.classList.remove('open');render();},true);
  document.addEventListener('click',e=>{const n=e.target.closest('.next'),b=e.target.closest('.back');if(n)next();if(b)back();});
  document.querySelectorAll('.choice').forEach(x=>x.addEventListener('click',()=>{toast.textContent='Correct answer. Your Manguman agrees. ♡';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1700);document.querySelectorAll('.choice').forEach(c=>c.style.background='');x.style.background='#ffe1e9';}));
  document.getElementById('celebrate').addEventListener('click',()=>{for(let i=0;i<32;i++){const h=document.createElement('span');h.textContent=['♡','✦','🎀','💗'][i%4];h.style.cssText='position:fixed;left:'+(45+Math.random()*10)+'%;top:55%;z-index:20;font-size:'+(14+Math.random()*20)+'px;pointer-events:none;transition:1.8s ease-out';document.body.appendChild(h);requestAnimationFrame(()=>{h.style.transform='translate('+(Math.random()*420-210)+'px,'+(-180-Math.random()*420)+'px) rotate('+(Math.random()*360)+'deg)';h.style.opacity='0'});setTimeout(()=>h.remove(),1900)}});
