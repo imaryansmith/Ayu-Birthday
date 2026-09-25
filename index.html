@@ -236,6 +236,7 @@ authSend.onclick=async()=>{
   authMsg.textContent=error?"Couldn't send the link. Please try again.":"Link sent. Check that email and open the sign-in link here. ♡";
 };
 supabaseClient.auth.onAuthStateChange((event,session)=>{if(event==="SIGNED_IN"&&session)checkPrivateAccess();});
+setTimeout(checkPrivateAccess,0);
 </script>
 
 <script>
