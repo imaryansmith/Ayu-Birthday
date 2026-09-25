@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f7d9df">
-<meta name="birthday-build" content="ayu-storybook-2026-09-25-v1">
+<meta name="birthday-build" content="ayu-storybook-2026-09-25-mascots-v2">
 <title>For Ayu ♡</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
@@ -23,6 +23,24 @@ button{font:inherit}.page{width:min(920px,94vw);margin:22px auto 70px}.chrome{di
 .letter{max-width:580px;margin:30px auto 0;background:#fffaf4;border:1px solid #ead7ca;padding:34px 34px 30px;box-shadow:0 16px 40px #7250441c;transform:rotate(-.5deg);position:relative}.letter:before{content:"";position:absolute;inset:11px;border:1px solid #eedbd1;pointer-events:none}.letter p{font-family:"Playfair Display";line-height:1.8;font-size:15px;position:relative}.sign{text-align:right;font-family:"Playfair Display";font-style:italic;color:#b24f70}
 .check{max-width:510px;margin:28px auto;background:#fff;border:1px solid #edd9db;border-radius:18px;padding:23px;text-align:left;box-shadow:0 15px 35px #70414c18}.check h3{text-align:center;font-family:"Cormorant Garamond";font-size:28px;margin:0 0 16px}.item{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed #ead7da;font-size:13px}.item:last-child{border:0}.item input{accent-color:#dc5b83;width:17px;height:17px}.final{text-align:center;background:radial-gradient(circle at 50% 20%,#fff4d8,#f8d6df 55%,#f3c5d0)}.final .title{font-size:clamp(50px,10vw,94px)}.bigheart{font-size:65px;display:block;animation:heartbeat 1.5s infinite}@keyframes heartbeat{50%{transform:scale(1.12)}}.dots{display:flex;gap:6px;justify-content:center;margin-top:12px}.dots i{width:6px;height:6px;border-radius:50%;background:#dfa8b5}.footer{display:flex;justify-content:center;gap:7px;margin-top:20px}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#3b292f;color:#fff;padding:11px 16px;border-radius:99px;font-size:12px;opacity:0;pointer-events:none;transition:.3s;z-index:10}.toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:600px){.page{width:96vw;margin-top:8px}.chrome{padding-inline:4px}.scene{min-height:690px;padding:28px 17px 78px}.photoWall{gap:10px}.polaroid{padding:7px 7px 21px}.letter{padding:25px 20px}.videoFrame{margin-top:24px;padding:7px}.title{font-size:48px}.book{border-radius:23px}}
+
+.mascot-corner{position:absolute;z-index:6;width:92px;height:104px;pointer-events:none;filter:drop-shadow(0 12px 12px rgba(91,48,64,.14));animation:mascotFloat 4.5s ease-in-out infinite}
+.mascot-corner.left{left:13px;top:18px}.mascot-corner.right{right:13px;bottom:64px;animation-delay:1.2s}
+.mascot-face{position:absolute;left:18px;top:22px;width:56px;height:55px;border-radius:48% 48% 46% 46%;background:#fff;box-shadow:inset 0 -5px #f3dfe1,0 4px 0 #ead1d5}
+.mascot-face:before,.mascot-face:after{content:"";position:absolute;top:22px;width:7px;height:9px;border-radius:50%;background:#35262c}
+.mascot-face:before{left:16px}.mascot-face:after{right:16px}
+.mascot-ear{position:absolute;width:29px;height:34px;top:4px;background:#fff;border:4px solid #ead7da;border-radius:60% 60% 45% 45%;z-index:-1}
+.mascot-ear.a{left:16px;transform:rotate(-16deg)}.mascot-ear.b{right:16px;transform:rotate(16deg)}
+.panda .mascot-ear{border-radius:50%;background:#30282b;border:0}.panda .mascot-face{background:#fff}.panda .mascot-face:before,.panda .mascot-face:after{width:13px;height:16px;background:#34292d;top:18px;border-radius:55%;}.panda .mascot-face:before{left:10px;transform:rotate(-24deg)}.panda .mascot-face:after{right:10px;transform:rotate(24deg)}
+.panda .mascot-face{border:2px solid #e5d5d8}.panda .mascot-face i{position:absolute;width:7px;height:7px;border-radius:50%;background:#fff;left:13px;top:23px;box-shadow:23px 0 #fff}
+.rabbit .mascot-face{background:#fff7f4}.rabbit .mascot-face:after{background:#34262b}.rabbit .mascot-ear{background:#fff7f4}.rabbit .mascot-ear:after{content:"";position:absolute;inset:5px 8px;background:#f3a9b8;border-radius:60%}
+.mascot-blush{position:absolute;width:9px;height:5px;border-radius:50%;background:#f3a7b7;top:38px;left:9px;box-shadow:39px 0 #f3a7b7;opacity:.7}
+.mascot-mouth{position:absolute;left:25px;top:34px;width:8px;height:6px;border-bottom:2px solid #6b4550;border-radius:0 0 10px 10px}
+.mascot-heart{position:absolute;right:2px;top:0;font-size:19px;animation:heartPop 1.8s ease-in-out infinite}
+.mascot-tag{position:absolute;left:3px;bottom:0;background:#fff8f2;border:1px solid #ead1d5;border-radius:99px;padding:4px 8px;font:600 9px "DM Sans";color:#8b5c68;white-space:nowrap}
+.mini-mascot{position:absolute;z-index:5;font-size:25px;opacity:.55;animation:mascotFloat 5s ease-in-out infinite;pointer-events:none}
+.mini-mascot.one{left:5%;top:45%;}.mini-mascot.two{right:5%;top:42%;animation-delay:1.5s}.mini-mascot.three{left:18%;bottom:8%;font-size:18px;animation-delay:2.5s}
+@keyframes mascotFloat{50%{transform:translateY(-8px) rotate(2deg)}}@keyframes heartPop{50%{transform:scale(1.18) rotate(8deg)}}
 </style>
 </head>
 <body>
@@ -30,6 +48,9 @@ button{font:inherit}.page{width:min(920px,94vw);margin:22px auto 70px}.chrome{di
   <div class="chrome"><div class="brand">for my Rasmalai ♡</div><button class="music" id="music">♫ <span>little soundtrack</span></button></div>
   <section class="book">
     <div class="progress"><i id="bar"></i></div>
+<div class="mascot-corner panda left"><div class="mascot-ear a"></div><div class="mascot-ear b"></div><div class="mascot-face"><i></i><div class="mascot-blush"></div><div class="mascot-mouth"></div></div><div class="mascot-heart">♡</div><div class="mascot-tag">Pandu 🐼</div></div>
+<div class="mascot-corner rabbit right"><div class="mascot-ear a"></div><div class="mascot-ear b"></div><div class="mascot-face"><div class="mascot-blush"></div><div class="mascot-mouth"></div></div><div class="mascot-heart">♡</div><div class="mascot-tag">Bunny 🐰</div></div>
+<div class="mini-mascot one">🐼</div><div class="mini-mascot two">🐰</div><div class="mini-mascot three">♡</div>
 
     <article class="scene active cover">
       <div class="hearts"><span>♡</span><span>✦</span><span>♡</span><span>✧</span></div>
