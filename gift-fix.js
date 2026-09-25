@@ -2,7 +2,6 @@
   const final = document.querySelector('.scene.final');
   const btn = document.getElementById('openGift');
   if (!final || !btn) return;
-
   const style = document.createElement('style');
   style.textContent = `
     .final-gift-button{width:190px;height:170px;border:0;background:transparent;cursor:pointer;position:relative;display:block;margin:24px auto 4px;padding:0;filter:drop-shadow(0 20px 22px rgba(104,48,67,.2))}
@@ -12,26 +11,18 @@
     .final-gift-button .gbow{position:absolute;left:64px;top:5px;width:62px;height:39px;z-index:6;transition:transform .75s ease}
     .final-gift-button .gbow:before,.final-gift-button .gbow:after{content:"";position:absolute;width:39px;height:29px;border:7px solid #fff1df;border-radius:50% 50% 10% 50%;transform:rotate(24deg)}
     .final-gift-button .gbow:after{right:0;transform:scaleX(-1) rotate(24deg)}
-    .final-gift-hint{font-family:"Playfair Display";font-style:italic;color:#8d626d;font-size:13px}
     .final-gift-open .final-gift-button .glid{transform:translate(-7px,-55px) rotate(-18deg)}
     .final-gift-open .final-gift-button .gbow{transform:translate(-8px,-50px) rotate(-18deg)}
-    .final-gift-open .final-gift-button{animation:none}
-    .final-gift-open .final-gift-hint{color:#c65378;font-weight:600}
   `;
   document.head.appendChild(style);
-
-  btn.className = 'final-gift-button';
-  btn.innerHTML = '<span class="gbow"></span><span class="glid"></span><span class="gribbon"></span><span class="gbox"></span>';
-  btn.insertAdjacentHTML('afterend','<div class="final-gift-hint">tap the gift to open 🎁</div>');
-
-  btn.addEventListener('click', () => {
-    if (final.classList.contains('final-gift-open')) return;
+  btn.className='final-gift-button';
+  btn.innerHTML='<span class="gbow"></span><span class="glid"></span><span class="gribbon"></span><span class="gbox"></span>';
+  btn.addEventListener('click',()=>{
+    if(final.classList.contains('final-gift-open')) return;
     final.classList.add('final-gift-open');
-    const title = final.querySelector('.title');
-    const sub = final.querySelector('.sub');
-    const hint = final.querySelector('.final-gift-hint');
-    if (title) title.innerHTML = 'Happy Birthday,<br>Ayu.';
-    if (sub) sub.textContent = 'My Rasmalai. My Jaan. My Duniya. Thank you for being my favourite chapter. I love you, always. ❤️';
-    if (hint) hint.textContent = 'gift opened ♡';
+    const title=final.querySelector('.title');
+    const sub=final.querySelector('.sub');
+    if(title) title.innerHTML='Happy Birthday,<br>Ayu.';
+    if(sub) sub.textContent='My Rasmalai. My Jaan. My Duniya. Thank you for being my favourite chapter. I love you, always. ❤️';
   });
 })();
