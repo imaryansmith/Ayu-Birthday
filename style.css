@@ -1,0 +1,267 @@
+/* General */
+/* HIDE SECTIONS */
+.hidden {
+  display: none !important;
+}
+/* Import a beautiful font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  text-align: center;
+
+  /* Custom background image */
+  background-image: url('https://raw.githubusercontent.com/shajipapanjamesbond007-droid/HBD/main/assets/my-background.jpg'); /* replace with your file path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* MAIN CONTENT STARTS HIDDEN */
+#main-content {
+  display: none;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hidden class */
+.hidden {
+  display: none;
+}
+
+/* Password Screen */
+#password-screen {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: black;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  width: 80%;
+  max-width: 420px;
+  margin: 70px auto;
+  box-shadow: 0 0 20px rgba(255, 210, 0, 0.4);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 1s ease;
+}
+
+#password-screen h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 15px;
+  text-shadow: 0 0 3px gold;
+}
+
+#password-screen p {
+  font-size: 17px;
+  color: black;
+}
+
+/* Input Box */
+#password-input {
+  padding: 12px 15px;
+  width: 80%;
+  border-radius: 12px;
+  border: 2px solid gold;
+  outline: none;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Submit Button */
+#password-btn {
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: gold;
+  color: black;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#password-btn:hover {
+  background: #ff5fc1;
+  color: white;
+  box-shadow: 0 0 15px #ff89d5;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+input, button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 5px;
+}
+
+#password-error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* CAKE SECTION */
+#cake-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;                   /* fill the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Remove overlay or its border-radius */
+#cake-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.2);       /* optional */
+    z-index: 0;                        /* behind cake & countdown */
+    border-radius: 0;                  /* REMOVE rounded corners */
+}
+
+/* Cake image */
+#cake {
+    width: 500px;                      
+    display: block;
+    margin: 20px auto;
+    position: relative;
+    z-index: 1;                        /* above overlay */
+}
+
+/* Responsive cake on smaller screens */
+@media (max-width: 768px) {
+    #cake {
+        width: 300px;
+    }
+}
+
+
+/* Countdown number */
+#countdown {
+    font-size: 60px;
+    color: gold;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Optional overlay for magic/glow effect */
+#cake-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.2);       /* semi-transparent dark overlay */
+    border-radius: 20px;
+    z-index: 0;                        /* behind cake and countdown */
+}
+
+/* Cake image */
+#cake {
+    width: 500px;                       /* size of cake */
+    display: block;
+    margin: 20px auto;
+    position: relative;
+    z-index: 1;                         /* above overlay */
+}
+
+/* Countdown number */
+#countdown {
+    font-size: 60px;
+    color: gold;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;                         /* above overlay */
+}
+
+}
+
+#countdown {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 120px;
+  font-weight: 900;
+  color: hotpink;     /* <-- CHANGE THIS TO ANY COLOR */
+  text-shadow: 0 0 20px white, 0 0 40px gold;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.2); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Balloons */
+.balloons img {
+  width: 80px;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.balloons img:hover {
+  transform: scale(1.2);
+}
+
+/* Slideshow Images */
+.slide {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+h2, p {
+  text-align: center;
+}
+/* Center main content vertically */
+#main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers vertically */
+  align-items: center;     /* centers horizontally */
+  min-height: 100vh;       /* full screen height */
+  text-align: center;      /* ensure text is centered */
+}
+body.phase-cake {
+    background-image: url("https://raw.githubusercontent.com/shajipapanjamesbond007-droid/HBD/main/assets/cake-background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+body.phase-balloons {
+    background-image: url("https://raw.githubusercontent.com/shajipapanjamesbond007-droid/HBD/main/assets/balloons-background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+body.phase-card {
+    background-image: url("https://raw.githubusercontent.com/shajipapanjamesbond007-droid/HBD/main/assets/card-background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+body.phase-sing {
+    background-image: url("https://raw.githubusercontent.com/shajipapanjamesbond007-droid/HBD/main/assets/sing-background.jpg");
+    background-size: cover;
+    background-position: center;
+}
