@@ -22,7 +22,7 @@
     final.classList.add('final-gift-open');
     const title=final.querySelector('.title');
     const sub=final.querySelector('.sub');
-    if(title) title.innerHTML='Happy Birthday,<br>Ayu.';
+    if(title){ title.innerHTML='Happy Birthday,<br>Ayu.'; title.style.visibility='visible'; title.style.opacity='1'; }
     if(sub) sub.textContent='My Rasmalai. My Jaan. My Duniya. Thank you for being my favourite chapter. I love you, always. ❤️';
   });
 })();
