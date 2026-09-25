@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f7d9df">
-<meta name="birthday-build" content="ayu-storybook-2026-09-25-wife-line-v4">
+<meta name="birthday-build" content="ayu-storybook-2026-09-25-haptic-v5">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <title>For Ayu ♡</title>
 <style>
@@ -214,6 +214,17 @@ body.locked .page{visibility:hidden}
     gift.classList.add('open');
     final.classList.add('final-gift-open');
   });
+})();
+</script>\n<script id="haptic-v1">
+/* haptic-v1 */
+(function(){
+  function buzz(){
+    try{ if(navigator.vibrate) navigator.vibrate(12); }catch(e){}
+  }
+  document.addEventListener('click',function(e){
+    const el=e.target.closest('button,a,[role="button"]');
+    if(el) buzz();
+  },{passive:true});
 })();
 </script>\n</body>
 </html>
