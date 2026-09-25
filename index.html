@@ -38,7 +38,7 @@ send.onclick=async()=>{
  const e=email.value.trim().toLowerCase();
  if(!e){msg.textContent="Enter your invited email first ♡";return}
  send.disabled=true;msg.textContent="Sending your private link…";
- const {error}=await sb.auth.signInWithOtp({email:e,options:{emailRedirectTo:location.origin+location.pathname}});
+ const {error}=await sb.auth.signInWithOtp({email:e,options:{emailRedirectTo:"https://imaryansmith.github.io/Ayu-Birthday/"}});
  send.disabled=false;
  msg.textContent=error?"Couldn't send the link. Please try again.":"Link sent. Open the email link on this page. ♡";
 };
