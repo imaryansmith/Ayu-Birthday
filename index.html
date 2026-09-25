@@ -166,7 +166,7 @@ body.locked .page{visibility:hidden}
       <h2 class="title" id="finalTitle">Happy Birthday,<br>Ayu.</h2>
       <p class="sub">My Rasmalai. My Jaan. My Duniya. Thank you for being my favourite chapter. I love you, always. ❤️</p>
       <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-      <div class="footer"><button class="btn primary" id="celebrate">celebrate ✨</button><button class="btn soft" id="restart">start again</button></div>
+      <div class="footer"><button class="btn primary" id="celebrate">celebrate ✨</button><button class="btn soft" id="restart" type="button" onclick="window.__restartAyu && window.__restartAyu()">start again</button></div>
     </article>
   </section>
 </main>
@@ -180,11 +180,11 @@ body.locked .page{visibility:hidden}
  let idx=0;
  function render(){scenes.forEach((s,i)=>s.classList.toggle('active',i===idx));bar.style.width=((idx+1)/scenes.length*100)+'%';window.scrollTo({top:0,behavior:'smooth'});}
  function next(){idx=Math.min(scenes.length-1,idx+1);render();}
- function back(){idx=Math.max(0,idx-1);render();}
+ function back(){idx=Math.max(0,idx-1);render();}\n window.__restartAyu=function(){idx=0;const final=document.querySelector('.scene.final');if(final)final.classList.remove('final-gift-open','gift-open');const gift=document.getElementById('openGift');if(gift)gift.classList.remove('open');render();};
  document.addEventListener('click',e=>{const n=e.target.closest('.next'),b=e.target.closest('.back');if(n)next();if(b)back();});
  document.querySelectorAll('.choice').forEach(x=>x.addEventListener('click',()=>{toast.textContent='Correct answer. Your Manguman agrees. ♡';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1700);document.querySelectorAll('.choice').forEach(c=>c.style.background='');x.style.background='#ffe1e9';}));
  document.getElementById('celebrate').addEventListener('click',()=>{for(let i=0;i<32;i++){const h=document.createElement('span');h.textContent=['♡','✦','🎀','💗'][i%4];h.style.cssText='position:fixed;left:'+(45+Math.random()*10)+'%;top:55%;z-index:20;font-size:'+(14+Math.random()*20)+'px;pointer-events:none;transition:1.8s ease-out';document.body.appendChild(h);requestAnimationFrame(()=>{h.style.transform='translate('+(Math.random()*420-210)+'px,'+(-180-Math.random()*420)+'px) rotate('+(Math.random()*360)+'deg)';h.style.opacity='0'});setTimeout(()=>h.remove(),1900)}});
- document.addEventListener('click',e=>{if(e.target.closest('#restart')){idx=0;document.querySelector('.scene.final')?.classList.remove('final-gift-open','gift-open');const gift=document.getElementById('openGift');if(gift)gift.classList.remove('open');render();} });
+ 
  const music=document.getElementById('music');let playing=false;music.addEventListener('click',()=>{playing=!playing;music.innerHTML=playing?'♫ playing softly':'♫ <span>little soundtrack</span>';toast.textContent=playing?'Imagine our song starting here ♡':'Soundtrack paused';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1300);});
  render();
 })();
