@@ -159,7 +159,7 @@ body.locked .page{visibility:hidden}
       <div class="nav"><button class="btn soft back">←</button><button class="btn primary next">one last thing →</button></div>
     </article>
 
-    <article class="scene final">
+    <article class="scene final"><div style="text-align:center"><button class="btn primary" id="openGift" type="button">open gift 🎁</button></div>
       <div class="hearts"><span>♡</span><span>✦</span><span>♡</span><span>✧</span></div>
       <span class="bigheart">💗</span><div class="kicker">page 08 · you did it</div><h2 class="title">Happy Birthday,<br>Ayu.</h2>
       <p class="sub">My Rasmalai. My Jaan. My Duniya. Thank you for being my favourite chapter.</p>
@@ -182,7 +182,7 @@ body.locked .page{visibility:hidden}
  document.addEventListener('click',e=>{const n=e.target.closest('.next'),b=e.target.closest('.back');if(n)next();if(b)back();});
  document.querySelectorAll('.choice').forEach(x=>x.addEventListener('click',()=>{toast.textContent='Correct answer. Your Manguman agrees. ♡';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1700);document.querySelectorAll('.choice').forEach(c=>c.style.background='');x.style.background='#ffe1e9';}));
  document.getElementById('celebrate').addEventListener('click',()=>{for(let i=0;i<32;i++){const h=document.createElement('span');h.textContent=['♡','✦','🎀','💗'][i%4];h.style.cssText='position:fixed;left:'+(45+Math.random()*10)+'%;top:55%;z-index:20;font-size:'+(14+Math.random()*20)+'px;pointer-events:none;transition:1.8s ease-out';document.body.appendChild(h);requestAnimationFrame(()=>{h.style.transform='translate('+(Math.random()*420-210)+'px,'+(-180-Math.random()*420)+'px) rotate('+(Math.random()*360)+'deg)';h.style.opacity='0'});setTimeout(()=>h.remove(),1900)}});
- document.getElementById('restart').addEventListener('click',()=>{idx=0;render();});
+ document.getElementById('openGift').addEventListener('click',()=>{document.querySelector('.scene.final').classList.add('gift-open');}); document.getElementById('restart').addEventListener('click',()=>{idx=0;render();});
  const music=document.getElementById('music');let playing=false;music.addEventListener('click',()=>{playing=!playing;music.innerHTML=playing?'♫ playing softly':'♫ <span>little soundtrack</span>';toast.textContent=playing?'Imagine our song starting here ♡':'Soundtrack paused';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1300);});
  render();
 })();
