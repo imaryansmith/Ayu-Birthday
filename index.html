@@ -3,144 +3,189 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#ffd0e2">
-<title>For Ayu — from your Manguman ♡</title>
+<meta name="theme-color" content="#f8b4cb">
+<title>A little world for Ayu ♡</title>
 <style>
-:root{--pink:#ff4f88;--pink2:#ff83ad;--rose:#a93461;--ink:#4d2036;--cream:#fff9fc;--line:#f5b9ce;--gold:#f5a623}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:#ffd5e5}
-body{overflow-x:hidden}.page{min-height:100svh;display:flex;justify-content:center;align-items:center;padding:14px;position:relative;overflow:hidden;background:radial-gradient(circle at 20% 10%,#fff 0 7%,transparent 27%),radial-gradient(circle at 90% 90%,#ffadc9,transparent 34%),linear-gradient(145deg,#fff3f8,#ffd3e3 52%,#ffc4da)}
-.page:before{content:"";position:absolute;inset:0;opacity:.22;background-image:radial-gradient(#b64a70 1px,transparent 1px);background-size:22px 22px}
-.shell{width:min(455px,100%);min-height:min(820px,calc(100svh - 28px));position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.9);border-radius:38px;background:rgba(255,249,252,.7);box-shadow:0 35px 100px rgba(100,31,61,.22);backdrop-filter:blur(18px)}
-.glow{position:absolute;width:240px;height:240px;border-radius:50%;background:#fff;filter:blur(55px);opacity:.45;top:-90px;left:-90px;pointer-events:none}
-.top{height:68px;padding:20px 20px 0;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:20}
-.brand{font:800 10px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#a14b6d}
-.music{border:1px solid #f4c1d2;background:rgba(255,255,255,.65);border-radius:999px;padding:8px 11px;color:#a24b6d;font:700 10px Arial,sans-serif;cursor:pointer}
-.music b{display:inline-block;margin-right:4px}.stage{position:relative;min-height:calc(100% - 125px);display:flex;align-items:center;padding:8px 20px 28px}
-.scene{width:100%;display:none;text-align:center;animation:enter .65s cubic-bezier(.2,.85,.2,1)}.scene.active{display:block}
-.eyebrow{font:800 10px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#b25c7d;margin-bottom:11px}
-h1{font-size:clamp(38px,10vw,58px);line-height:.93;letter-spacing:-.04em;margin:0 0 15px;color:#512039}
-h2{font-size:32px;line-height:1;margin:0 0 12px}.sub{max-width:350px;margin:0 auto 20px;color:#75445a;font-size:15px;line-height:1.55}
-.hero-heart{width:156px;height:156px;border:0;border-radius:50%;background:linear-gradient(145deg,#ff79a4,#ef3e79);color:#fff;font-size:68px;box-shadow:0 22px 55px #ef4b7b55,inset 0 3px 0 #ffffff80;cursor:pointer;animation:beat 2s infinite;position:relative}
-.hero-heart:after{content:"";position:absolute;inset:-12px;border:1px solid #fff8;border-radius:50%;animation:ring 2s infinite}
-.micro{margin-top:14px;font:700 10px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#a85a78}
-.card{position:relative;max-width:350px;margin:0 auto 18px;padding:14px;background:#fff;border-radius:9px;box-shadow:0 24px 50px #73324d22;transform:rotate(-1.5deg)}
-.card.alt{transform:rotate(1.3deg)}.photo{height:270px;border-radius:5px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.photo:before{content:"";position:absolute;width:210px;height:210px;border-radius:50%;background:#ffffff30;left:-60px;top:-70px}.photo:after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:#ffffff20;right:-90px;bottom:-110px}
-.a{background:linear-gradient(135deg,#f39ab8,#ffd4df 45%,#c8a4c9)}.b{background:linear-gradient(135deg,#f7b08e,#ffe0d7 48%,#d493b4)}.c{background:linear-gradient(135deg,#edb5d2,#fff0d7 52%,#c5b5dd)}.d{background:linear-gradient(135deg,#f4a5a8,#ffd3bd 52%,#dba3c6)}.e{background:linear-gradient(135deg,#efb4ca,#fff0f3 52%,#bcaad5)}
-.photo .symbol{font-size:82px;position:relative;z-index:2;filter:drop-shadow(0 12px 10px #63253d28)}.tag{position:absolute;z-index:3;bottom:12px;left:0;right:0;font:800 9px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#673049aa}
-.caption{padding:13px 5px 3px;font-size:15px;line-height:1.4}.caption strong{display:block;font-size:20px;color:#5a2841;margin-bottom:4px}.caption em{color:#986079}
-.btn{border:0;border-radius:999px;padding:13px 23px;background:linear-gradient(90deg,#ff5a91,#ef3978);color:#fff;font:800 11px Arial,sans-serif;letter-spacing:.07em;box-shadow:0 13px 28px #ef397844;cursor:pointer}
-.btn.secondary{background:#fff;color:#b33f67;border:1px solid #f1b3c8;box-shadow:0 8px 20px #75324d10}
-.row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.chips{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin:12px 0 18px}.chip{padding:7px 10px;border-radius:999px;background:#fff;border:1px solid #f3bfd0;color:#a64c6c;font:800 9px Arial,sans-serif;letter-spacing:.05em}
-.letter{max-width:355px;margin:0 auto;background:#fffdf9;border:1px solid #f1dfcf;border-radius:8px;padding:24px 22px;text-align:left;box-shadow:0 22px 48px #6d30451b;position:relative}.letter:before{content:"";position:absolute;inset:9px;border:1px dashed #efc7d1;border-radius:5px;pointer-events:none}.letter h3{margin:0 0 12px;font-size:22px;color:#5b2840}.letter p{margin:0 0 11px;font-size:14px;line-height:1.65;color:#704457}.sign{text-align:right;font-style:italic;color:#a24a6b;margin-top:15px}
-.choice-grid{display:grid;gap:9px;max-width:345px;margin:15px auto}.choice{border:1px solid #efb6c9;border-radius:15px;background:#fff;text-align:left;padding:13px 14px;color:#73364f;cursor:pointer;box-shadow:0 8px 20px #71304b0c}.choice b{display:block;font:800 9px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#bd6684;margin-bottom:4px}
-.meter{max-width:340px;margin:0 auto 18px;background:#fff;border-radius:20px;padding:14px;box-shadow:0 15px 35px #71304b12}.meter-top{display:flex;justify-content:space-between;font:800 10px Arial,sans-serif;color:#a14e6e;margin-bottom:8px}.meterbar{height:10px;background:#f8d9e4;border-radius:99px;overflow:hidden}.meterfill{height:100%;width:72%;background:linear-gradient(90deg,#ff7da7,#ef3978);border-radius:99px}
-.final{position:relative;padding:10px}.final .heart{font-size:82px;animation:float 2.5s ease-in-out infinite}.final h1{margin-bottom:10px}.names{font-size:15px;line-height:1.7;color:#7d4057}.names b{color:#b03d68}
-.progress-wrap{position:absolute;bottom:19px;left:20px;right:20px;z-index:20}.progress{height:5px;border-radius:99px;background:#f3bfd0;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#ff7ca8,#ee3978);transition:.5s}.foot{display:flex;justify-content:space-between;margin-top:8px;font:800 9px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#ad5c79}
-.float{position:absolute;pointer-events:none;opacity:.45;z-index:1;animation:drift 8s linear infinite}.f1{left:8%;top:20%}.f2{right:9%;top:14%;animation-duration:10s}.f3{left:14%;bottom:18%;animation-duration:9s}.f4{right:14%;bottom:25%;animation-duration:11s}.f5{left:48%;top:8%;animation-duration:12s}
-.toast{position:absolute;z-index:40;left:50%;bottom:65px;transform:translate(-50%,20px);background:#55243b;color:#fff;padding:10px 16px;border-radius:99px;font:800 10px Arial,sans-serif;opacity:0;transition:.3s;white-space:nowrap;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}
-.conf{position:absolute;z-index:35;font-size:15px;animation:conf .9s ease-out forwards;pointer-events:none}
-@keyframes enter{from{opacity:0;transform:translateY(22px) scale(.98)}to{opacity:1;transform:none}}@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}@keyframes ring{0%{transform:scale(.94);opacity:.6}100%{transform:scale(1.18);opacity:0}}@keyframes float{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-12px) rotate(4deg)}}@keyframes drift{0%{transform:translateY(30px) rotate(0);opacity:0}20%{opacity:.45}100%{transform:translateY(-130px) rotate(20deg);opacity:0}}@keyframes conf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(260deg) scale(.7)}}
-@media(max-height:700px){.shell{min-height:calc(100svh - 16px);border-radius:28px}.top{height:56px;padding-top:13px}.stage{padding-top:2px;padding-bottom:25px}.photo{height:205px}.card{margin-bottom:10px}.progress-wrap{bottom:12px}.hero-heart{width:130px;height:130px;font-size:57px}}
+:root{--rose:#f06f9b;--deep:#7b3154;--pink:#f8b4cb;--paper:#fffdfd;--cream:#fff6f8;--ink:#52243a;--muted:#98647a}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif;color:var(--ink)}
+body{background:#f4a8c2;overflow-x:hidden}
+*{scrollbar-width:none}*::-webkit-scrollbar{display:none}
+#page{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:14px;background:radial-gradient(circle at 10% 10%,#ffeef5 0 12%,transparent 33%),radial-gradient(circle at 90% 85%,#f79ab8,transparent 38%),linear-gradient(135deg,#fbd0df,#f4a8c2 55%,#e990b2);position:relative;overflow:hidden}
+#page:before{content:"";position:absolute;inset:0;background:radial-gradient(#fff 1px,transparent 1px);background-size:25px 25px;opacity:.2}
+#book{width:min(470px,100%);height:min(850px,calc(100svh - 28px));min-height:590px;position:relative;overflow:hidden;border-radius:34px;background:linear-gradient(180deg,#fff9fb,#fff3f7);box-shadow:0 34px 90px #6b294855;border:1px solid #ffffffb8}
+.top{height:66px;padding:17px 20px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:5}
+.logo{font:800 10px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#a24d70}
+.sound{border:1px solid #f0bfd0;background:#fff9;border-radius:999px;padding:8px 12px;font:800 10px Arial,sans-serif;color:#a24d70}
+.view{height:calc(100% - 135px);position:relative;padding:0 22px;display:flex;align-items:center;justify-content:center}
+.scene{display:none;width:100%;animation:up .55s cubic-bezier(.2,.8,.2,1)}.scene.active{display:block}
+.heartmark{font-size:18px;color:#e95688;margin-bottom:12px;animation:pulse 2s infinite}
+.kicker{font:800 9px Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#b0607d;margin-bottom:10px}
+h1{font-size:clamp(42px,11vw,62px);line-height:.9;letter-spacing:-.055em;margin:0;color:#54243a}
+h2{font-size:34px;line-height:.95;margin:0 0 12px;letter-spacing:-.035em}
+.copy{font-size:15px;line-height:1.55;color:#795064;max-width:340px;margin:12px auto 20px}
+.primary,.ghost,.pill{border:0;border-radius:999px;padding:13px 20px;font:800 10px Arial,sans-serif;letter-spacing:.08em;cursor:pointer}
+.primary{background:#ed4e83;color:white;box-shadow:0 13px 28px #e34d7b42}.ghost{background:#fff;color:#a63d68;border:1px solid #efb4c8}
+.actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.cover{height:100%;display:flex;align-items:center;justify-content:center;text-align:center}
+.cover-orbit{width:190px;height:190px;border-radius:50%;margin:0 auto 25px;background:radial-gradient(circle,#fff 0 17%,#ff9fbd 18% 43%,#f26a99 44% 61%,#e94f84 62%);box-shadow:0 22px 55px #d8447655;position:relative}
+.cover-orbit:before,.cover-orbit:after{content:"";position:absolute;border:1px solid #fff9;border-radius:50%;inset:-14px;transform:rotate(20deg)}.cover-orbit:after{inset:-27px;transform:rotate(-27deg);opacity:.65}
+.cover-heart{position:absolute;inset:0;display:grid;place-items:center;font-size:67px;color:white;filter:drop-shadow(0 8px 8px #9e315344)}
+.stack{position:relative;height:405px;max-width:355px;margin:0 auto 20px}
+.photo-card{position:absolute;width:76%;height:80%;left:12%;top:4%;background:white;padding:9px 9px 28px;box-shadow:0 22px 45px #632b431e;border-radius:4px;transition:.4s}
+.photo-card.back{left:4%;top:14%;transform:rotate(-8deg);opacity:.9}.photo-card.front{transform:rotate(4deg);z-index:2}
+.photo-card.third{left:19%;top:0;transform:rotate(-2deg);z-index:1}
+.art{height:100%;border-radius:2px;position:relative;overflow:hidden}
+.art:before{content:"";position:absolute;width:170px;height:170px;border-radius:50%;background:#fff4;left:-55px;top:-60px}.art:after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;background:#ffffff25;right:-75px;bottom:-80px}
+.art1{background:linear-gradient(145deg,#f27aa4,#ffd4e0 50%,#c89abf)}.art2{background:linear-gradient(145deg,#efad9b,#ffe0d2 48%,#b99fcb)}.art3{background:linear-gradient(145deg,#f1b1cf,#fff0e6 50%,#b6a8d4)}.art4{background:linear-gradient(145deg,#f38da9,#ffd1bf 52%,#c596c0)}
+.art-icon{position:absolute;inset:0;display:grid;place-items:center;font-size:72px;z-index:2;filter:drop-shadow(0 12px 8px #66284020)}
+.tape{position:absolute;width:82px;height:25px;background:#ffe9b5aa;top:-8px;left:calc(50% - 41px);z-index:5;transform:rotate(-3deg)}
+.polaroid-caption{position:absolute;bottom:6px;left:10px;right:10px;text-align:center;font:italic 12px Georgia;color:#7b4a60}
+.note{background:#fff;border:1px solid #f3c8d5;border-radius:16px;padding:16px 17px;box-shadow:0 14px 35px #6b2d4512;max-width:350px;margin:0 auto 15px;text-align:left}
+.note b{display:block;font-size:18px;margin-bottom:6px}.note span{font-size:14px;line-height:1.5;color:#7c5365}
+.controls{position:absolute;bottom:18px;left:22px;right:22px;z-index:10}
+.progress{height:4px;background:#f1cad7;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:#e94f83;width:0;transition:.5s}
+.meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px;font:800 9px Arial,sans-serif;letter-spacing:.12em;color:#ad6580}
+.dots{display:flex;gap:5px;justify-content:center;margin:11px 0 15px}.dot{width:5px;height:5px;border-radius:50%;background:#efc2d0}.dot.on{width:18px;border-radius:99px;background:#e84f83}
+.choice-list{display:grid;gap:9px;max-width:355px;margin:17px auto}.choice{width:100%;text-align:left;background:#fff;border:1px solid #efbdcd;border-radius:17px;padding:13px 15px;color:#713a52;box-shadow:0 9px 20px #6a294510;cursor:pointer}.choice strong{display:block;font:800 9px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#bd6482;margin-bottom:5px}
+.letter{max-width:355px;margin:auto;background:#fffdf8;border:1px solid #ead9cc;border-radius:5px;padding:25px 23px;box-shadow:0 22px 45px #6c314619;position:relative;text-align:left}.letter:before{content:"";position:absolute;inset:9px;border:1px dashed #eac5ce;pointer-events:none}.letter h3{font-size:22px;margin:0 0 12px}.letter p{font-size:14px;line-height:1.65;color:#704758;margin:0 0 10px}.sign{text-align:right;font-style:italic;color:#a6496e}
+.final{text-align:center}.final-heart{font-size:83px;animation:float 2.3s ease-in-out infinite;margin-bottom:4px}.final h1{font-size:55px}.final .copy{margin-bottom:18px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #f0c1d0;border-radius:99px;padding:8px 11px;font:800 9px Arial,sans-serif;color:#a34a6d;margin-bottom:14px}
+.toast{position:absolute;left:50%;bottom:62px;transform:translate(-50%,15px);opacity:0;pointer-events:none;background:#54263c;color:#fff;border-radius:99px;padding:10px 15px;font:800 10px Arial,sans-serif;transition:.3s;z-index:30;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}
+.burst{position:absolute;z-index:25;font-size:16px;pointer-events:none;animation:burst .9s forwards}
+.float{position:absolute;color:#fff;opacity:.48;animation:drift 8s linear infinite;z-index:1}.a{left:8%;top:20%}.b{right:8%;top:28%;animation-duration:11s}.c{left:14%;bottom:25%;animation-duration:9s}.d{right:12%;bottom:18%;animation-duration:12s}
+@keyframes up{from{opacity:0;transform:translateY(22px) scale(.985)}to{opacity:1;transform:none}}@keyframes pulse{50%{transform:scale(1.16)}}@keyframes float{50%{transform:translateY(-10px) rotate(4deg)}}@keyframes drift{0%{transform:translateY(30px);opacity:0}20%{opacity:.45}100%{transform:translateY(-140px) rotate(18deg);opacity:0}}@keyframes burst{to{opacity:0;transform:translate(var(--x),var(--y)) rotate(250deg) scale(.6)}}
+@media(max-height:700px){#book{min-height:0}.top{height:57px;padding-top:11px}.view{height:calc(100% - 120px)}.stack{height:300px}.photo-card{height:78%}.controls{bottom:12px}.copy{margin-bottom:14px}.cover-orbit{width:145px;height:145px}.cover-heart{font-size:52px}}
 </style>
 </head>
 <body>
-<main class="page">
-<div class="shell" id="app">
-<div class="glow"></div>
-<i class="float f1">♡</i><i class="float f2">✦</i><i class="float f3">♡</i><i class="float f4">✿</i><i class="float f5">♡</i>
-<header class="top"><div class="brand">for my Rasmalai</div><button class="music" id="music" type="button"><b>♫</b> little soundtrack</button></header>
-<section class="stage">
+<main id="page">
+<span class="float a">♡</span><span class="float b">✦</span><span class="float c">♡</span><span class="float d">✿</span>
+<section id="book">
+<header class="top"><div class="logo">for my Rasmalai</div><button class="sound" id="sound" type="button">♫ little soundtrack</button></header>
+<div class="view">
 
-<article class="scene active" data-step="0">
-<div class="eyebrow">09 oct → 02 oct • a little universe for you</div>
-<h1>Hey,<br>Ayu ♡</h1>
-<p class="sub">I didn't want to send you just a birthday message.<br>So I made you something you can actually play with.</p>
-<button class="hero-heart" id="start" type="button">♡</button>
-<div class="micro">tap my heart to enter</div>
-</article>
-
-<article class="scene" data-step="1">
-<div class="eyebrow">chapter one • the beginning</div>
-<div class="card"><div class="photo a"><span class="symbol">🌷</span><span class="tag">the girl i noticed</span></div><div class="caption"><strong>Before I knew it...</strong><em>you had quietly become my favourite notification, favourite thought, favourite person.</em></div></div>
-<button class="btn" data-next type="button">turn the page →</button>
-</article>
-
-<article class="scene" data-step="2">
-<div class="eyebrow">chapter two • my favourite habit</div>
-<div class="card alt"><div class="photo b"><span class="symbol">🫶</span><span class="tag">still my person</span></div><div class="caption"><strong>Some things never get old.</strong><em>Talking to you. Teasing you. Missing you five minutes after saying goodnight.</em></div></div>
-<div class="chips"><span class="chip">Meri Jaan</span><span class="chip">Meri Duniya</span><span class="chip">Rasmalai ♡</span></div>
-<button class="btn" data-next type="button">there's another one</button>
-</article>
-
-<article class="scene" data-step="3">
-<div class="eyebrow">chapter three • tiny things</div>
-<div class="card"><div class="photo c"><span class="symbol">🥹</span><span class="tag">i notice everything</span></div><div class="caption"><strong>Your little things matter.</strong><em>The expressions, the random moods, the way you say something and make me smile at my phone.</em></div></div>
-<button class="btn" data-next type="button">keep going ♡</button>
-</article>
-
-<article class="scene" data-step="4">
-<div class="eyebrow">chapter four • caught</div>
-<div class="card alt"><div class="photo d"><span class="symbol">💌</span><span class="tag">confession</span></div><div class="caption"><strong>Okay, I'll admit it.</strong><em>I still get that stupid little happiness when your name appears on my screen.</em></div></div>
-<button class="btn" data-next type="button">one last memory →</button>
-</article>
-
-<article class="scene" data-step="5">
-<div class="eyebrow">chapter five • no arguments</div>
-<div class="card"><div class="photo e"><span class="symbol">🍰</span><span class="tag">official rasmalai certificate</span></div><div class="caption"><strong>You're my Rasmalai. Forever.</strong><em>Soft, sweet, slightly dangerous to my self-control. And absolutely not replaceable.</em></div></div>
-<button class="btn" data-next type="button">okay… there's a surprise</button>
-</article>
-
-<article class="scene" data-step="6">
-<div class="eyebrow">interactive chapter • choose honestly</div>
-<h2>What are we<br>really like?</h2>
-<p class="sub">Pick the line that feels the most “us”.</p>
-<div class="choice-grid">
-<button class="choice" data-choice="laugh" type="button"><b>01 • chaos</b>laughing at something that isn't even funny</button>
-<button class="choice" data-choice="annoy" type="button"><b>02 • love language</b>annoying each other and calling it affection</button>
-<button class="choice" data-choice="home" type="button"><b>03 • the real one</b>somehow feeling like home to each other</button>
+<article class="scene active" data-i="0">
+<div class="cover">
+<div>
+<div class="heartmark">♡</div>
+<div class="cover-orbit"><div class="cover-heart">♥</div></div>
+<div class="kicker">a tiny birthday world • made for ayu</div>
+<h1>Hey,<br>Ayu.</h1>
+<p class="copy">Not another normal birthday text.<br>I made you a little journey instead.</p>
+<button class="primary" data-next type="button">open this little world →</button>
+</div>
 </div>
 </article>
 
-<article class="scene" data-step="7">
-<div class="eyebrow">you unlocked • one more thing</div>
-<div class="meter"><div class="meter-top"><span>Ayushiness detected</span><span>∞%</span></div><div class="meterbar"><div class="meterfill"></div></div></div>
-<div class="letter"><h3>To my pyaari Biwi,</h3><p>Happy Birthday to the person who somehow makes ordinary days feel like something I want to remember.</p><p>I hope you keep smiling the way you do, keep being exactly as wonderfully you as you are, and remember that your Manguman is always somewhere cheering for you.</p><p>Thank you for being my favourite part of so many days.</p><div class="sign">— your Manguman ♡</div></div>
-<button class="btn" data-next type="button" style="margin-top:15px">open the final page</button>
+<article class="scene" data-i="1">
+<div class="kicker">01 • the beginning</div>
+<div class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+<div class="stack">
+<div class="photo-card back"><div class="tape"></div><div class="art art2"><div class="art-icon">🌷</div></div><div class="polaroid-caption">somewhere, it started.</div></div>
+<div class="photo-card third"><div class="art art3"><div class="art-icon">✨</div></div><div class="polaroid-caption">09 october ♡</div></div>
+<div class="photo-card front"><div class="tape"></div><div class="art art1"><div class="art-icon">💗</div></div><div class="polaroid-caption">the girl I noticed</div></div>
+</div>
+<div class="note"><b>And then there was you.</b><span>Somehow one conversation became a person I wanted to keep talking to, keep knowing, keep choosing.</span></div>
+<button class="primary" data-next type="button">next memory →</button>
 </article>
 
-<article class="scene" data-step="8">
+<article class="scene" data-i="2">
+<div class="kicker">02 • the little things</div>
+<div class="badge">♡ things I secretly adore</div>
+<div class="note"><b>Your tiny habits.</b><span>The random messages. The expressions. The teasing. The way you can turn a completely ordinary moment into something I remember.</span></div>
+<div class="stack" style="height:245px">
+<div class="photo-card back"><div class="art art4"><div class="art-icon">🥹</div></div></div>
+<div class="photo-card front"><div class="art art2"><div class="art-icon">🫶</div></div><div class="polaroid-caption">my favourite kind of chaos</div></div>
+</div>
+<button class="primary" data-next type="button">there's more ♡</button>
+</article>
+
+<article class="scene" data-i="3">
+<div class="kicker">03 • caught</div>
+<div class="stack" style="height:355px">
+<div class="photo-card back"><div class="art art3"><div class="art-icon">💌</div></div><div class="polaroid-caption">oops.</div></div>
+<div class="photo-card front"><div class="tape"></div><div class="art art4"><div class="art-icon">📱</div></div><div class="polaroid-caption">your name on my screen</div></div>
+</div>
+<h2>I'll admit it.</h2>
+<p class="copy">I still get that stupid little smile when your name appears.</p>
+<button class="primary" data-next type="button">okay, one last thing →</button>
+</article>
+
+<article class="scene" data-i="4">
+<div class="kicker">04 • official certificate</div>
+<div class="cover-orbit" style="width:135px;height:135px;margin:0 auto 17px"><div class="cover-heart" style="font-size:49px">♥</div></div>
+<h2>Certified<br>Rasmalai.</h2>
+<p class="copy">Soft. Sweet. Irreplaceable.<br>Occasionally dangerous to my self-control.</p>
+<div class="chips" style="display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:18px">
+<span class="pill" style="background:#fff;border:1px solid #efbfd0;color:#a44a6c">Meri Jaan</span>
+<span class="pill" style="background:#fff;border:1px solid #efbfd0;color:#a44a6c">Meri Duniya</span>
+<span class="pill" style="background:#fff;border:1px solid #efbfd0;color:#a44a6c">Meri Rasmalai</span>
+</div>
+<button class="primary" data-next type="button">prove you know us →</button>
+</article>
+
+<article class="scene" data-i="5">
+<div class="kicker">05 • a tiny question</div>
+<h2>What feels<br>most like us?</h2>
+<p class="copy">There is no wrong answer. But I definitely have a favourite.</p>
+<div class="choice-list">
+<button class="choice" data-choice="chaos" type="button"><strong>01 • chaos</strong>laughing at something that isn't even funny</button>
+<button class="choice" data-choice="annoy" type="button"><strong>02 • love language</strong>annoying each other and calling it affection</button>
+<button class="choice" data-choice="home" type="button"><strong>03 • the real one</strong>somehow feeling like home to each other</button>
+</div>
+</article>
+
+<article class="scene" data-i="6">
+<div class="kicker">06 • you unlocked this</div>
+<div class="badge">∞ Ayushiness detected</div>
+<div class="stack" style="height:280px">
+<div class="photo-card back"><div class="art art2"><div class="art-icon">🌙</div></div></div>
+<div class="photo-card front"><div class="art art1"><div class="art-icon">🎀</div></div><div class="polaroid-caption">my favourite person</div></div>
+</div>
+<div class="note"><b>One more page.</b><span>And this one is just words, because some things deserve to be said without hiding behind pretty cards.</span></div>
+<button class="primary" data-next type="button">read my letter →</button>
+</article>
+
+<article class="scene" data-i="7">
+<div class="kicker">07 • from your Manguman</div>
+<div class="letter">
+<h3>To my pyaari Biwi,</h3>
+<p>Happy Birthday to the person who makes ordinary days feel like something worth remembering.</p>
+<p>I hope you keep smiling, keep being wonderfully you, and always remember that your Manguman is somewhere cheering for you.</p>
+<p>Thank you for being my favourite part of so many days.</p>
+<div class="sign">— Manguman ♡</div>
+</div>
+<button class="primary" data-next type="button" style="margin-top:15px">one final page →</button>
+</article>
+
+<article class="scene" data-i="8">
 <div class="final">
-<div class="heart">❤️</div>
-<div class="eyebrow">for the girl who has my heart</div>
+<div class="final-heart">❤️</div>
+<div class="kicker">08 • you did it!</div>
 <h1>Happy<br>Birthday,<br>Ayu.</h1>
-<p class="names">my <b>Jaan</b> · my <b>Duniya</b> · my <b>Rasmalai</b> · my <b>pyaari Biwi</b></p>
-<p class="sub">No matter how many birthdays come and go, I hope this little corner of the internet always reminds you of one thing:</p>
-<h2 style="color:#b23865">you are very, very loved. ♡</h2>
-<div class="row"><button class="btn" id="again" type="button">start again</button><button class="btn secondary" id="celebrate" type="button">celebrate ♡</button></div>
+<p class="copy">My Jaan. My Duniya. My Rasmalai. My pyaari Biwi.</p>
+<div class="badge">you are very, very loved ♡</div>
+<div class="actions"><button class="primary" id="again" type="button">start again</button><button class="ghost" id="celebrate" type="button">celebrate ♡</button></div>
 </div>
 </article>
 
-</section>
-<div class="progress-wrap"><div class="progress"><div class="bar" id="bar"></div></div><div class="foot"><span id="chapter">chapter 01</span><span id="count">01 / 09</span></div></div>
-<div class="toast" id="toast" aria-live="polite"></div>
 </div>
+<div class="controls">
+<div class="progress"><i id="bar"></i></div>
+<div class="meta"><span id="chapter">chapter 01</span><span id="count">01 / 09</span></div>
+</div>
+<div class="toast" id="toast" aria-live="polite"></div>
+</section>
 </main>
 <script>
-(function(){
-const root=document.getElementById('app'), scenes=[...root.querySelectorAll('.scene')],bar=document.getElementById('bar'),count=document.getElementById('count'),chapter=document.getElementById('chapter'),toast=document.getElementById('toast');let step=0;
-function render(){scenes.forEach((s,i)=>s.classList.toggle('active',i===step));count.textContent=String(step+1).padStart(2,'0')+' / '+String(scenes.length).padStart(2,'0');bar.style.width=(step/(scenes.length-1)*100)+'%';chapter.textContent=step===8?'final chapter':'chapter '+String(step+1).padStart(2,'0');}
-function next(){if(step<scenes.length-1){step++;render();if(step===8)burst();}}
-window.__ayuNext=next;
-root.addEventListener('click',e=>{const n=e.target.closest('[data-next]');if(n){e.preventDefault();next();return;}const c=e.target.closest('[data-choice]');if(c){e.preventDefault();const r={laugh:'Exactly. That is painfully us. 😂',annoy:'I knew you would pick that. 😭❤️',home:'That one was the answer I wanted. 🥹'};show(r[c.dataset.choice]);setTimeout(next,650);}});
-function show(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(show.t);show.t=setTimeout(()=>toast.classList.remove('show'),1600)}
-function burst(){for(let i=0;i<34;i++){const x=document.createElement('span');x.className='conf';x.textContent=Math.random()>.3?'♥':'✦';x.style.left=(root.clientWidth/2+Math.random()*70-35)+'px';x.style.top=(root.clientHeight*.42+Math.random()*50-25)+'px';x.style.setProperty('--x',(Math.random()*330-165)+'px');x.style.setProperty('--y',(Math.random()*-290-30)+'px');root.appendChild(x);setTimeout(()=>x.remove(),950)}}
-document.getElementById('start').addEventListener('click',next);
-document.getElementById('again').addEventListener('click',()=>{step=0;render()});
-document.getElementById('celebrate').addEventListener('click',()=>{burst();show('Birthday kisses sent to my Rasmalai. 💋❤️')});
-document.getElementById('music').addEventListener('click',function(){this.innerHTML=this.textContent.includes('♫')?'⏸ pause sparkle':'♫ little soundtrack';show('A tiny imaginary soundtrack, just for you. ♡')});
-render();
-})();
+(()=>{const book=document.getElementById('book'),scenes=[...book.querySelectorAll('.scene')],bar=document.getElementById('bar'),count=document.getElementById('count'),chapter=document.getElementById('chapter'),toast=document.getElementById('toast');let i=0;
+function render(){scenes.forEach((s,n)=>s.classList.toggle('active',n===i));bar.style.width=(i/(scenes.length-1)*100)+'%';count.textContent=String(i+1).padStart(2,'0')+' / 09';chapter.textContent=i===8?'you did it!':'chapter '+String(i+1).padStart(2,'0')}
+function next(){if(i<8){i++;render();if(i===8)burst()}}
+function say(t){toast.textContent=t;toast.classList.add('show');clearTimeout(say.t);say.t=setTimeout(()=>toast.classList.remove('show'),1600)}
+function burst(){for(let n=0;n<30;n++){const e=document.createElement('span');e.className='burst';e.textContent=Math.random()>.25?'♥':'✦';e.style.left=(book.clientWidth/2+Math.random()*60-30)+'px';e.style.top=(book.clientHeight*.43+Math.random()*50)+'px';e.style.setProperty('--x',(Math.random()*320-160)+'px');e.style.setProperty('--y',(-40-Math.random()*250)+'px');book.appendChild(e);setTimeout(()=>e.remove(),950)}}
+book.addEventListener('click',e=>{const n=e.target.closest('[data-next]');if(n){e.preventDefault();next();return}const c=e.target.closest('[data-choice]');if(c){const m={chaos:'Painfully us. 😂❤️',annoy:'Obviously. That is basically our love language. 😭',home:'That was my favourite answer. 🥹❤️'};say(m[c.dataset.choice]);setTimeout(next,650)}})
+document.getElementById('again').addEventListener('click',()=>{i=0;render()});document.getElementById('celebrate').addEventListener('click',()=>{burst();say('Birthday kisses sent to my Rasmalai. 💋❤️')});
+document.getElementById('sound').addEventListener('click',e=>{e.currentTarget.textContent=e.currentTarget.textContent.startsWith('♫')?'⏸ pause sparkle':'♫ little soundtrack';say('A tiny soundtrack, just for you ♡')});render()})()
 </script>
 </body>
 </html>
