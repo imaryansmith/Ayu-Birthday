@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f7d9df">
-<meta name="birthday-build" content="ayu-storybook-2026-09-25-mascots-v2">
+<meta name="birthday-build" content="ayu-storybook-2026-09-25-password-mascots-v3">
+<meta name="robots" content="noindex,nofollow,noarchive">
 <title>For Ayu ♡</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
@@ -41,9 +42,38 @@ button{font:inherit}.page{width:min(920px,94vw);margin:22px auto 70px}.chrome{di
 .mini-mascot{position:absolute;z-index:5;font-size:25px;opacity:.55;animation:mascotFloat 5s ease-in-out infinite;pointer-events:none}
 .mini-mascot.one{left:5%;top:45%;}.mini-mascot.two{right:5%;top:42%;animation-delay:1.5s}.mini-mascot.three{left:18%;bottom:8%;font-size:18px;animation-delay:2.5s}
 @keyframes mascotFloat{50%{transform:translateY(-8px) rotate(2deg)}}@keyframes heartPop{50%{transform:scale(1.18) rotate(8deg)}}
+
+body.locked .page{visibility:hidden}
+.password-gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 20% 15%,#fff5df 0 14%,transparent 35%),radial-gradient(circle at 85% 25%,#f5a9c0 0 12%,transparent 36%),linear-gradient(145deg,#f9e9e5,#efcfd7 55%,#f9e4dd)}
+.password-card{width:min(430px,92vw);padding:38px 26px 30px;text-align:center;background:#fff9f5eF;border:1px solid #fff;box-shadow:0 28px 80px rgba(94,50,65,.2);border-radius:30px;position:relative;overflow:hidden}
+.password-card:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;background:#ffdce6;right:-55px;top:-55px;opacity:.65}
+.lock-mascots{font-size:44px;letter-spacing:8px;position:relative;margin-bottom:8px;animation:mascotFloat 4s ease-in-out infinite}
+.password-card .gate-kicker{text-transform:uppercase;letter-spacing:.22em;font-size:10px;color:#a07881}
+.password-card h1{font-family:"Cormorant Garamond";font-size:52px;line-height:.9;margin:12px 0 10px}
+.password-card p{font-size:13px;line-height:1.6;color:#846c73;max-width:310px;margin:0 auto 20px}
+.password-form{display:flex;gap:8px;justify-content:center}
+.password-input{width:180px;padding:13px 15px;border:1px solid #e5cbd1;background:#fff;border-radius:999px;outline:none;text-align:center;font-size:16px;letter-spacing:.25em;color:#49323a}
+.password-input:focus{border-color:#df5c86;box-shadow:0 0 0 3px #df5c8620}
+.password-submit{border:0;border-radius:999px;padding:13px 18px;background:#df5c86;color:#fff;font-weight:700;cursor:pointer;box-shadow:0 8px 20px #8c4e6020}
+.password-error{min-height:18px;margin:12px 0 0;font-size:11px;color:#c54c70}
+.password-gate.hidden{display:none}
+@media(max-width:500px){.password-form{flex-direction:column;align-items:center}.password-input{width:100%}.password-submit{width:100%}}
 </style>
 </head>
-<body>
+<body class="locked"><div class="password-gate" id="passwordGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+  <div class="password-card">
+    <div class="lock-mascots">🐼 ♡ 🐰</div>
+    <div class="gate-kicker">private little world</div>
+    <h1 id="gateTitle">For Ayu.</h1>
+    <p>This little world is just for you. Enter the secret to open it. 💗</p>
+    <form class="password-form" id="passwordForm" autocomplete="off">
+      <input class="password-input" id="sitePassword" type="password" inputmode="numeric" maxlength="6" placeholder="••••••" aria-label="Secret password" required>
+      <button class="password-submit" type="submit">unlock ♡</button>
+    </form>
+    <div class="password-error" id="passwordError" aria-live="polite"></div>
+  </div>
+</div>
+
 <main class="page">
   <div class="chrome"><div class="brand">for my Rasmalai ♡</div><button class="music" id="music">♫ <span>little soundtrack</span></button></div>
   <section class="book">
@@ -141,6 +171,9 @@ button{font:inherit}.page{width:min(920px,94vw);margin:22px auto 70px}.chrome{di
 <div class="toast" id="toast"></div>
 <script>
 (function(){
+ const gate=document.getElementById('passwordGate'), form=document.getElementById('passwordForm'), pass=document.getElementById('sitePassword'), error=document.getElementById('passwordError');
+ const PASSWORD="070215";
+ form.addEventListener('submit',function(e){e.preventDefault();if(pass.value===PASSWORD){gate.classList.add('hidden');document.body.classList.remove('locked');pass.value='';error.textContent='';}else{error.textContent='Not quite, Rasmalai. Try again ♡';pass.value='';pass.focus();}});
  const scenes=[...document.querySelectorAll('.scene')], bar=document.getElementById('bar'), toast=document.getElementById('toast');
  let idx=0;
  function render(){scenes.forEach((s,i)=>s.classList.toggle('active',i===idx));bar.style.width=((idx+1)/scenes.length*100)+'%';window.scrollTo({top:0,behavior:'smooth'});}
