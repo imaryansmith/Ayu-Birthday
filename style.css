@@ -243,25 +243,25 @@ h2, p {
   text-align: center;      /* ensure text is centered */
 }
 body.phase-cake {
-    background-image: url("https://raw.githubusercontent.com/shajipapanjamesbond007-droid/HBD/main/assets/cake-background.jpg");
+    background-image: url("https://raw.githubusercontent.com/shajipapanjamesbond007-droid/HBD/main/cake-background.jpg");
     background-size: cover;
     background-position: center;
 }
 
 body.phase-balloons {
-    background-image: url("https://raw.githubusercontent.com/shajipapanjamesbond007-droid/HBD/main/assets/balloons-background.jpg");
+    background-image: url("https://raw.githubusercontent.com/shajipapanjamesbond007-droid/HBD/main/balloons-background.jpg");
     background-size: cover;
     background-position: center;
 }
 
 body.phase-card {
-    background-image: url("https://raw.githubusercontent.com/shajipapanjamesbond007-droid/HBD/main/assets/card-background.jpg");
+    background-image: url("https://raw.githubusercontent.com/shajipapanjamesbond007-droid/HBD/main/card-background.jpg");
     background-size: cover;
     background-position: center;
 }
 
 body.phase-sing {
-    background-image: url("https://raw.githubusercontent.com/shajipapanjamesbond007-droid/HBD/main/assets/sing-background.jpg");
+    background-image: url("https://raw.githubusercontent.com/shajipapanjamesbond007-droid/HBD/main/sing-background.jpg");
     background-size: cover;
     background-position: center;
 }
