@@ -16,21 +16,22 @@
     .final-gift-open .final-gift-button .glid{transform:translate(-7px,-55px) rotate(-18deg)}
     .final-gift-open .final-gift-button .gbow{transform:translate(-8px,-50px) rotate(-18deg)}
     .final-gift-open .final-gift-button{animation:none}
-    .final-gift-reveal{display:none;animation:in .7s ease both}
-    .final-gift-open .final-gift-button,.final-gift-open .final-gift-hint{display:none}
-    .final-gift-open .final-gift-reveal{display:block}
+    .final-gift-open .final-gift-hint{color:#c65378;font-weight:600}
   `;
   document.head.appendChild(style);
 
   btn.className = 'final-gift-button';
   btn.innerHTML = '<span class="gbow"></span><span class="glid"></span><span class="gribbon"></span><span class="gbox"></span>';
-  btn.insertAdjacentHTML('afterend','<div class="final-gift-hint">tap the gift to open 🎁</div><div class="final-gift-reveal"><span class="bigheart">💗</span><div class="kicker">the surprise inside</div><h2 class="title">Happy Birthday,<br>Ayu.</h2><p class="sub">My Rasmalai. My Jaan. My Duniya. Thank you for being my favourite chapter. I love you, always. ❤️</p><div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="footer"><button class="btn primary" id="celebrate">celebrate ✨</button><button class="btn soft" id="restart">start again</button></div></div>');
+  btn.insertAdjacentHTML('afterend','<div class="final-gift-hint">tap the gift to open 🎁</div>');
 
   btn.addEventListener('click', () => {
+    if (final.classList.contains('final-gift-open')) return;
     final.classList.add('final-gift-open');
-    const t=document.getElementById('finalTitle');
-    const s=document.getElementById('finalSub');
-    if(t) t.textContent='You opened it ♡';
-    if(s) s.textContent='A little birthday surprise from your Manguman.';
+    const title = final.querySelector('.title');
+    const sub = final.querySelector('.sub');
+    const hint = final.querySelector('.final-gift-hint');
+    if (title) title.innerHTML = 'Happy Birthday,<br>Ayu.';
+    if (sub) sub.textContent = 'My Rasmalai. My Jaan. My Duniya. Thank you for being my favourite chapter. I love you, always. ❤️';
+    if (hint) hint.textContent = 'gift opened ♡';
   });
 })();
