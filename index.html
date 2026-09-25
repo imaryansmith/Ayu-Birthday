@@ -71,9 +71,97 @@ p{line-height:1.75;color:var(--muted);max-width:620px}.tiny{font-size:11px;color
 @media(max-width:720px){.scene{align-items:flex-start;padding:52px 12px 28px}.stage{min-height:calc(100vh - 80px);height:auto}.paper{padding:26px 20px 90px}.room{grid-template-columns:1fr;gap:0}.room-copy{text-align:center;padding:0}.teddy{transform:scale(.7);margin:-5px auto -30px}.birthday-cake{transform:scale(.76);margin:-8px auto -18px}.counters{gap:0}.counter{padding:20px 6px}.counter b{font-size:29px}.reason-cloud{grid-template-columns:1fr 1fr;gap:8px}.reason{min-height:115px;padding:14px}.reason h3{font-size:18px}.reason p{font-size:10px}.photo-card{width:275px;height:330px}.photo-card .pic{height:245px}.letter{padding:30px 22px}.letter p{font-size:12px}.top{top:10px;left:18px;right:18px}}
 @media(max-width:470px){h1{font-size:49px}h2{font-size:40px}.pass{flex-direction:column}.reason-cloud{grid-template-columns:1fr}.reason{min-height:95px}.photo-stack{height:370px}.photo-card{width:255px;height:315px}.photo-card .pic{height:225px}.birthday-cake{transform:scale(.66);margin:-25px auto -35px}.stage{min-height:calc(100vh - 80px);height:auto}}
 
-.bubble-game{position:relative;height:210px;background:linear-gradient(180deg,#fffaf7,#f1e4ee);border:1px solid #dfc4cf;overflow:hidden;cursor:pointer}.bubble{position:absolute;width:42px;height:42px;border-radius:50%;border:1px solid #c98ea0;background:rgba(255,255,255,.72);box-shadow:inset 8px 7px 0 rgba(255,255,255,.7),0 5px 12px rgba(120,70,90,.12);cursor:pointer;animation:bob 1.4s ease-in-out infinite alternate}.bubble:after{content:"♡";position:absolute;inset:0;display:grid;place-items:center;color:#b65d75;font-size:17px}.bubble.pop{animation:popBubble .22s ease forwards}.bubble-game .bubble:nth-child(3n){width:30px;height:30px}.bubble-game .bubble:nth-child(4n){width:52px;height:52px}@keyframes bob{from{transform:translateY(4px)}to{transform:translateY(-8px)}}@keyframes popBubble{to{transform:scale(1.7);opacity:0}}</style>
+.bubble-game{position:relative;height:210px;background:linear-gradient(180deg,#fffaf7,#f1e4ee);border:1px solid #dfc4cf;overflow:hidden;cursor:pointer}.bubble{position:absolute;width:42px;height:42px;border-radius:50%;border:1px solid #c98ea0;background:rgba(255,255,255,.72);box-shadow:inset 8px 7px 0 rgba(255,255,255,.7),0 5px 12px rgba(120,70,90,.12);cursor:pointer;animation:bob 1.4s ease-in-out infinite alternate}.bubble:after{content:"♡";position:absolute;inset:0;display:grid;place-items:center;color:#b65d75;font-size:17px}.bubble.pop{animation:popBubble .22s ease forwards}.bubble-game .bubble:nth-child(3n){width:30px;height:30px}.bubble-game .bubble:nth-child(4n){width:52px;height:52px}@keyframes bob{from{transform:translateY(4px)}to{transform:translateY(-8px)}}@keyframes popBubble{to{transform:scale(1.7);opacity:0}}
+/* REFERENCE-INSPIRED SURPRISE INTRO */
+#surpriseIntro{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:radial-gradient(circle at 50% 18%,#fffdf8 0,#f9e5e4 42%,#efcbd0 100%);overflow:hidden;opacity:1;transition:opacity .8s ease,transform .9s ease}
+#surpriseIntro.hide{opacity:0;transform:scale(1.04);pointer-events:none}
+#surpriseIntro:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 78px,rgba(255,255,255,.22) 79px 80px);opacity:.35}
+.si-stage{position:relative;width:min(900px,94vw);min-height:min(720px,90vh);display:flex;align-items:center;justify-content:center;text-align:center}
+.si-phase{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(22px) scale(.97);transition:.65s cubic-bezier(.2,.8,.2,1)}
+.si-phase.active{opacity:1;pointer-events:auto;transform:none}
+.si-kicker{font:600 10px "DM Sans";letter-spacing:.3em;text-transform:uppercase;color:#9d5b6a}
+.si-title{font:500 clamp(48px,8vw,88px)/.86 "Cormorant Garamond",Georgia;color:#633541;margin:14px 0}
+.si-script{font:400 clamp(45px,7vw,78px)/1 "Parisienne",cursive;color:#b34e68}
+.si-sub{font:14px/1.7 "DM Sans";color:#8d6c74;max-width:560px}
+.si-cake{position:relative;width:250px;height:180px;margin:18px auto 8px;cursor:pointer;filter:drop-shadow(0 18px 20px rgba(106,54,69,.14))}
+.si-cake .base{position:absolute;left:25px;bottom:18px;width:200px;height:92px;background:linear-gradient(#e997a4,#c96b7c);border-radius:13px 13px 20px 20px}
+.si-cake .cream{position:absolute;left:25px;bottom:83px;width:200px;height:42px;background:#fff9f1;border-radius:50%}
+.si-cake .drip{position:absolute;left:46px;bottom:57px;width:22px;height:34px;background:#fff9f1;border-radius:0 0 12px 12px;box-shadow:52px 4px #fff9f1,104px -2px #fff9f1}
+.si-candle{position:absolute;bottom:120px;width:12px;height:45px;background:repeating-linear-gradient(135deg,#fff 0 5px,#b85c70 6px 9px);border-radius:2px}
+.si-c1{left:83px}.si-c2{left:119px}.si-c3{left:155px}
+.si-flame{position:absolute;bottom:160px;width:16px;height:23px;background:radial-gradient(circle at 50% 65%,#fff 0 18%,#ffd47e 20% 46%,#e77e69 50% 70%,transparent 72%);animation:siFlicker .45s infinite alternate}
+.si-f1{left:81px}.si-f2{left:117px;animation-delay:.12s}.si-f3{left:153px;animation-delay:.22s}
+.si-cake.out .si-flame{opacity:0;transform:translateY(15px) scale(.2);transition:.35s}
+@keyframes siFlicker{to{transform:scale(1.14) rotate(3deg)}}
+.si-count{font:600 42px "Cormorant Garamond";color:#9f4157;height:55px}
+.si-balloons{position:absolute;inset:0;pointer-events:none}
+.si-balloon{position:absolute;font-size:62px;animation:siFloat 3s ease-in-out infinite;cursor:pointer;pointer-events:auto;filter:drop-shadow(0 10px 8px rgba(90,58,62,.08))}
+.si-balloon:nth-child(1){left:8%;top:12%}.si-balloon:nth-child(2){right:8%;top:18%;animation-delay:-.8s}.si-balloon:nth-child(3){left:15%;bottom:14%;animation-delay:-1.4s}.si-balloon:nth-child(4){right:15%;bottom:10%;animation-delay:-2s}
+.si-balloon.pop{animation:siPop .3s forwards}
+@keyframes siFloat{50%{transform:translateY(-15px) rotate(4deg)}}@keyframes siPop{to{transform:scale(1.7);opacity:0}}
+.si-card{width:min(510px,88vw);min-height:285px;background:#fffdf8;border:2px solid #d58b98;box-shadow:0 24px 60px rgba(106,54,69,.16);padding:42px 35px;position:relative;transform:rotate(-1deg)}
+.si-card:before{content:"♡";position:absolute;top:14px;left:0;right:0;font-size:18px;color:#cf7584}
+.si-card h3{font:500 38px "Cormorant Garamond";color:#693946;margin:16px 0}
+.si-card p{font:16px/1.8 "Cormorant Garamond";color:#76555f;margin:8px auto}
+.si-next{border:1px solid #9f4a5e;background:#9f4a5e;color:#fff;padding:12px 22px;font:600 10px "DM Sans";letter-spacing:.16em;text-transform:uppercase;cursor:pointer;margin-top:18px}
+.si-lyrics{width:min(580px,90vw);min-height:280px;padding:30px;background:rgba(255,253,248,.78);border:1px solid rgba(165,88,105,.25);box-shadow:0 20px 50px rgba(106,54,69,.09)}
+.si-lyrics p{margin:12px auto;font:22px "Cormorant Garamond";color:#80515d;opacity:.35;transition:.35s}.si-lyrics p.active{opacity:1;transform:scale(1.04);color:#a53e59}
+.si-photos{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;margin:18px 0}
+.si-photo{width:180px;height:220px;background:#fff;padding:9px 9px 26px;box-shadow:0 16px 30px rgba(90,58,62,.14);transform:rotate(-4deg);transition:.5s}
+.si-photo:nth-child(2){transform:rotate(4deg) translateY(10px)}.si-photo:nth-child(3){transform:rotate(-1deg)}
+.si-photo div{height:180px;display:grid;place-items:center;background:linear-gradient(135deg,#f3d4d8,#eee3e8);font-size:46px;color:#9d6671}.si-photo small{font:11px "DM Sans";color:#805660}
+.si-final{font:600 10px "DM Sans";letter-spacing:.2em;text-transform:uppercase;color:#a04b5d;margin-top:12px}
+@media(max-width:600px){.si-stage{min-height:100vh}.si-balloon{font-size:46px}.si-card{padding:35px 22px;min-height:260px}.si-photo{width:130px;height:165px;padding:7px 7px 18px}.si-photo div{height:136px;font-size:34px}.si-lyrics p{font-size:19px}}
+
+</style>
 </head>
 <body>
+
+<div id="surpriseIntro" aria-hidden="true">
+  <div class="si-stage">
+    <div class="si-phase active" data-si="cake">
+      <div class="si-kicker">A little birthday surprise for</div>
+      <div class="si-title">Happy Birthday,<br><span class="si-script">Ayu ♡</span></div>
+      <div class="si-cake" id="siCake"><div class="base"></div><div class="cream"></div><div class="drip"></div><i class="si-candle si-c1"></i><i class="si-candle si-c2"></i><i class="si-candle si-c3"></i><i class="si-flame si-f1"></i><i class="si-flame si-f2"></i><i class="si-flame si-f3"></i></div>
+      <div class="si-count" id="siCount">3</div>
+      <div class="si-sub">Wait for it… your Manguman made you a tiny birthday world.</div>
+    </div>
+    <div class="si-phase" data-si="balloons">
+      <div class="si-balloons">
+        <span class="si-balloon">🎈</span><span class="si-balloon">🎈</span><span class="si-balloon">🎈</span><span class="si-balloon">🎈</span>
+      </div>
+      <div class="si-kicker">one little task</div>
+      <div class="si-title">Pop the balloons<br><span class="si-script">for Ayu.</span></div>
+      <div class="si-sub">Tap all four balloons and reveal the birthday message.</div>
+      <div class="si-count" id="siBalloonCount">0 / 4</div>
+    </div>
+    <div class="si-phase" data-si="card">
+      <div class="si-card">
+        <div class="si-kicker">opened with love</div>
+        <h3>For my Rasmalai ♡</h3>
+        <p>Happy Birthday, Ayu.</p>
+        <p>From your Manguman — your Rakshas — who still gets stupidly happy just seeing you smile.</p>
+        <button class="si-next" id="siCardNext">Open your next surprise →</button>
+      </div>
+    </div>
+    <div class="si-phase" data-si="song">
+      <div class="si-kicker">a tiny sing-along</div>
+      <div class="si-title">This one's<br><span class="si-script">for you.</span> 🎵</div>
+      <div class="si-lyrics" id="siLyrics">
+        <p>🎂 Today is all about you.</p><p>🌷 Your smile makes ordinary days softer.</p><p>🎀 My favourite girl deserves a favourite day.</p><p>💗 Happy Birthday, meri Jaan.</p>
+      </div>
+      <button class="si-next" id="siSongNext">See our little memories →</button>
+    </div>
+    <div class="si-phase" data-si="photos">
+      <div class="si-kicker">before the main story</div>
+      <div class="si-title">A few tiny<br><span class="si-script">memories.</span></div>
+      <div class="si-photos"><div class="si-photo"><div>🌸</div><small>first favourite memory</small></div><div class="si-photo"><div>🫶</div><small>us being us</small></div><div class="si-photo"><div>💗</div><small>forever favourite</small></div></div>
+      <div class="si-final">Now the real surprise begins…</div>
+      <button class="si-next" id="siEnter">Enter Ayu's world ♡</button>
+    </div>
+  </div>
+</div>
+
 <div id="app">
 <div class="unlock" id="unlockScreen"><div class="unlock-card" id="unlockCard"><div class="eyebrow">a tiny secret place</div><h1>Made only<br><span class="script">for Ayu</span> ♡</h1><p>There is a little birthday story hidden inside.<br>Only one person knows the key.</p><div class="pass"><input id="password" type="tel" inputmode="numeric" maxlength="6" placeholder="••••••"><button class="btn" id="unlockBtn">Open ♡</button></div><div class="err" id="err"></div></div></div>
 <div class="top"><span>A little world for Ayu ♡</span><span class="progress" id="progress"></span></div>
@@ -108,7 +196,7 @@ function go(n){current=Math.max(0,Math.min(scenes.length-1,n));scenes.forEach((s
 function toast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");clearTimeout(window._toast);window._toast=setTimeout(()=>x.classList.remove("show"),1800)}
 function burst(n=50){const box=document.getElementById("burst");for(let i=0;i<n;i++){const p=document.createElement("span");p.className="particle";p.textContent=["♡","✦","🌸","🎀","♥","✨"][i%6];p.style.setProperty("--x",(Math.random()*900-450)+"px");p.style.setProperty("--y",(Math.random()*700-350)+"px");p.style.animationDelay=(Math.random()*.25)+"s";box.appendChild(p);setTimeout(()=>p.remove(),2100)}}
 function hearts(){const h=document.createElement("span");h.className="float-heart";h.textContent=["♡","♥","✦","🌸"][Math.floor(Math.random()*4)];h.style.left=Math.random()*100+"vw";h.style.fontSize=13+Math.random()*16+"px";document.body.appendChild(h);setTimeout(()=>h.remove(),6500)}setInterval(hearts,1100);
-function unlockSite(){if(password.value===PASSWORD){unlock.classList.add("hide");burst(70);setTimeout(()=>unlock.remove(),800)}else{err.textContent="Not quite, jaan ♡";unlockCard.classList.remove("shake");void unlockCard.offsetWidth;unlockCard.classList.add("shake");password.select()}}
+function unlockSite(){if(password.value===PASSWORD){unlock.classList.add("hide");setTimeout(()=>unlock.remove(),800);setTimeout(()=>window.startReferenceIntro&&window.startReferenceIntro(),820);burst(35)}else{err.textContent="Not quite, jaan ♡";unlockCard.classList.remove("shake");void unlockCard.offsetWidth;unlockCard.classList.add("shake");password.select()}}
 document.getElementById("unlockBtn").onclick=unlockSite;password.onkeydown=e=>{if(e.key==="Enter")unlockSite();};password.oninput=()=>password.value=password.value.replace(/\D/g,"").slice(0,6);setTimeout(()=>password.focus(),400);
 
 const env=document.getElementById("env");document.getElementById("openEnv").onclick=()=>{env.classList.add("open");burst(30);setTimeout(()=>go(1),850)};env.onclick=()=>{if(!env.classList.contains("open")){env.animate([{transform:"rotate(0)"},{transform:"rotate(-2deg)"},{transform:"rotate(2deg)"},{transform:"rotate(0)"}],{duration:500})}};
@@ -177,6 +265,25 @@ document.getElementById("resetKiss").onclick=setupKiss; setupKiss();
 
 let bubbleTimer=null,bubbleScore=0,bubbleRunning=false;
 function startBubbleGame(){const box=document.getElementById("bubbleGame"),score=document.getElementById("bubbleScore"),result=document.getElementById("bubbleResult"),btn=document.getElementById("startBubble");clearInterval(bubbleTimer);bubbleRunning=true;bubbleScore=0;score.textContent="0 / 12";result.textContent="Pop pop pop! 🫧";btn.textContent="Restart bubbles ↻";box.innerHTML="";let end=Date.now()+15000;function spawn(){if(!bubbleRunning)return;const b=document.createElement("button");b.type="button";b.className="bubble";b.style.left=(3+Math.random()*91)+"%";b.style.top=(8+Math.random()*78)+"%";b.onclick=()=>{if(!bubbleRunning)return;b.classList.add("pop");bubbleScore++;score.textContent=bubbleScore+" / 12";burst(3);setTimeout(()=>b.remove(),220);if(bubbleScore>=12){bubbleRunning=false;clearInterval(bubbleTimer);result.textContent="Every little bubble popped… just like my heart around you. ♡";burst(35)}};box.appendChild(b);setTimeout(()=>b.remove(),4000)}spawn();const sp=setInterval(()=>bubbleRunning?spawn():clearInterval(sp),520);bubbleTimer=setInterval(()=>{if(Date.now()>=end&&bubbleRunning){bubbleRunning=false;clearInterval(bubbleTimer);result.textContent="Time! Give it another try, Ayu ♡";btn.textContent="Try again ♡"}},200)}document.getElementById("startBubble").onclick=startBubbleGame;
+
+/* reference-inspired intro flow */
+(function(){
+  const intro=document.getElementById("surpriseIntro");
+  const phases=[...intro.querySelectorAll(".si-phase")];
+  let p=0;
+  const show=(n)=>{p=n;phases.forEach((x,i)=>x.classList.toggle("active",i===n));};
+  let count=3;
+  const cd=document.getElementById("siCount");
+  const timer=setInterval(()=>{count--;if(count>0)cd.textContent=count;else{clearInterval(timer);document.getElementById("siCake").classList.add("out");setTimeout(()=>show(1),650)}},1000);
+  document.querySelectorAll(".si-balloon").forEach(b=>b.addEventListener("click",()=>{if(b.classList.contains("pop"))return;b.classList.add("pop");const n=document.querySelectorAll(".si-balloon.pop").length;document.getElementById("siBalloonCount").textContent=n+" / 4";burst(8);if(n===4)setTimeout(()=>show(2),550)}));
+  document.getElementById("siCardNext").onclick=()=>show(3);
+  let lyricTimer=setInterval(()=>{const lines=[...document.querySelectorAll("#siLyrics p")];const active=lines.findIndex(x=>x.classList.contains("active"));lines.forEach(x=>x.classList.remove("active"));lines[(active+1)%lines.length].classList.add("active");},1200);
+  document.querySelector("#siLyrics p").classList.add("active");
+  document.getElementById("siSongNext").onclick=()=>{clearInterval(lyricTimer);show(4)};
+  document.getElementById("siEnter").onclick=()=>{intro.classList.add("hide");intro.setAttribute("aria-hidden","true");setTimeout(()=>{intro.remove();go(0);},850);burst(90)};
+  window.startReferenceIntro=()=>show(0);
+})();
+
 </script>
 </body>
 </html>
