@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f9e8df">
 <title>A little birthday story for Ayu ♡</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Parisienne&display=swap');
 :root{--ivory:#fbf7f1;--paper:#fffdfa;--rose:#c97983;--wine:#6f3f4b;--ink:#40343a;--muted:#8f777d;--blush:#efd7d8;--line:#eadbd5;--gold:#c6a36a;--sage:#dce5dc}
@@ -114,8 +115,31 @@ p{line-height:1.75;color:var(--muted);max-width:620px}.tiny{font-size:11px;color
 @media(max-width:600px){.si-stage{min-height:100vh}.si-balloon{font-size:46px}.si-card{padding:35px 22px;min-height:260px}.si-photo{width:130px;height:165px;padding:7px 7px 18px}.si-photo div{height:136px;font-size:34px}.si-lyrics p{font-size:19px}}
 
 </style>
-</head>
+<style>
+#authGate{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 50% 20%,#fffaf7,#f3dfe0 70%,#ecd2d6);transition:.7s}
+#authGate.hide{opacity:0;pointer-events:none;transform:scale(1.02)}
+.auth-card{width:min(520px,94vw);background:#fffdfa;border:1px solid #ead5d5;box-shadow:0 30px 100px rgba(90,58,62,.16);padding:48px 30px 38px;text-align:center;position:relative}
+.auth-card:before{content:"ONLY FOR AYU";position:absolute;top:18px;left:0;right:0;font:9px "DM Sans";letter-spacing:.35em;color:#b67b84}
+.auth-card h1{font-size:clamp(48px,8vw,76px);margin:26px 0 10px}
+.auth-card p{margin:0 auto 20px;font-size:12px}
+.auth-email{width:min(360px,100%);padding:14px;border:1px solid #dfcfd0;background:#fff;text-align:center;color:#6f3f4b;outline:none}
+.auth-email:focus{border-color:#b9838b}
+.auth-btn{margin-top:10px;width:min(360px,100%)}
+.auth-msg{min-height:20px;margin-top:12px;font-size:11px;color:#9a5263}
+.auth-small{font-size:9px!important;letter-spacing:.08em;color:#a88b91!important}
+</style></head>
 <body>
+<div id="authGate" aria-live="polite">
+  <div class="auth-card">
+    <div class="eyebrow">private birthday room ♡</div>
+    <h1>Only for <span class="script">Ayu.</span></h1>
+    <p>Enter one of the two invited email addresses. I'll send a private sign-in link.</p>
+    <input id="authEmail" class="auth-email" type="email" autocomplete="email" placeholder="your invited email">
+    <button id="authSend" class="btn auth-btn">Send private link ♡</button>
+    <div id="authMsg" class="auth-msg"></div>
+    <p class="auth-small">This room is restricted to the two invited addresses.</p>
+  </div>
+</div>
 
 <div id="surpriseIntro" aria-hidden="true">
   <div class="si-stage">
@@ -187,6 +211,33 @@ p{line-height:1.75;color:var(--muted);max-width:620px}.tiny{font-size:11px;color
 
 <div class="toast" id="toast"></div><div class="final-burst" id="burst"></div>
 </div>
+<script>
+const SUPABASE_URL="https://qveyfroqvwtxrdyxegyo.supabase.co";
+const SUPABASE_KEY="sb_publishable_giVyhlNId5_moWzAZki8wQ_f4-xXSNq";
+const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const authGate=document.getElementById("authGate"),authEmail=document.getElementById("authEmail"),authSend=document.getElementById("authSend"),authMsg=document.getElementById("authMsg");
+async function checkPrivateAccess(){
+  authMsg.textContent="Checking private access…";
+  const {data:{session}}=await supabaseClient.auth.getSession();
+  if(!session){authMsg.textContent="";return;}
+  const {data:allowed,error}=await supabaseClient.rpc("is_birthday_authorized");
+  if(error||allowed!==true){await supabaseClient.auth.signOut();authMsg.textContent="This email isn't on the private guest list. ♡";return;}
+  authGate.classList.add("hide");
+  setTimeout(()=>authGate.remove(),750);
+  if(typeof unlock!=="undefined"){unlock.classList.add("hide");setTimeout(()=>unlock.remove(),800);}
+  setTimeout(()=>window.startReferenceIntro&&window.startReferenceIntro(),820);
+}
+authSend.onclick=async()=>{
+  const email=authEmail.value.trim().toLowerCase();
+  if(!email){authMsg.textContent="Enter your invited email first ♡";return;}
+  authSend.disabled=true;authMsg.textContent="Sending your private link…";
+  const {error}=await supabaseClient.auth.signInWithOtp({email,options:{emailRedirectTo:location.origin+location.pathname}});
+  authSend.disabled=false;
+  authMsg.textContent=error?"Couldn't send the link. Please try again.":"Link sent. Check that email and open the sign-in link here. ♡";
+};
+supabaseClient.auth.onAuthStateChange((event,session)=>{if(event==="SIGNED_IN"&&session)checkPrivateAccess();});
+</script>
+
 <script>
 const PASSWORD="020715";
 const scenes=[...document.querySelectorAll(".scene")],progress=document.getElementById("progress"),unlock=document.getElementById("unlockScreen"),password=document.getElementById("password"),err=document.getElementById("err"),unlockCard=document.getElementById("unlockCard");
