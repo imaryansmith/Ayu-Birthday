@@ -161,6 +161,7 @@ button{font:inherit}.page{width:min(920px,94vw);margin:22px auto 70px}.chrome{di
 </main>
 <div class="toast" id="toast"></div>
 <script>
+(() => {
  const scenes=[...document.querySelectorAll('.scene')], bar=document.getElementById('bar'), toast=document.getElementById('toast');
  let idx=0;
  function render(){scenes.forEach((s,i)=>s.classList.toggle('active',i===idx));bar.style.width=((idx+1)/scenes.length*100)+'%';window.scrollTo({top:0,behavior:'smooth'});}
