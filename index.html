@@ -1,20 +1,283 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#f7d9df"><title>For Ayu ♡</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7d9df">
+<meta name="birthday-build" content="ayu-storybook-2026-09-26-relationship-layout-v3">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>For Ayu ♡</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;600&display=swap');
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 18% 12%,#fff5df 0 14%,transparent 35%),radial-gradient(circle at 85% 24%,#f5a9c0 0 12%,transparent 36%),linear-gradient(145deg,#f9e9e5,#efcfd7 55%,#f9e4dd);color:#34252b;font-family:"DM Sans",sans-serif}.card{width:min(430px,92vw);padding:36px 25px 30px;text-align:center;background:#fff9f5ef;border:1px solid #fff;box-shadow:0 28px 80px rgba(94,50,65,.2);border-radius:30px}.mascots{font-size:43px;letter-spacing:7px;margin-bottom:8px}.k{font-size:10px;text-transform:uppercase;letter-spacing:.22em;color:#a07881}.title{font:700 54px/0.9 "Cormorant Garamond",serif;margin:12px 0}.sub{font-size:13px;line-height:1.6;color:#846c73;margin:0 auto 20px;max-width:320px}.row{display:flex;gap:8px}.input{flex:1;min-width:0;padding:13px 15px;border:1px solid #e5cbd1;background:#fff;border-radius:999px;outline:none;font-size:16px;color:#49323a}.btn{border:0;border-radius:999px;padding:13px 18px;background:#df5c86;color:#fff;font-weight:700;cursor:pointer}.msg{min-height:20px;margin-top:12px;font-size:11px;color:#b64e70}.hidden{display:none!important}@media(max-width:500px){.row{flex-direction:column}.btn{width:100%}}
-</style></head>
-<body><main class="card"><div class="mascots">🐼 ♡ 🐰</div><div class="k">private little world</div><h1 class="title">For Ayu.</h1>
-<p class="sub" id="hint">Enter your email and we'll send a fresh 6-digit code. No password is stored here. 💗</p>
-<form id="emailForm"><div class="row"><input class="input" id="email" type="email" autocomplete="email" placeholder="your email" required><button class="btn" type="submit">send code</button></div></form>
-<form id="otpForm" class="hidden"><div class="row"><input class="input" id="otp" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="6-digit code" required><button class="btn" type="submit">unlock ♡</button></div></form>
-<div class="msg" id="msg" aria-live="polite"></div></main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
-(()=>{const URL="https://qveyfroqvwtxrdyxegyo.supabase.co",KEY="sb_publishable_giVyhlNId5_moWzAZki8wQ_f4-xXSNq",EDGE=URL+"/functions/v1/private-birthday-content",ALLOWED=new Set(["aryansoni.a2030@gmail.com","aaucgupta3570@gmail.com"]),s=window.supabase.createClient(URL,KEY,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}}),ef=document.getElementById("emailForm"),of=document.getElementById("otpForm"),em=document.getElementById("email"),ot=document.getElementById("otp"),msg=document.getElementById("msg"),hint=document.getElementById("hint");let pending="";
-ef.addEventListener("submit",async e=>{e.preventDefault();msg.textContent="";const v=em.value.trim().toLowerCase();if(!ALLOWED.has(v)){msg.textContent="This little world isn't available for that email. ♡";return}pending=v;const{error}=await s.auth.signInWithOtp({email:v,options:{shouldCreateUser:false}});if(error){msg.textContent=error.message;return}ef.classList.add("hidden");of.classList.remove("hidden");hint.textContent="Check your inbox for the 6-digit code. It expires shortly. ♡";ot.focus();msg.textContent="Code sent. Check spam/promotions too."});
-of.addEventListener("submit",async e=>{e.preventDefault();msg.textContent="";const code=ot.value.trim();if(!/^\d{6}$/.test(code)){msg.textContent="Enter the 6-digit code.";return}const{data,error}=await s.auth.verifyOtp({email:pending,token:code,type:"email"});if(error||!data.session){msg.textContent=error?.message||"That code didn't work. Request a fresh one.";return}try{const r=await fetch(EDGE,{headers:{Authorization:"Bearer "+data.session.access_token},cache:"no-store"});if(!r.ok)throw Error();document.open();document.write(await r.text());document.close()}catch(_){msg.textContent="Couldn't open the private page. Please try again.";await s.auth.signOut()}});
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+:root{--ink:#34252b;--muted:#846c73;--rose:#e95f8e;--rose2:#f59bb6;--cream:#fff8f2;--paper:#fffdf9;--line:#ecd7d9;--shadow:0 24px 70px rgba(94,50,65,.16)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f3d9dc;color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 15% 10%,#fff8e9 0 15%,transparent 35%),radial-gradient(circle at 90% 20%,#f8b8c9 0 10%,transparent 33%),linear-gradient(145deg,#f9e9e5,#efcfd7 52%,#f9e4dd)}
+body:after{content:"";position:fixed;inset:0;z-index:-1;opacity:.18;pointer-events:none;background-image:radial-gradient(#7b4c5c .7px,transparent .7px);background-size:15px 15px}
+button{font:inherit}.page{width:min(920px,94vw);margin:22px auto 70px}.chrome{display:flex;justify-content:space-between;align-items:center;padding:5px 10px 13px;color:#694e57;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.brand{font-family:"Cormorant Garamond";font-size:21px;text-transform:none;letter-spacing:.02em}.music{border:1px solid #dfbec5;background:#fff6f2aa;border-radius:99px;padding:8px 13px;cursor:pointer;color:#704e58}
+.book{position:relative;background:#fff6f0;border:1px solid #fff;box-shadow:var(--shadow);border-radius:30px;overflow:hidden}.progress{height:5px;background:#f0dfe0}.progress i{display:block;height:100%;width:11.11%;background:linear-gradient(90deg,#df557f,#f4a1b8);transition:width .55s ease}.scene{display:none;min-height:720px;padding:36px clamp(22px,6vw,70px) 78px;position:relative;overflow:hidden}.scene.active{display:block;animation:in .55s ease both}@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.kicker{text-align:center;text-transform:uppercase;letter-spacing:.2em;font-size:10px;color:#a07881;margin-top:8px}.title{text-align:center;font-family:"Cormorant Garamond";font-size:clamp(42px,8vw,72px);line-height:.88;margin:16px 0 12px;font-weight:600}.sub{text-align:center;color:var(--muted);max-width:510px;margin:0 auto;line-height:1.65;font-size:14px}.nav{position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:9px}.btn{border:0;border-radius:999px;padding:12px 20px;cursor:pointer;font-weight:600;box-shadow:0 8px 22px #8c4e6020;transition:.2s}.btn:hover{transform:translateY(-2px)}.primary{background:#df5c86;color:#fff}.soft{background:#fff;color:#754d58;border:1px solid #ead1d5}.tiny{font-size:11px;padding:8px 13px}
+.hearts{position:absolute;inset:0;pointer-events:none}.hearts span{position:absolute;font-size:20px;opacity:.45;animation:float 5s ease-in-out infinite}.hearts span:nth-child(1){left:7%;top:17%}.hearts span:nth-child(2){right:8%;top:25%;animation-delay:1s}.hearts span:nth-child(3){left:12%;bottom:20%;animation-delay:2s}.hearts span:nth-child(4){right:13%;bottom:18%;animation-delay:3s}@keyframes float{50%{transform:translateY(-13px) rotate(8deg);opacity:.8}}
+.cover{display:grid;place-items:center;text-align:center;background:linear-gradient(160deg,#fff7ef,#f9dce0)}.gift{width:160px;height:135px;position:relative;margin:20px auto 26px;animation:bob 3s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-7px)}}.gift .box{position:absolute;left:15px;right:15px;bottom:0;height:91px;border-radius:10px;background:linear-gradient(135deg,#ffb5c5,#dc648b);box-shadow:0 20px 35px #8d425830}.gift .lid{position:absolute;left:7px;right:7px;top:23px;height:30px;border-radius:9px;background:#ef86a3;z-index:2}.gift .ribbon{position:absolute;left:66px;top:20px;width:27px;height:112px;background:#fff1dfaa;z-index:3}.gift .bow{position:absolute;top:0;left:50px;width:60px;height:34px;z-index:4}.gift .bow:before,.gift .bow:after{content:"";position:absolute;width:38px;height:27px;border:6px solid #fff1df;border-radius:50% 50% 10% 50%;transform:rotate(25deg)}.gift .bow:after{right:0;transform:scaleX(-1) rotate(25deg)}.cover .title{font-size:clamp(48px,10vw,88px)}.seal{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid #edd8d9;border-radius:99px;padding:8px 13px;font-size:11px;color:#8a5f68;margin-top:18px}
+.videoFrame{background:#191417;border-radius:22px;padding:10px;box-shadow:0 24px 50px #4a263420;max-width:650px;margin:30px auto 0}.videoInner{aspect-ratio:16/9;border-radius:15px;overflow:hidden;position:relative;background:linear-gradient(135deg,#9e7676,#e7b7a9 48%,#553c46)}.portrait{position:absolute;inset:0;display:grid;place-items:center}.portrait .person{width:45%;height:80%;border-radius:48% 48% 20% 20%;background:linear-gradient(145deg,#3c3035 0 34%,#9f654e 35% 62%,#f4b79b 63%);filter:drop-shadow(0 16px 18px #25171b66);position:relative}.portrait .person:before{content:"";position:absolute;width:76%;height:53%;left:12%;top:14%;border-radius:48%;background:#f1b395;box-shadow:inset 0 -9px #df8e79}.portrait .person:after{content:"♡";position:absolute;right:-12px;top:5px;color:#fff;font-size:30px}.caption{position:absolute;left:12%;right:12%;bottom:9%;background:#fff;color:#59434a;padding:7px 12px;border-radius:6px;font-size:11px;text-align:center;box-shadow:0 5px 15px #0003}.play{position:absolute;inset:0;display:grid;place-items:center}.play b{width:58px;height:58px;border-radius:50%;background:#ffffffd9;display:grid;place-items:center;color:#d65b81;font-size:20px;box-shadow:0 10px 30px #0002}
+.photoWall{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:650px;margin:34px auto}.polaroid{background:#fff;padding:10px 10px 28px;box-shadow:0 15px 26px #5c384025;transform:rotate(var(--r));transition:.25s;cursor:pointer}.polaroid:hover{transform:rotate(0) translateY(-6px)}.pic{aspect-ratio:1/1;background:linear-gradient(135deg,var(--c1),var(--c2));position:relative;overflow:hidden}.pic:after{content:"♡";position:absolute;right:9px;top:6px;color:#ffffffaa;font-size:26px}.polaroid small{display:block;text-align:center;margin-top:9px;font-family:"Playfair Display";font-size:12px;color:#765963}.photoWall .polaroid:nth-child(1){--r:-4deg;--c1:#f0a7af;--c2:#f9d4b5}.photoWall .polaroid:nth-child(2){--r:3deg;--c1:#a7b4d5;--c2:#f0c6cf}.photoWall .polaroid:nth-child(3){--r:-2deg;--c1:#d9b29c;--c2:#efdfba}.photoWall .polaroid:nth-child(4){--r:4deg;--c1:#9ebcae;--c2:#ead5c3}.photoWall .polaroid:nth-child(5){--r:-3deg;--c1:#e5a5bc;--c2:#b9a7c9}.photoWall .polaroid:nth-child(6){--r:2deg;--c1:#e8c8a0;--c2:#c28e8e}.photoWall .polaroid:nth-child(7){--r:-5deg;--c1:#b9c8d4;--c2:#e9b7bd}.photoWall .polaroid:nth-child(8){--r:3deg;--c1:#d6b49b;--c2:#a4b3a3}.scribble{text-align:center;font-family:"Playfair Display";font-style:italic;color:#a0586d;margin-top:-12px}
+.rating{max-width:500px;margin:34px auto;background:#fff;border:1px solid #ecdadd;border-radius:20px;padding:25px;text-align:center;box-shadow:0 15px 35px #7d4c5a14}.stars{font-size:26px;letter-spacing:5px;color:#ef6d96;margin:14px}.photoMini{width:170px;aspect-ratio:1;border-radius:10px;margin:auto;background:linear-gradient(135deg,#f0b4a6,#d89aaa 48%,#776075);position:relative}.photoMini:after{content:"a tiny piece of us";position:absolute;left:12px;right:12px;bottom:10px;background:#fffc;padding:7px;font:11px "Playfair Display";border-radius:5px}
+.letter{max-width:580px;margin:30px auto 0;background:#fffaf4;border:1px solid #ead7ca;padding:34px 34px 30px;box-shadow:0 16px 40px #7250441c;transform:rotate(-.5deg);position:relative}.letter:before{content:"";position:absolute;inset:11px;border:1px solid #eedbd1;pointer-events:none}.letter p{font-family:"Playfair Display";line-height:1.8;font-size:15px;position:relative}.sign{text-align:right;font-family:"Playfair Display";font-style:italic;color:#b24f70}
+.check{max-width:510px;margin:28px auto;background:#fff;border:1px solid #edd9db;border-radius:18px;padding:23px;text-align:left;box-shadow:0 15px 35px #70414c18}.check h3{text-align:center;font-family:"Cormorant Garamond";font-size:28px;margin:0 0 16px}.item{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed #ead7da;font-size:13px}.item:last-child{border:0}.item input{accent-color:#dc5b83;width:17px;height:17px}.final{text-align:center;background:radial-gradient(circle at 50% 20%,#fff4d8,#f8d6df 55%,#f3c5d0)}.final .title{font-size:clamp(50px,10vw,94px)}.bigheart{font-size:65px;display:block;animation:heartbeat 1.5s infinite}@keyframes heartbeat{50%{transform:scale(1.12)}}.dots{display:flex;gap:6px;justify-content:center;margin-top:12px}.dots i{width:6px;height:6px;border-radius:50%;background:#dfa8b5}.footer{display:flex;justify-content:center;gap:7px;margin-top:20px}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#3b292f;color:#fff;padding:11px 16px;border-radius:99px;font-size:12px;opacity:0;pointer-events:none;transition:.3s;z-index:10}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:600px){.page{width:96vw;margin-top:8px}.chrome{padding-inline:4px}.scene{min-height:690px;padding:28px 17px 78px}.photoWall{gap:10px}.polaroid{padding:7px 7px 21px}.letter{padding:25px 20px}.videoFrame{margin-top:24px;padding:7px}.title{font-size:48px}.book{border-radius:23px}}
+
+.mascot-corner{position:absolute;z-index:6;width:92px;height:104px;pointer-events:none;filter:drop-shadow(0 12px 12px rgba(91,48,64,.14));animation:mascotFloat 4.5s ease-in-out infinite}
+.mascot-corner.left{left:13px;top:18px}.mascot-corner.right{right:13px;bottom:64px;animation-delay:1.2s}
+.mascot-face{position:absolute;left:18px;top:22px;width:56px;height:55px;border-radius:48% 48% 46% 46%;background:#fff;box-shadow:inset 0 -5px #f3dfe1,0 4px 0 #ead1d5}
+.mascot-face:before,.mascot-face:after{content:"";position:absolute;top:22px;width:7px;height:9px;border-radius:50%;background:#35262c}
+.mascot-face:before{left:16px}.mascot-face:after{right:16px}
+.mascot-ear{position:absolute;width:29px;height:34px;top:4px;background:#fff;border:4px solid #ead7da;border-radius:60% 60% 45% 45%;z-index:-1}
+.mascot-ear.a{left:16px;transform:rotate(-16deg)}.mascot-ear.b{right:16px;transform:rotate(16deg)}
+.panda .mascot-ear{border-radius:50%;background:#30282b;border:0}.panda .mascot-face{background:#fff}.panda .mascot-face:before,.panda .mascot-face:after{width:13px;height:16px;background:#34292d;top:18px;border-radius:55%;}.panda .mascot-face:before{left:10px;transform:rotate(-24deg)}.panda .mascot-face:after{right:10px;transform:rotate(24deg)}
+.panda .mascot-face{border:2px solid #e5d5d8}.panda .mascot-face i{position:absolute;width:7px;height:7px;border-radius:50%;background:#fff;left:13px;top:23px;box-shadow:23px 0 #fff}
+.rabbit .mascot-face{background:#fff7f4}.rabbit .mascot-face:after{background:#34262b}.rabbit .mascot-ear{background:#fff7f4}.rabbit .mascot-ear:after{content:"";position:absolute;inset:5px 8px;background:#f3a9b8;border-radius:60%}
+.mascot-blush{position:absolute;width:9px;height:5px;border-radius:50%;background:#f3a7b7;top:38px;left:9px;box-shadow:39px 0 #f3a7b7;opacity:.7}
+.mascot-mouth{position:absolute;left:25px;top:34px;width:8px;height:6px;border-bottom:2px solid #6b4550;border-radius:0 0 10px 10px}
+.mascot-heart{position:absolute;right:2px;top:0;font-size:19px;animation:heartPop 1.8s ease-in-out infinite}
+.mascot-tag{position:absolute;left:3px;bottom:0;background:#fff8f2;border:1px solid #ead1d5;border-radius:99px;padding:4px 8px;font:600 9px "DM Sans";color:#8b5c68;white-space:nowrap}
+.mini-mascot{position:absolute;z-index:5;font-size:25px;opacity:.55;animation:mascotFloat 5s ease-in-out infinite;pointer-events:none}
+.mini-mascot.one{left:5%;top:45%;}.mini-mascot.two{right:5%;top:42%;animation-delay:1.5s}.mini-mascot.three{left:18%;bottom:8%;font-size:18px;animation-delay:2.5s}
+@keyframes mascotFloat{50%{transform:translateY(-8px) rotate(2deg)}}@keyframes heartPop{50%{transform:scale(1.18) rotate(8deg)}}
+
+
+.relationship-timeline{max-width:650px;margin:34px auto 0;display:grid;gap:14px}.relationship-timeline .secret-card:last-child{padding-right:118px}.relationship-timeline .secret-card:last-child .secret-copy{max-width:100%}.book:has(.scene.active .relationship-timeline) .mascot-corner.right{display:none}.secret-card{position:relative;border:1px solid #ead4d8;background:linear-gradient(135deg,#fffdf9,#fff5f1);border-radius:20px;padding:17px 18px;cursor:pointer;box-shadow:0 12px 28px #70414c12;overflow:hidden;transition:.28s}.secret-card:hover{transform:translateY(-2px);box-shadow:0 17px 34px #70414c18}.secret-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.secret-date{font-family:"Cormorant Garamond";font-size:25px;font-weight:700;color:#6f4652}.secret-icon{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#ffe3ea;color:#b64e70;font-size:18px}.secret-hint{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#a07881;margin-top:3px}.secret-reveal{max-height:0;opacity:0;overflow:hidden;transition:max-height .5s ease,opacity .35s ease;margin-top:0}.secret-card.open .secret-reveal{max-height:180px;opacity:1;margin-top:14px}.secret-title{font-family:"Playfair Display";font-size:18px;color:#51343d;margin:0 0 6px}.secret-copy{font-family:"Playfair Display";font-style:italic;font-size:13px;line-height:1.65;color:#84636c;margin:0}.secret-place{display:inline-flex;margin-top:8px;padding:5px 9px;border-radius:99px;background:#fff0f3;color:#9a5a6b;font-size:10px}.secret-card .tap{font-size:10px;color:#a07881;margin-top:9px}.secret-card.open .tap{display:none}
+
+.relationship-scene{min-height:0!important;overflow:visible!important}.flip-timeline{width:min(100%,620px);margin:28px auto 0;display:grid;grid-template-columns:1fr;gap:16px;padding:4px 2px 90px;max-height:none;overflow:visible}.flip-timeline .secret-card{height:190px;perspective:1100px;background:transparent;border:0;padding:0;box-shadow:none;overflow:visible;cursor:pointer}.flip-timeline .secret-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .72s cubic-bezier(.2,.75,.2,1)}.flip-timeline .secret-card.open .secret-inner{transform:rotateY(180deg)}.flip-timeline .secret-front,.flip-timeline .secret-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid #ead4d8;border-radius:20px;background:linear-gradient(145deg,#fffdf9,#fff2f1);box-shadow:0 12px 28px #70414c12;overflow:hidden}.flip-timeline .secret-front{display:grid;place-items:center;align-content:center;text-align:center}.flip-timeline .secret-front:before{content:"";position:absolute;inset:10px;border:1px dashed #edcfd5;border-radius:15px;pointer-events:none}.secret-seal{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#ffe1e9;color:#c25c7d;font-size:22px;margin-bottom:10px;box-shadow:0 7px 18px #b55b741c}.secret-front-title{font-family:"Cormorant Garamond";font-size:25px;font-weight:700;color:#6f4652}.secret-front-hint{margin-top:5px;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#a07881}.flip-timeline .secret-back{transform:rotateY(180deg);padding:17px 18px;display:flex;flex-direction:column;justify-content:center}.flip-timeline .secret-date{font-family:"Cormorant Garamond";font-size:24px;font-weight:700;color:#6f4652}.flip-timeline .secret-hint{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#a07881;margin-top:1px}.flip-timeline .secret-title{font-family:"Playfair Display";font-size:17px;color:#51343d;margin:9px 0 5px}.flip-timeline .secret-copy{font-family:"Playfair Display";font-style:italic;font-size:12px;line-height:1.5;color:#84636c;margin:0}.flip-timeline .secret-place{align-self:flex-start;margin:5px 0 4px;padding:4px 8px;border-radius:99px;background:#fff0f3;color:#9a5a6b;font-size:9px}.secret-turn{font-size:8px;color:#b18a92;text-align:right;margin-top:7px;letter-spacing:.06em}.relationship-scene .nav{position:relative;left:auto;right:auto;bottom:auto;margin:8px auto 0}.flip-timeline .secret-card{height:176px}.flip-timeline .secret-back{padding:15px 17px}.flip-timeline .secret-date{font-size:23px}.flip-timeline .secret-title{font-size:17px}@media(max-width:600px){.flip-timeline .secret-card{height:170px}.flip-timeline .secret-back{padding:14px 16px}.flip-timeline .secret-date{font-size:22px}.flip-timeline .secret-title{font-size:16px}}
+</style>
+</head>
+<body><main class="page">
+  <div class="chrome"><div class="brand">for meri Rasmalai ♡</div><button class="music" id="music">♫ <span>little soundtrack</span></button></div>
+  <section class="book">
+    <div class="progress"><i id="bar"></i></div>
+<div class="mascot-corner panda left"><div class="mascot-ear a"></div><div class="mascot-ear b"></div><div class="mascot-face"><i></i><div class="mascot-blush"></div><div class="mascot-mouth"></div></div><div class="mascot-heart">♡</div><div class="mascot-tag">Pandu 🐼</div></div>
+<div class="mascot-corner rabbit right"><div class="mascot-ear a"></div><div class="mascot-ear b"></div><div class="mascot-face"><div class="mascot-blush"></div><div class="mascot-mouth"></div></div><div class="mascot-heart">♡</div><div class="mascot-tag">Bunny 🐰</div></div>
+<div class="mini-mascot one">🐼</div><div class="mini-mascot two">🐰</div><div class="mini-mascot three">♡</div>
+
+    <article class="scene active cover">
+      <div class="hearts"><span>♡</span><span>✦</span><span>♡</span><span>✧</span></div>
+      <div>
+        <div class="gift"><div class="bow"></div><div class="lid"></div><div class="ribbon"></div><div class="box"></div></div>
+        <div class="kicker">a little website, made slowly</div>
+        <h1 class="title">Meri Ayu.</h1>
+        <p class="sub">I made you something that feels less like a webpage and more like opening a tiny box of our memories.</p>
+        <div class="seal">🎀 made by your Manguman</div>
+      </div>
+      <div class="nav"><button class="btn primary next">open the gift →</button></div>
+    </article>
+
+    <article class="scene">
+      <div class="kicker">page 01 · the beginning</div><h2 class="title">First, press play.</h2>
+      <p class="sub">Imagine this little frame as the video I would send you if I could put all meri feelings into 15 seconds.</p>
+      <div class="videoFrame"><div class="videoInner"><div class="portrait"><div class="person"></div></div><div class="play"><b>▶</b></div></div></div>
+      <div class="nav"><button class="btn soft back">←</button><button class="btn primary next">keep going ♡</button></div>
+    </article>
+
+    <article class="scene">
+      <div class="kicker">page 02 · us in little frames</div><h2 class="title">A tiny gallery.</h2>
+      <p class="sub">Every ordinary moment becomes meri favourite when it has you in it.</p>
+      <div class="photoWall">
+        <div class="polaroid"><div class="pic"></div><small>the look</small></div>
+        <div class="polaroid"><div class="pic"></div><small>the laugh</small></div>
+        <div class="polaroid"><div class="pic"></div><small>our chaos</small></div>
+        <div class="polaroid"><div class="pic"></div><small>meri comfort</small></div>
+        <div class="polaroid"><div class="pic"></div><small>that smile</small></div>
+        <div class="polaroid"><div class="pic"></div><small>just us</small></div>
+      </div>
+      <div class="scribble">“somehow, you make everything softer.”</div>
+      <div class="nav"><button class="btn soft back">←</button><button class="btn primary next">one more page →</button></div>
+    </article>
+
+    <article class="scene">
+      <div class="kicker">page 03 · very important research</div><h2 class="title">This photo felt…</h2>
+      <div class="rating"><div class="photoMini"></div><div class="stars">★★★★★</div><div style="font-family:'Playfair Display';font-size:18px">“unreasonably cute”</div><p class="sub" style="margin-top:10px">Scientific accuracy: questionable. Meri bias: 100%.</p><button class="btn primary next">approve this rating ♡</button></div>
+      <div class="nav"><button class="btn soft back">←</button></div>
+    </article>
+
+    <article class="scene">
+      <div class="kicker">page 04 · official document</div><h2 class="title">Certified Rasmalai.</h2>
+      <p class="sub">This certificate is legally valid in the very small country of Manguman's heart.</p>
+      <div class="check">
+        <h3>♡ Certificate of Ayushiness ♡</h3>
+        <div class="item">✓ makes boring days feel less boring</div><div class="item">✓ somehow wins every argument</div><div class="item">✓ permanently occupies meri thoughts</div><div class="item">✓ deserves extra birthday hugs</div><div class="item">✓ is meri favourite human</div>
+      </div>
+      <div class="nav"><button class="btn soft back">←</button><button class="btn primary next">sign here →</button></div>
+    </article>
+
+    <article class="scene">
+      <div class="kicker">page 05 · a tiny confession</div><h2 class="title">Choose honestly.</h2>
+      <p class="sub">What do you think you are to your Manguman?</p>
+      <div class="rating" style="display:grid;gap:10px"><button class="btn soft choice">Meri Jaan 💗</button><button class="btn soft choice">Meri Duniya 🌍</button><button class="btn soft choice">Meri Rasmalai 🍮</button><button class="btn soft choice">Teeno. Obviously. 😌</button></div>
+      <div class="nav"><button class="btn soft back">←</button><button class="btn primary next" id="choiceNext">I know the answer →</button></div>
+    </article>
+
+    <article class="scene">
+      <div class="kicker">page 06 · almost there</div><h2 class="title">Wait for the end.</h2>
+      <p class="sub">There is one page I wrote without trying to make it pretty. Just honest.</p>
+      <div class="photoWall" style="max-width:480px;grid-template-columns:repeat(2,1fr)">
+        <div class="polaroid"><div class="pic"></div><small>keep this</small></div><div class="polaroid"><div class="pic"></div><small>and this</small></div><div class="polaroid"><div class="pic"></div><small>and this too</small></div><div class="polaroid"><div class="pic"></div><small>always</small></div>
+      </div>
+      <div class="nav"><button class="btn soft back">←</button><button class="btn primary next">open meri letter 💌</button></div>
+    </article>
+
+    <article class="scene">
+      <div class="kicker">page 07 · from Manguman</div><h2 class="title">Things that's ever happened to me.</h2>
+      <div class="letter">
+        <p>Thank you for being patient with me, laughing to meri nonsense, and loving me even on the days I'm difficult.</p>
+        <p>No matter how busy life gets, I hope you always remember one thing — you'll always be meri favourite person.</p>
+        <p>I love you more than you</p><p class="wife-line">You are my duniya ki sabse sundar biwi. ❤️</p>
+        <div class="sign">— your Manguman</div>
+      </div>
+      <div class="nav"><button class="btn soft back">←</button><button class="btn primary next">one last thing →</button></div>
+    </article>
+
+    <article class="scene relationship-scene">
+      <div class="kicker">our story · secret memories</div>
+      <h2 class="title">How we became us.</h2>
+      <p class="sub">Five little secrets. Tap a card to turn the page. ♡</p>
+      <div class="relationship-timeline flip-timeline">
+        <div class="secret-card"><div class="secret-inner"><div class="secret-front"><div class="secret-seal">♡</div><div class="secret-front-title">A little secret</div><div class="secret-front-hint">tap to reveal</div></div><div class="secret-back"><div class="secret-date">09 October 2021</div><div class="secret-hint">the first page</div><h3 class="secret-title">Our First Talk</h3><p class="secret-copy">The day our story quietly started. One conversation that neither of us knew would become all of this.</p><div class="secret-turn">tap to close ↺</div></div></div></div>
+        <div class="secret-card"><div class="secret-inner"><div class="secret-front"><div class="secret-seal">♡</div><div class="secret-front-title">A little secret</div><div class="secret-front-hint">tap to reveal</div></div><div class="secret-back"><div class="secret-date">07 November 2021</div><div class="secret-hint">the three words</div><h3 class="secret-title">I Love You</h3><p class="secret-copy">The day I finally said what my heart already knew. And somehow, everything changed.</p><div class="secret-turn">tap to close ↺</div></div></div></div>
+        <div class="secret-card"><div class="secret-inner"><div class="secret-front"><div class="secret-seal">♡</div><div class="secret-front-title">A little secret</div><div class="secret-front-hint">tap to reveal</div></div><div class="secret-back"><div class="secret-date">12 December 2021</div><div class="secret-hint">the first meeting</div><h3 class="secret-title">The First Time We Met</h3><span class="secret-place">📍 Lenskart</span><p class="secret-copy">The first time I got to see my Rasmalai in person. A memory that still feels a little magical.</p><div class="secret-turn">tap to close ↺</div></div></div></div>
+        <div class="secret-card"><div class="secret-inner"><div class="secret-front"><div class="secret-seal">♡</div><div class="secret-front-title">A little secret</div><div class="secret-front-hint">tap to reveal</div></div><div class="secret-back"><div class="secret-date">26 December 2021</div><div class="secret-hint">our first date</div><h3 class="secret-title">Our First Date</h3><span class="secret-place">📍 Crush Room</span><p class="secret-copy">Our first proper date… and one of those days I'll always remember.</p><div class="secret-turn">tap to close ↺</div></div></div></div>
+        <div class="secret-card"><div class="secret-inner"><div class="secret-front"><div class="secret-seal">♡</div><div class="secret-front-title">A little secret</div><div class="secret-front-hint">tap to reveal</div></div><div class="secret-back"><div class="secret-date">09 January 2022</div><div class="secret-hint">our little secret</div><h3 class="secret-title">Our Little Secret 🌙</h3><p class="secret-copy">Some moments don't need to be written down. We know exactly what this day means. ❤️</p><div class="secret-turn">tap to close ↺</div></div></div></div>
+      </div>
+      <div class="nav"><button class="btn soft back">←</button><button class="btn primary next">open birthday surprise →</button></div>
+    </article>
+
+    <article class="scene final">
+      <div class="gift-only"><button class="btn primary" id="openGift" type="button" aria-label="Open birthday gift"></button></div>
+      <div class="hearts"><span>♡</span><span>✦</span><span>♡</span><span>✧</span></div>
+      <span class="bigheart">💗</span><div class="kicker">page 08 · you did it</div>
+      <h2 class="title" id="finalTitle">Happy Birthday,<br>Ayu.</h2>
+      <p class="sub">Meri Rasmalai. Meri Jaan. Meri Duniya. Thank you for being meri favourite chapter. I love you, always. ❤️</p>
+      <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="footer"><button class="btn primary" id="celebrate">celebrate ✨</button><button class="btn soft" id="restart" type="button" >start again</button></div>
+    </article>
+  </section>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+ const scenes=[...document.querySelectorAll('.scene')], bar=document.getElementById('bar'), toast=document.getElementById('toast');
+ let idx=0;
+ function render(){scenes.forEach((s,i)=>s.classList.toggle('active',i===idx));bar.style.width=((idx+1)/scenes.length*100)+'%';window.scrollTo({top:0,behavior:'smooth'});}
+ function next(){idx=Math.min(scenes.length-1,idx+1);render();}
+ function back(){idx=Math.max(0,idx-1);render();}
+ function resetStory(){
+   idx=0;
+   const final=document.querySelector('.scene.final');
+   if(final)final.classList.remove('final-gift-open','gift-open');
+   const gift=document.getElementById('openGift');
+   if(gift)gift.classList.remove('open');
+   document.querySelectorAll('.scene').forEach((s,i)=>s.classList.toggle('active',i===0));
+   bar.style.width=(100/scenes.length)+'%';
+   window.scrollTo(0,0);
+ }
+ window.__restartAyu=resetStory;
+ document.addEventListener('pointerup',function(e){
+   if(e.target.closest && e.target.closest('#restart')){e.preventDefault();resetStory();}
+ },true);
+ document.addEventListener('click',function(e){
+   if(e.target.closest && e.target.closest('#restart')){e.preventDefault();resetStory();}
+ },true);
+ document.addEventListener('click',e=>{const n=e.target.closest('.next'),b=e.target.closest('.back');if(n)next();if(b)back();});
+ document.querySelectorAll('.secret-card').forEach(card=>card.addEventListener('click',()=>card.classList.toggle('open')));
+ document.querySelectorAll('.choice').forEach(x=>x.addEventListener('click',()=>{toast.textContent='Correct answer. Your Manguman agrees. ♡';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1700);document.querySelectorAll('.choice').forEach(c=>c.style.background='');x.style.background='#ffe1e9';}));
+ document.getElementById('celebrate').addEventListener('click',()=>{for(let i=0;i<32;i++){const h=document.createElement('span');h.textContent=['♡','✦','🎀','💗'][i%4];h.style.cssText='position:fixed;left:'+(45+Math.random()*10)+'%;top:55%;z-index:20;font-size:'+(14+Math.random()*20)+'px;pointer-events:none;transition:1.8s ease-out';document.body.appendChild(h);requestAnimationFrame(()=>{h.style.transform='translate('+(Math.random()*420-210)+'px,'+(-180-Math.random()*420)+'px) rotate('+(Math.random()*360)+'deg)';h.style.opacity='0'});setTimeout(()=>h.remove(),1900)}});
+ 
+ const music=document.getElementById('music');let playing=false;music.addEventListener('click',()=>{playing=!playing;music.innerHTML=playing?'♫ playing softly':'♫ <span>little soundtrack</span>';toast.textContent=playing?'Imagine our song starting here ♡':'Soundtrack paused';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1300);});
+ render();
 })();
-</script></body></html>
+</script>
+<style>
+.final.scene:not(.final-gift-open) > *:not(.gift-only){visibility:hidden;opacity:0;pointer-events:none}
+.final.scene.final-gift-open > *:not(.gift-only){visibility:visible;opacity:1;pointer-events:auto;transition:opacity .55s ease}
+.final.scene .gift-only{display:flex;justify-content:center;align-items:center;min-height:240px}
+.final.scene .gift-only #openGift{width:210px;height:180px;padding:0;border:0;background:transparent;position:relative;cursor:pointer;filter:drop-shadow(0 20px 22px rgba(104,48,67,.2))}
+.final.scene .gift-only #openGift:before{content:"";position:absolute;left:22px;right:22px;bottom:18px;height:105px;border-radius:14px;background:linear-gradient(135deg,#ffb3c5,#d95782);box-shadow:inset 0 -10px 0 #c84f76}
+.final.scene .gift-only #openGift:after{content:"";position:absolute;left:12px;right:12px;top:55px;height:40px;border-radius:12px;background:linear-gradient(135deg,#f58eab,#df6288);box-shadow:0 0 0 0 #fff1df}
+.final.scene .gift-only #openGift{--ribbon:#fff1df}
+.final.scene .gift-only #openGift span{display:none}
+.final.scene .gift-only #openGift.open:after{transform:translate(-8px,-55px) rotate(-18deg);transition:transform .7s ease}
+</style>
+<script>
+(() => {
+  const final=document.querySelector('.scene.final');
+  const gift=document.getElementById('openGift');
+  if(!final||!gift)return;
+  const ribbon=document.createElement('span');
+  ribbon.style.cssText='position:absolute;z-index:4;left:calc(50% - 14px);top:48px;width:28px;height:115px;background:#fff1dfb8;display:block';
+  gift.appendChild(ribbon);
+  gift.addEventListener('click',()=>{
+    if(final.classList.contains('final-gift-open'))return;
+    gift.classList.add('open');
+    final.classList.add('final-gift-open');
+  });
+})();
+</script>
+<script id="haptic-v1">
+/* haptic-v1 */
+(function(){
+  function buzz(){
+    try{ if(navigator.vibrate) navigator.vibrate(12); }catch(e){}
+  }
+  document.addEventListener('click',function(e){
+    const el=e.target.closest('button,a,[role="button"]');
+    if(el) buzz();
+  },{passive:true});
+})();
+</script>
+
+<style id="relationship-width-fix-v2">
+/* relationship-width-fix-v2 */
+.flip-timeline{width:100%!important;max-width:620px!important;margin-left:auto!important;margin-right:auto!important;padding-left:0!important;padding-right:0!important}
+.flip-timeline .secret-card,
+.flip-timeline .secret-card:last-child{width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0!important;justify-self:stretch!important}
+.flip-timeline .secret-front,
+.flip-timeline .secret-back{width:100%!important;left:0!important;right:0!important}
+@media(max-width:600px){
+  .flip-timeline{width:100%!important;gap:14px!important}
+  .flip-timeline .secret-card{height:170px!important}
+}
+</style>
+
+<style id="relationship-layout-fix-v3">
+/* relationship-layout-fix-v3 — compact, uniform relationship cards */
+.relationship-scene{padding-top:24px!important;padding-bottom:28px!important;min-height:690px!important}
+.relationship-scene .title{font-size:clamp(38px,8vw,58px)!important;margin:8px 0 6px!important}
+.relationship-scene .sub{font-size:12px!important;line-height:1.4!important}
+.flip-timeline{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;width:100%!important;max-width:620px!important;margin:18px auto 14px!important;padding:0!important;max-height:none!important;overflow:visible!important}
+.flip-timeline .secret-card,
+.flip-timeline .secret-card:last-child{width:100%!important;height:142px!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0!important;justify-self:stretch!important}
+.flip-timeline .secret-front,
+.flip-timeline .secret-back{width:100%!important;height:100%!important;left:0!important;right:0!important;inset:0!important;border-radius:17px!important}
+.flip-timeline .secret-seal{width:36px!important;height:36px!important;font-size:18px!important;margin-bottom:7px!important}
+.flip-timeline .secret-front-title{font-size:20px!important}
+.flip-timeline .secret-front-hint{font-size:8px!important}
+.flip-timeline .secret-back{padding:11px 12px!important}
+.flip-timeline .secret-date{font-size:18px!important}
+.flip-timeline .secret-hint{font-size:7px!important}
+.flip-timeline .secret-title{font-size:13px!important;margin:5px 0 3px!important}
+.flip-timeline .secret-copy{font-size:10px!important;line-height:1.35!important}
+.flip-timeline .secret-place{font-size:8px!important;margin:3px 0!important;padding:3px 6px!important}
+.flip-timeline .secret-turn{font-size:7px!important;margin-top:4px!important}
+.relationship-scene .nav{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;margin:8px auto 0!important}
+@media(max-width:520px){
+  .relationship-scene{padding-left:14px!important;padding-right:14px!important}
+  .flip-timeline{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .flip-timeline .secret-card,
+  .flip-timeline .secret-card:last-child{height:145px!important}
+  .flip-timeline .secret-front-title{font-size:19px!important}
+}
+@media(max-width:380px){
+  .flip-timeline .secret-card,
+  .flip-timeline .secret-card:last-child{height:138px!important}
+  .flip-timeline .secret-front-title{font-size:17px!important}
+  .flip-timeline .secret-date{font-size:16px!important}
+}
+</style>
+</body>
+</html>
